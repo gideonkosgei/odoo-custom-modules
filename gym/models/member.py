@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class GymMemberInformation(models.Model):
@@ -35,7 +35,7 @@ class GymMemberInformation(models.Model):
     state = fields.Selection(
         [('draft', 'Draft'), ('confirmed', 'Confirmed'), ('done', 'Done'), ('cancelled', 'Cancelled')], default='draft',
         string='Status', tracking=True)
-    sponsor_id = fields.Many2one(comodel_name = 'res.partner', string='Sponsor')
+    sponsor_id = fields.Many2one(comodel_name='res.partner', string='Sponsor')
 
     def action_confirm(self):
         self.state = 'confirmed'
@@ -48,3 +48,14 @@ class GymMemberInformation(models.Model):
 
     def action_draft(self):
         self.state = 'draft'
+
+    # Override default create method
+    @api.model
+    def create(self, values):
+        # if the profession form value is not set, pass unemployed as the value
+        if not values.get('profession'):
+            values['profession'] = 'Unemployed'
+        res = super(GymMemberInformation, self).create(values)
+        print('res ---->', res)  # shows the id of the record
+        print('values ---->', values)  # shows the form values
+        return res
