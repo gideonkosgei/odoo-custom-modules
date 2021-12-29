@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 
 class GymMemberInformation(models.Model):
@@ -13,6 +13,8 @@ class GymMemberInformation(models.Model):
     first_name = fields.Char('First Name', required=True, tracking=True)
     middle_name = fields.Char('Middle Name', tracking=True)
     last_name = fields.Char('Last Name', required=True, tracking=True)
+    member_number = fields.Char('Member Number', required=True, copy=False, readonly=True,
+                                default=lambda self: _('New'))
     date_of_birth = fields.Date('Date Of Birth', required=True, tracking=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')], required=True,
                               default='other', tracking=True)
@@ -51,11 +53,15 @@ class GymMemberInformation(models.Model):
 
     # Override default create method
     @api.model
-    def create(self, values):
+    def create(self, vals):
         # if the profession form value is not set, pass unemployed as the value
-        if not values.get('profession'):
-            values['profession'] = 'Unemployed'
-        res = super(GymMemberInformation, self).create(values)
+        if not vals.get('profession'):
+            vals['profession'] = 'Unemployed'
+
+        if vals.get('member_number', _('New')) == _('New'):
+            vals['member_number'] = self.env['ir.sequence'].next_by_code('gym.member.information') or _('New')
+
+        res = super(GymMemberInformation, self).create(vals)
         print('res ---->', res)  # shows the id of the record
-        print('values ---->', values)  # shows the form values
+        print('values ---->', vals)  # shows the form values
         return res

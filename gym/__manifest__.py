@@ -12,6 +12,7 @@
     ],
     'data':[
         'security/ir.model.access.csv',
+        'data/data.xml',
         'views/members.xml'       
     ],   
     'demo':[],
