@@ -107,6 +107,7 @@
                             <field name="first_name" string="First Name"/>
                             <field name="middle_name" string="Middle Name"/>
                             <field name="last_name" string="Last Name"/>
+                            <field name="sponsor_id" string="Sponsor"/>
                             <field name="date_of_birth" string="Date of Birth"/>
                             <field name="gender" string="Gender"/>
                             <field name="marital_status" string="Marital Status"/>
