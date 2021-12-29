@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="view_members_kanban" model="ir.ui.view">
+        <field name="name">gym.members.kanban</field>
+        <field name="model">gym.member.information</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="title" string="Title"/>
+                <field name="first_name" string="First Name"/>
+                <field name="middle_name" string="Middle Name"/>
+                <field name="last_name" string="Last Name"/>
+                <field name="date_of_birth" string="Date of Birth"/>
+                <field name="gender" string="Gender"/>
+                <field name="marital_status" string="Marital Status"/>
+                <field name="mobile" string="mobile"/>
+                <field name="email" string="Email"/>
+                <field name="physical_address" string="Physical Address"/>
+                <field name="postal_address" string="Postal Address"/>
+                <field name="postal_code" string="Postal Code"/>
+                <field name="city" string="City"/>
+                <field name="country" string="Country"/>
+                <field name="education_level" string="Education Level"/>
+                <field name="profession" string="Profession"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        Title:
+                                        <field name="title"/>
+                                    </li>
+                                    <li>
+                                        First Name :
+                                        <field name="first_name"/>
+                                    </li>
+                                    <li>
+                                        Last Name :
+                                        <field name="middle_name"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="view_members_tree" model="ir.ui.view">
+        <field name="name">gym.members.tree</field>
+        <field name="model">gym.member.information</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title" string="Title"/>
+                <field name="first_name" string="First Name"/>
+                <field name="middle_name" string="Middle Name"/>
+                <field name="last_name" string="Last Name"/>
+                <field name="date_of_birth" string="Date of Birth"/>
+                <field name="gender" string="Gender"/>
+                <field name="marital_status" string="Marital Status"/>
+                <field name="mobile" string="mobile"/>
+                <field name="email" string="Email"/>
+                <field name="physical_address" string="Physical Address"/>
+                <field name="postal_address" string="Postal Address"/>
+                <field name="postal_code" string="Postal Code"/>
+                <field name="city" string="City"/>
+                <field name="country" string="Country"/>
+                <field name="education_level" string="Education Level"/>
+                <field name="profession" string="Profession"/>
+                <field name="state" string="State"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_members_form" model="ir.ui.view">
+        <field name="name">gym.members.form</field>
+        <field name="model">gym.member.information</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+
+                    <button name="action_confirm" id="action_confirm" string="Confirm"
+                            class="btn-primary" type="object" states ="draft"/>
+
+                    <button name="action_done" id="action_done" string="done"
+                            class="btn-primary" type="object" states ="confirmed"/>
+
+                    <button name="action_draft" id="action_draft" string="draft"
+                            class="btn-primary" type="object" states ="cancelled"/>
+
+                    <button name="action_cancelled" id="action_cancelled" string="cancelled"
+                            type="object" states ="draft,done,confirmed" />
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
+
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="title" string="Title"/>
+                            <field name="first_name" string="First Name"/>
+                            <field name="middle_name" string="Middle Name"/>
+                            <field name="last_name" string="Last Name"/>
+                            <field name="date_of_birth" string="Date of Birth"/>
+                            <field name="gender" string="Gender"/>
+                            <field name="marital_status" string="Marital Status"/>
+                            <field name="mobile" string="mobile"/>
+                        </group>
+                        <group>
+                            <field name="email" string="Email"/>
+                            <field name="physical_address" string="Physical Address"/>
+                            <field name="postal_address" string="Postal Address"/>
+                            <field name="postal_code" string="Postal Code"/>
+                            <field name="city" string="City"/>
+                            <field name="country" string="Country"/>
+                            <field name="education_level" string="Education Level"/>
+                            <field name="profession" string="Profession"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="View_member_search" model="ir.ui.view">
+        <field name="name">gym.member.information.search</field>
+        <field name="model">gym.member.information</field>
+        <field name="arch" type="xml">
+            <search string="Members">
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="middle_name"/>
+                <field name="mobile"/>
+                <field name="email"/>
+                <field name="profession"/>
+                <field name="city"/>
+                <field name="physical_address"/>
+                <separator/>
+                <filter string="Male" name="male" domain="[('gender','=','male')]"/>
+                <filter string="Female" name="female" domain="[('gender','=','female')]"/>
+                <filter string="Others" name="other" domain="[('gender','=','other')]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Gender" name="gender" context="{'group_by':'gender'}"/>
+                    <filter string="Title" name="title" context="{'group_by':'title'}"/>
+                    <filter string="Marital Status" name="marital_status" context="{'group_by':'marital_status'}"/>
+                    <filter string="Education Level" name="education_level" context="{'group_by':'education_level'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_members" model="ir.actions.act_window">
+        <field name="name">Members</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">gym.member.information</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register a new gym member.
+            </p>
+        </field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem id="gym_management_root"
+              name="Gym Management"
+              sequence="10"/>
+
+    <menuitem id="gym_management_members_root"
+              name="Members"
+              parent="gym_management_root"
+              sequence="10"/>
+
+    <menuitem id="gym_management_members"
+              name="Members"
+              action="action_members"
+              parent="gym_management_members_root"
+              sequence="10"/>
+</odoo>
