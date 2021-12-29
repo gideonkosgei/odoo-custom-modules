@@ -13,7 +13,8 @@
     'data':[
         'security/ir.model.access.csv',
         'data/data.xml',
-        'views/members.xml'       
+        'views/members.xml',
+        'views/junior_members.xml'
     ],   
     'demo':[],
     'qweb':[],

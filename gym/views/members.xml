@@ -168,31 +168,31 @@
 
 
     <record id="action_members" model="ir.actions.act_window">
-        <field name="name">Members</field>
+        <field name="name">All Members</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">gym.member.information</field>
         <field name="view_mode">tree,kanban,form</field>
         <field name="context">{'search_default_marital_status':1,'search_default_male':1,}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Register a new gym member.
+                Register your first gym member.
             </p>
         </field>
     </record>
 
     <!-- Top menu item -->
-    <menuitem id="gym_management_root"
-              name="Gym Management"
+    <menuitem id="menu_gym_root"
+              name="Gym"
               sequence="10"/>
 
-    <menuitem id="gym_management_members_root"
+    <menuitem id="menu_members_root"
               name="Members"
-              parent="gym_management_root"
+              parent="menu_gym_root"
               sequence="10"/>
 
-    <menuitem id="gym_management_members"
-              name="Members"
+    <menuitem id="menu_all_members"
+              name="All Members"
               action="action_members"
-              parent="gym_management_members_root"
+              parent="menu_members_root"
               sequence="10"/>
 </odoo>
