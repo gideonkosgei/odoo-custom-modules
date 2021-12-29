@@ -25,7 +25,7 @@ class GymMemberInformation(models.Model):
     email = fields.Char('Email', required=True, tracking=True)
     physical_address = fields.Char('Physical Address', tracking=True)
     postal_address = fields.Char('Postal Address', tracking=True)
-    postal_code = fields.Integer('Postal Code', tracking=True)
+    postal_code = fields.Char('Postal Code', tracking=True)
     city = fields.Char('City', tracking=True)
     country = fields.Selection(
         [('ke', 'Kenya'), ('ug', 'Uganda'), ('tz', 'Tanzania'), ('et', 'Ethiopia'), ('rw', 'Rwanda'),
