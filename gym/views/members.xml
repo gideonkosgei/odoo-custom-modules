@@ -114,7 +114,7 @@
                             <field name="last_name" string="Last Name"/>
                             <field name="sponsor_id" string="Sponsor"/>
                             <field name="date_of_birth" string="Date of Birth"/>
-                            <field name="gender" string="Gender"/>
+                            <field name="gender" string="Gender" invisible = "context.get('hide_gender')"/>
                             <field name="marital_status" string="Marital Status"/>
                             <field name="mobile" string="mobile"/>
                         </group>

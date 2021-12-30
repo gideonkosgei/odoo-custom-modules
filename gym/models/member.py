@@ -37,7 +37,7 @@ class GymMemberInformation(models.Model):
     state = fields.Selection(
         [('draft', 'Draft'), ('confirmed', 'Confirmed'), ('done', 'Done'), ('cancelled', 'Cancelled')], default='draft',
         string='Status', tracking=True)
-    sponsor_id = fields.Many2one(comodel_name='res.partner', string='Sponsor')
+    sponsor_id = fields.Many2one(comodel_name='res.partner', string='Sponsor' ,tracking=True)
 
     def action_confirm(self):
         self.state = 'confirmed'
