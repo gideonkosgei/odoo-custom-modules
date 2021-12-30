@@ -86,7 +86,8 @@
                 <header>
 
                     <button name="action_confirm" id="action_confirm" string="Confirm"
-                            class="btn-primary" type="object" states="draft"/>
+                            class="btn-primary" type="object" states="draft"
+                            confirm=" Are you sure you want to confirm?"/>
 
                     <button name="action_done" id="action_done" string="done"
                             class="btn-primary" type="object" states="confirmed"/>
@@ -95,7 +96,7 @@
                             class="btn-primary" type="object" states="cancelled"/>
 
                     <button name="action_cancelled" id="action_cancelled" string="cancelled"
-                            type="object" states="draft,done,confirmed"/>
+                            type="object" states="draft,done,confirmed" confirm=" Are you sure you need to cancel?"/>
 
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
 
@@ -114,7 +115,7 @@
                             <field name="last_name" string="Last Name"/>
                             <field name="sponsor_id" string="Sponsor"/>
                             <field name="date_of_birth" string="Date of Birth"/>
-                            <field name="gender" string="Gender" invisible = "context.get('hide_gender')"/>
+                            <field name="gender" string="Gender" invisible="context.get('hide_gender')"/>
                             <field name="marital_status" string="Marital Status"/>
                             <field name="mobile" string="mobile"/>
                         </group>
