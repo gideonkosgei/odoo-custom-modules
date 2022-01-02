@@ -90,11 +90,11 @@
                         <group>
                             <field name="member_id" string="Member"/>
                             <field name="mobile"/>
-                            <field name="email" />
-                            <field name="physical_address" />
-                            <field name="gender" />
+                            <field name="email"/>
+                            <field name="physical_address"/>
+                            <field name="gender" readonly="1" force_save="1"/>
                         </group>
-                         <group>
+                        <group>
                             <field name="start_date" string="Start Date"/>
                             <field name="preferred_session" string="Preferred Session"/>
                             <field name="notes" string="Notes"/>
