@@ -20,6 +20,10 @@ class GymSubscription(models.Model):
         [('draft', 'Draft'), ('confirmed', 'Confirmed'), ('done', 'Done'), ('cancelled', 'Cancelled')], default='draft',
         string='Status', tracking=True)
 
+    mobile = fields.Char('Mobile Number', related='member_id.mobile', tracking=True)
+    email = fields.Char('Email', related='member_id.email', tracking=True)
+    physical_address = fields.Char('Physical Address',related='member_id.physical_address', tracking=True)
+
     def action_confirm(self):
         self.state = 'confirmed'
 
