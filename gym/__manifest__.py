@@ -15,7 +15,8 @@
         'data/data.xml',
         'views/members.xml',
         'views/junior_members.xml',
-        'views/gender_view_members.xml'
+        'views/gender_view_members.xml',
+        'views/subscriptions.xml'
     ],
     'demo': [],
     'qweb': [],

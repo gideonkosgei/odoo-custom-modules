@@ -6,6 +6,8 @@ class GymMemberInformation(models.Model):
     _name = "gym.member.information"
     _description = "Gym Member Information"
     _inherit = ["mail.thread", "mail.activity.mixin"]
+    _rec_name = 'first_name'
+
 
     title = fields.Selection(
         [('mr', 'Mr'), ('ms', 'Ms'), ('mrs', 'Mrs'), ('dr', 'Dr'), ('prof', 'Prof'), ('rev', 'Rev'),

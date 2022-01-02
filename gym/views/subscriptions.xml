@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="view_subscription_kanban" model="ir.ui.view">
+        <field name="name">gym.subscription.kanban</field>
+        <field name="model">gym.subscription</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="member_id" string="Member"/>
+                <field name="subscription_number" string="Subscription Number"/>
+                <field name="start_date" string="Start Date"/>
+                <field name="preferred_session" string="Preferred Session"/>
+                <field name="state" string="State"/>
+                <field name="notes" string="Notes"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        Subscription Number:
+                                        <field name="subscription_number"/>
+                                    </li>
+                                    <li>
+                                        Member :
+                                        <field name="member_id"/>
+                                    </li>
+                                    <li>
+                                        State Date :
+                                        <field name="start_date"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="view_subscription_tree" model="ir.ui.view">
+        <field name="name">gym.subscription.tree</field>
+        <field name="model">gym.subscription</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="subscription_number" string="Subscription Number"/>
+                <field name="member_id" string="Member"/>
+                <field name="start_date" string="Start Date"/>
+                <field name="preferred_session" string="Preferred Session"/>
+                <field name="notes" string="Notes"/>
+                <field name="state" string="State"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_subscription_form" model="ir.ui.view">
+        <field name="name">gym.subscription.form</field>
+        <field name="model">gym.subscription</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+
+                    <button name="action_confirm" id="action_confirm" string="Confirm"
+                            class="btn-primary" type="object" states="draft"
+                            confirm=" Are you sure you want to confirm?"/>
+
+                    <button name="action_done" id="action_done" string="done"
+                            class="btn-primary" type="object" states="confirmed"/>
+
+                    <button name="action_draft" id="action_draft" string="draft"
+                            class="btn-primary" type="object" states="cancelled"/>
+
+                    <button name="action_cancelled" id="action_cancelled" string="cancelled"
+                            type="object" states="draft,done,confirmed" confirm=" Are you sure you need to cancel?"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
+
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="subscription_number" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="member_id" string="Member"/>
+                            <field name="start_date" string="Start Date"/>
+                            <field name="preferred_session" string="Preferred Session"/>
+                            <field name="notes" string="Notes"/>
+                        </group>
+
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="View_subscription_search" model="ir.ui.view">
+        <field name="name">gym.subscription.search</field>
+        <field name="model">gym.subscription</field>
+        <field name="arch" type="xml">
+            <search string="Subscriptions">
+                <field name="subscription_number"/>
+                <field name="member_id"/>
+                <field name="start_date"/>
+                <field name="preferred_session"/>
+                <field name="notes"/>
+                <field name="state"/>
+                <separator/>
+                <filter string="Morning" name="morning" domain="[('preferred_session','=','morning')]"/>
+                <filter string="Noon" name="noon" domain="[('preferred_session','=','noon')]"/>
+                <filter string="Evening" name="evening" domain="[('preferred_session','=','evening')]"/>
+                <filter string="Other" name="other" domain="[('preferred_session','=','other')]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Preferred Session" name="preferred_session"
+                            context="{'group_by':'preferred_session'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_subscriptions" model="ir.actions.act_window">
+        <field name="name">Subscriptions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">gym.subscription</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register a subscription
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_subscription_root"
+              name="Subscriptions"
+              parent="menu_gym_root"
+              sequence="10"
+              action="action_subscriptions"
+    />
+
+
+</odoo>
