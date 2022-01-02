@@ -22,7 +22,9 @@ class GymSubscription(models.Model):
 
     mobile = fields.Char('Mobile Number', related='member_id.mobile', tracking=True)
     email = fields.Char('Email', related='member_id.email', tracking=True)
-    physical_address = fields.Char('Physical Address',related='member_id.physical_address', tracking=True)
+    physical_address = fields.Char('Physical Address', related='member_id.physical_address', tracking=True)
+    gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')], required=True
+                              , tracking=True)
 
     def action_confirm(self):
         self.state = 'confirmed'
@@ -43,3 +45,11 @@ class GymSubscription(models.Model):
             vals['subscription_number'] = self.env['ir.sequence'].next_by_code('gym.subscription') or _('New')
         res = super(GymSubscription, self).create(vals)
         return res
+
+    @api.onchange('member_id')
+    def onchange_member_id(self):
+        if self.member_id:
+            if self.member_id.gender:
+                self.gender = self.member_id.gender
+            else:
+                self.gender = ''

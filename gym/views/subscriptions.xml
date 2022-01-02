@@ -92,6 +92,7 @@
                             <field name="mobile"/>
                             <field name="email" />
                             <field name="physical_address" />
+                            <field name="gender" />
                         </group>
                          <group>
                             <field name="start_date" string="Start Date"/>
