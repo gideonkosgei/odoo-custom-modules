@@ -40,6 +40,11 @@ class GymMemberInformation(models.Model):
         [('draft', 'Draft'), ('confirmed', 'Confirmed'), ('done', 'Done'), ('cancelled', 'Cancelled')], default='draft',
         string='Status', tracking=True)
     sponsor_id = fields.Many2one(comodel_name='res.partner', string='Sponsor' ,tracking=True)
+    subscription_count = fields.Integer('Subscription Count', compute='_compute_subscription_count')
+
+    def _compute_subscription_count(self):
+        subscription_count = self.env['gym.subscription'].search_count([('member_id', '=', self.id)])
+        self.subscription_count = subscription_count
 
     def action_confirm(self):
         self.state = 'confirmed'

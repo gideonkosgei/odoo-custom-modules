@@ -118,6 +118,7 @@
                             <field name="gender" string="Gender" invisible="context.get('hide_gender')"/>
                             <field name="marital_status" string="Marital Status"/>
                             <field name="mobile" string="mobile"/>
+                            <field name="subscription_count"/>
                         </group>
                         <group>
                             <field name="email" string="Email"/>
