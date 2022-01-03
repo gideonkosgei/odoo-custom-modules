@@ -73,6 +73,7 @@
                 <field name="country" string="Country"/>
                 <field name="education_level" string="Education Level"/>
                 <field name="profession" string="Profession"/>
+                <field name="subscription_count" string = "Total Subscriptions"/>
                 <field name="state" string="State"/>
             </tree>
         </field>

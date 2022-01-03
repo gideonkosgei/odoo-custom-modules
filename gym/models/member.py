@@ -8,7 +8,6 @@ class GymMemberInformation(models.Model):
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _rec_name = 'first_name'
 
-
     title = fields.Selection(
         [('mr', 'Mr'), ('ms', 'Ms'), ('mrs', 'Mrs'), ('dr', 'Dr'), ('prof', 'Prof'), ('rev', 'Rev'),
          ('other', 'Other')], required=True, default='other', tracking=True)
@@ -39,12 +38,14 @@ class GymMemberInformation(models.Model):
     state = fields.Selection(
         [('draft', 'Draft'), ('confirmed', 'Confirmed'), ('done', 'Done'), ('cancelled', 'Cancelled')], default='draft',
         string='Status', tracking=True)
-    sponsor_id = fields.Many2one(comodel_name='res.partner', string='Sponsor' ,tracking=True)
+    sponsor_id = fields.Many2one(comodel_name='res.partner', string='Sponsor', tracking=True)
     subscription_count = fields.Integer('Subscription Count', compute='_compute_subscription_count')
 
+    # handles singleton error on tree view
     def _compute_subscription_count(self):
-        subscription_count = self.env['gym.subscription'].search_count([('member_id', '=', self.id)])
-        self.subscription_count = subscription_count
+        for rec in self:
+            subscription_count = self.env['gym.subscription'].search_count([('member_id', '=', rec.id)])
+            rec.subscription_count = subscription_count
 
     def action_confirm(self):
         self.state = 'confirmed'

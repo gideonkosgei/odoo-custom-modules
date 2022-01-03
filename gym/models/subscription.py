@@ -27,16 +27,20 @@ class GymSubscription(models.Model):
                               , tracking=True)
 
     def action_confirm(self):
-        self.state = 'confirmed'
+        for rec in self:
+            rec.state = 'confirmed'
 
     def action_done(self):
-        self.state = 'done'
+        for rec in self:
+            rec.state = 'done'
 
     def action_cancelled(self):
-        self.state = 'cancelled'
+        for rec in self:
+            rec.state = 'cancelled'
 
     def action_draft(self):
-        self.state = 'draft'
+        for rec in self:
+            rec.state = 'draft'
 
     # Override default create method
     @api.model
