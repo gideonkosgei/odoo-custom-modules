@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_create_subscription_wizard_form" model="ir.ui.view">
+        <field name="name">create.subscription.wizard.form</field>
+        <field name="model">create.subscription.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create New Subscription">
+                <group class="oe_title">
+                    <field name="name"/>
+                </group>
+                <footer>
+                    <button name="action_create_subscription" string="Submit" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="create_subscription_wizard_action" model="ir.actions.act_window">
+        <field name="name">Create Subscription</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">create.subscription.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_create_subscription_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

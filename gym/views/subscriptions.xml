@@ -155,7 +155,20 @@
               name="Subscriptions"
               parent="menu_gym_root"
               sequence="10"
+    />
+
+     <menuitem id="menu_subscription"
+              name="Subscriptions"
+              parent="menu_subscription_root"
+              sequence="10"
               action="action_subscriptions"
+    />
+
+    <menuitem id="menu_create_subscription"
+              name="Create Subscription"
+              parent="menu_subscription_root"
+              sequence="20"
+              action="create_subscription_wizard_action"
     />
 
 

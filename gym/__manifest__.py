@@ -13,6 +13,7 @@
     'data': [
         'security/ir.model.access.csv',
         'data/data.xml',
+        'wizard/create_subscription_view.xml',
         'views/members.xml',
         'views/junior_members.xml',
         'views/gender_view_members.xml',

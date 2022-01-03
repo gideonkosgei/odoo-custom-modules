@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_gym_members,access.gym.member.information,model_gym_member_information,,1,1,1,1
 access_gym_subscriptions,access.gym.subscription,model_gym_subscription,,1,1,1,1
+access_create_subscription_wizard,access.create.subscription.wizard,model_create_subscription_wizard,,1,1,1,1
