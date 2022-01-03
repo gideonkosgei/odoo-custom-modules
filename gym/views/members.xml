@@ -73,7 +73,7 @@
                 <field name="country" string="Country"/>
                 <field name="education_level" string="Education Level"/>
                 <field name="profession" string="Profession"/>
-                <field name="subscription_count" string = "Total Subscriptions"/>
+                <field name="subscription_count" string="Total Subscriptions"/>
                 <field name="state" string="State"/>
             </tree>
         </field>
@@ -86,17 +86,20 @@
             <form>
                 <header>
 
-                    <button name="action_confirm" id="action_confirm" string="Confirm"
+                    <button name="%(action_create_subscription)d" id="button_create_subscription" string="Add Subscription"
+                            class="btn-primary" type="action"/>
+
+                    <button name="action_confirm" id="button_confirm" string="Confirm"
                             class="btn-primary" type="object" states="draft"
                             confirm=" Are you sure you want to confirm?"/>
 
-                    <button name="action_done" id="action_done" string="done"
+                    <button name="action_done" id="button_done" string="done"
                             class="btn-primary" type="object" states="confirmed"/>
 
-                    <button name="action_draft" id="action_draft" string="draft"
+                    <button name="action_draft" id="button_draft" string="draft"
                             class="btn-primary" type="object" states="cancelled"/>
 
-                    <button name="action_cancelled" id="action_cancelled" string="cancelled"
+                    <button name="action_cancelled" id="button_cancelled" string="cancelled"
                             type="object" states="draft,done,confirmed" confirm=" Are you sure you need to cancel?"/>
 
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>

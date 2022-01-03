@@ -16,7 +16,7 @@
         </field>
     </record>
 
-    <record id="create_subscription_wizard_action" model="ir.actions.act_window">
+    <record id="action_create_subscription" model="ir.actions.act_window">
         <field name="name">Create Subscription</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">create.subscription.wizard</field>
