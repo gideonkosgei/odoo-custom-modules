@@ -86,7 +86,8 @@
             <form>
                 <header>
 
-                    <button name="%(action_create_subscription)d" id="button_create_subscription" string="Add Subscription"
+                    <button name="%(action_create_subscription)d" id="button_create_subscription"
+                            string="Add Subscription"
                             class="btn-primary" type="action"/>
 
                     <button name="action_confirm" id="button_confirm" string="Confirm"

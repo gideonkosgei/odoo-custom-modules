@@ -73,3 +73,10 @@ class GymMemberInformation(models.Model):
         print('res ---->', res)  # shows the id of the record
         print('values ---->', vals)  # shows the form values
         return res
+
+    # override default values
+    @api.model
+    def default_get(self, fields):
+        res = super(GymMemberInformation, self).default_get(fields)
+        res['marital_status'] = 'single'
+        return res
