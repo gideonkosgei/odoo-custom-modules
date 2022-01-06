@@ -70,8 +70,6 @@ class GymMemberInformation(models.Model):
             vals['member_number'] = self.env['ir.sequence'].next_by_code('gym.member.information') or _('New')
 
         res = super(GymMemberInformation, self).create(vals)
-        print('res ---->', res)  # shows the id of the record
-        print('values ---->', vals)  # shows the form values
         return res
 
     # override default values

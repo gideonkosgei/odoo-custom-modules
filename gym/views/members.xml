@@ -51,7 +51,6 @@
         </field>
     </record>
 
-
     <record id="view_members_tree" model="ir.ui.view">
         <field name="name">gym.members.tree</field>
         <field name="model">gym.member.information</field>
