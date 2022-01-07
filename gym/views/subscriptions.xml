@@ -137,7 +137,7 @@
     </record>
 
 
-    <record id="action_subscriptions" model="ir.actions.act_window">
+     <record id="action_subscriptions" model="ir.actions.act_window">
         <field name="name">Subscriptions</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">gym.subscription</field>

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models
+from odoo import fields, models, _
 
 
 class CreateSubscriptionWizard(models.TransientModel):
@@ -30,4 +30,23 @@ class CreateSubscriptionWizard(models.TransientModel):
             'gender': self.gender
         }
 
-        self.env["gym.subscription"].create(values)
+        subscription_rec = self.env["gym.subscription"].create(values)
+
+        return {
+            'name': _('Subscriptions'),
+            'view_mode': 'form',
+            'res_model': 'gym.subscription',
+            'res_id': subscription_rec.id,
+            'type': 'ir.actions.act_window',
+            'target': 'new'
+        }
+
+    def action_view_subscriptions(self):
+        action = self.env.ref('gym.action_subscriptions').read()[0]
+        action['domain'] = [('member_id', '=', self.member_id.id)]
+
+        # below code also works. same as above
+        # action = self.env["ir.actions.actions"]._for_xml_id('gym.action_subscriptions')
+        # action['domain'] = [('member_id', '=', self.member_id.id)]
+
+        return action

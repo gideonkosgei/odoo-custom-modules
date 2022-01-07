@@ -23,6 +23,7 @@
                 </group>
                 <footer>
                     <button name="action_create_subscription" string="Submit" type="object" class="btn-primary"/>
+                    <button name="action_view_subscriptions" string="View Subscriptions" type="object" class="btn-primary"/>
                     <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
                 </footer>
             </form>
