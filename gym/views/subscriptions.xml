@@ -47,6 +47,10 @@
         <field name="model">gym.subscription</field>
         <field name="arch" type="xml">
             <tree>
+                <header>
+                    <button name="action_confirm" string="Confirm"
+                            class="btn-primary" type="object"/>
+                </header>
                 <field name="subscription_number" string="Subscription Number"/>
                 <field name="member_id" string="Member"/>
                 <field name="start_date" string="Start Date"/>
@@ -137,7 +141,7 @@
     </record>
 
 
-     <record id="action_subscriptions" model="ir.actions.act_window">
+    <record id="action_subscriptions" model="ir.actions.act_window">
         <field name="name">Subscriptions</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">gym.subscription</field>
@@ -157,19 +161,19 @@
               sequence="10"
     />
 
-     <menuitem id="menu_subscription"
+    <menuitem id="menu_subscription"
               name="Subscriptions"
               parent="menu_subscription_root"
               sequence="10"
               action="action_subscriptions"
     />
 
-<!--    <menuitem id="menu_create_subscription"-->
-<!--              name="Create Subscription"-->
-<!--              parent="menu_subscription_root"-->
-<!--              sequence="20"-->
-<!--              action="create_subscription_wizard_action"-->
-<!--    />-->
+    <!--    <menuitem id="menu_create_subscription"-->
+    <!--              name="Create Subscription"-->
+    <!--              parent="menu_subscription_root"-->
+    <!--              sequence="20"-->
+    <!--              action="create_subscription_wizard_action"-->
+    <!--    />-->
 
 
 </odoo>
