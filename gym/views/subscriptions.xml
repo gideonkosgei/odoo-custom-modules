@@ -6,7 +6,7 @@
         <field name="name">gym.subscription.kanban</field>
         <field name="model">gym.subscription</field>
         <field name="arch" type="xml">
-            <kanban>
+            <kanban sample = "1">
                 <field name="id"/>
                 <field name="member_id" string="Member"/>
                 <field name="subscription_number" string="Subscription Number"/>
@@ -46,7 +46,7 @@
         <field name="name">gym.subscription.tree</field>
         <field name="model">gym.subscription</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree sample = "1">
                 <header>
                     <button name="action_confirm" string="Confirm"
                             class="btn-primary" type="object"/>
