@@ -6,7 +6,7 @@
         <field name="name">gym.members.kanban</field>
         <field name="model">gym.member.information</field>
         <field name="arch" type="xml">
-            <kanban>
+            <kanban default_order ="date_of_birth asc">
                 <field name="id"/>
                 <field name="title" string="Title"/>
                 <field name="first_name" string="First Name"/>
@@ -55,7 +55,7 @@
         <field name="name">gym.members.tree</field>
         <field name="model">gym.member.information</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree default_order ="date_of_birth desc,id">
                 <field name="title" string="Title" optional="show"/>
                 <field name="first_name" string="First Name" optional="show"/>
                 <field name="middle_name" string="Middle Name" optional="show"/>
