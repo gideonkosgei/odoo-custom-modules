@@ -6,7 +6,7 @@
         <field name="name">gym.members.kanban</field>
         <field name="model">gym.member.information</field>
         <field name="arch" type="xml">
-            <kanban default_order ="date_of_birth asc">
+            <kanban default_order="date_of_birth asc">
                 <field name="id"/>
                 <field name="title" string="Title"/>
                 <field name="first_name" string="First Name"/>
@@ -55,7 +55,7 @@
         <field name="name">gym.members.tree</field>
         <field name="model">gym.member.information</field>
         <field name="arch" type="xml">
-            <tree default_order ="date_of_birth desc,id" multi_edit="1">
+            <tree default_order="date_of_birth desc,id" multi_edit="1">
                 <field name="title" string="Title" optional="show"/>
                 <field name="first_name" string="First Name" optional="show"/>
                 <field name="middle_name" string="Middle Name" optional="show"/>
@@ -136,6 +136,15 @@
                             <field name="profession" string="Profession"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Next Of Kin" name="next_of_kin">
+                            <group>
+                                <field name="next_of_kin"/>
+                            </group>
+                        </page>
+                        <page string="Referee" name="referee">
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>

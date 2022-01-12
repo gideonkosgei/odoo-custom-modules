@@ -42,6 +42,7 @@ class GymMemberInformation(models.Model):
     sponsor_id = fields.Many2one(comodel_name='res.partner', string='Sponsor', tracking=True)
     subscription_count = fields.Integer('Subscription Count', compute='_compute_subscription_count')
     image = fields.Binary(string='Member Photo')
+    next_of_kin = fields.Char('Next Of Kin', tracking=True)
 
     # handles singleton error on tree view
     def _compute_subscription_count(self):
