@@ -137,12 +137,53 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Next Of Kin" name="next_of_kin">
-                            <group>
-                                <field name="next_of_kin"/>
-                            </group>
+
+                        <page string="Education" name="education">
+                            <field name="education_ids">
+
+                                <!--<tree>-->
+                                <!--<tree editable ="bottom">-->
+                               <!-- <tree create="0" edit = "0" delete ="0">-->
+                                <tree editable="top" delete ="0">
+                                    <field name="institution"/>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                    <field name="level"/>
+                                    <field name="status"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="institution"/>
+                                            <field name="start_date"/>
+                                            <field name="end_date"/>
+                                        </group>
+                                        <group>
+                                            <field name="level"/>
+                                            <field name="status"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
                         </page>
-                        <page string="Referee" name="referee">
+                        <page string="Subscriptions" name="subscriptions">
+                            <field name="subscription_ids">
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="mobile"/>
+                                            <field name="email"/>
+                                            <field name="physical_address"/>
+                                            <field name="gender" readonly="1" force_save="1"/>
+                                        </group>
+                                        <group>
+                                            <field name="start_date" string="Start Date"/>
+                                            <field name="preferred_session" string="Preferred Session"/>
+                                            <field name="notes" string="Notes"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>

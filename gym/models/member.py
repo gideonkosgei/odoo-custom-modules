@@ -43,6 +43,8 @@ class GymMemberInformation(models.Model):
     subscription_count = fields.Integer('Subscription Count', compute='_compute_subscription_count')
     image = fields.Binary(string='Member Photo')
     next_of_kin = fields.Char('Next Of Kin', tracking=True)
+    education_ids = fields.One2many('gym.education', 'member_id', string='Education')
+    subscription_ids = fields.One2many('gym.subscription', 'member_id', string='Subscription')
 
     # handles singleton error on tree view
     def _compute_subscription_count(self):
@@ -81,3 +83,19 @@ class GymMemberInformation(models.Model):
         res = super(GymMemberInformation, self).default_get(fields)
         res['marital_status'] = 'single'
         return res
+
+    class GymEducation(models.Model):
+        _name = "gym.education"
+        _description = "Gym Education"
+        _rec_name = "institution"
+        member_id = fields.Many2one(comodel_name='gym.member.information', string='Member')
+        institution = fields.Char('institution', required=True)
+        start_date = fields.Date('Start date', required=True)
+        end_date = fields.Date('Start date', required=True)
+        level = fields.Selection(
+            [('O-level', 'O-Level'), ('A-level', 'A-level'), ('Bachelors', 'Bachelors'), ('Diploma', 'Diploma'),
+             ('Certificate', 'Certificate'), ('Masters', 'Masters'), ('Doctorate', 'Doctorate'),
+             ('other', 'Other')], required=True, default='other')
+        status = fields.Selection(
+            [('on-going', 'on going'), ('completed', 'Completed'), ('Deferred', 'Deferred'), ('Other', 'Other')],
+            required=True)
