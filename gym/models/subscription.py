@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class GymSubscription(models.Model):
@@ -58,4 +59,8 @@ class GymSubscription(models.Model):
             else:
                 self.gender = ''
 
-
+    def unlink(self):
+        print('----------------------deleting--------------------')
+        if self.state == "done":
+            raise ValidationError("You cannot delete %s as it is in done state" % self.subscription_number)
+        return super(GymSubscription, self).unlink()
