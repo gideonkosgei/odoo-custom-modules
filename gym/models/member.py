@@ -5,9 +5,9 @@ from odoo.exceptions import ValidationError
 
 class GymMemberInformation(models.Model):
     _name = "gym.member.information"
+    _rec_name = "first_name"
     _description = "Gym Member Information"
     _inherit = ["mail.thread", "mail.activity.mixin"]
-    _rec_name = 'first_name'
     _order = "date_of_birth desc,id"
 
     title = fields.Selection(
@@ -106,6 +106,13 @@ class GymMemberInformation(models.Model):
             default['first_name'] = _("%s (copy)", self.first_name)
 
         return super(GymMemberInformation, self).copy(default)
+
+    def name_get(self):
+        result = []
+        for rec in self:
+            name = rec.first_name + ' ' + rec.last_name
+            result.append((rec.id, name))
+        return result
 
     class GymEducation(models.Model):
         _name = "gym.education"
