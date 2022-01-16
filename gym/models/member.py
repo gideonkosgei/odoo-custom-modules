@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class GymMemberInformation(models.Model):
@@ -13,7 +14,7 @@ class GymMemberInformation(models.Model):
         [('mr', 'Mr'), ('ms', 'Ms'), ('mrs', 'Mrs'), ('dr', 'Dr'), ('prof', 'Prof'), ('rev', 'Rev'),
          ('other', 'Other')], required=True, default='other', tracking=True)
     first_name = fields.Char('First Name', required=True, tracking=True)
-    middle_name = fields.Char('Middle Name', tracking=True , copy=False)
+    middle_name = fields.Char('Middle Name', tracking=True, copy=False)
     last_name = fields.Char('Last Name', required=True, tracking=True)
     member_number = fields.Char('Member Number', required=True, readonly=True,
                                 default=lambda self: _('New'))
@@ -83,6 +84,20 @@ class GymMemberInformation(models.Model):
         res = super(GymMemberInformation, self).default_get(fields)
         res['marital_status'] = 'single'
         return res
+
+    @api.constrains('email')
+    def check_email(self):
+        for rec in self:
+            members = self.env['gym.member.information'].search([("email", "=", rec.email), ("id", "!=", rec.id)])
+            if members:
+                raise ValidationError(_("Email %s Already Exists" % rec.email))
+
+    @api.constrains('mobile')
+    def check_mobile(self):
+        for rec in self:
+            members = self.env['gym.member.information'].search([("mobile", "=", rec.mobile), ("id", "!=", rec.id)])
+            if members:
+                raise ValidationError(_("Mobile %s Already Exists" % rec.mobile))
 
     def copy(self, default=None):
         if default is None:
