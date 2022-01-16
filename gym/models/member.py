@@ -13,9 +13,9 @@ class GymMemberInformation(models.Model):
         [('mr', 'Mr'), ('ms', 'Ms'), ('mrs', 'Mrs'), ('dr', 'Dr'), ('prof', 'Prof'), ('rev', 'Rev'),
          ('other', 'Other')], required=True, default='other', tracking=True)
     first_name = fields.Char('First Name', required=True, tracking=True)
-    middle_name = fields.Char('Middle Name', tracking=True)
+    middle_name = fields.Char('Middle Name', tracking=True , copy=False)
     last_name = fields.Char('Last Name', required=True, tracking=True)
-    member_number = fields.Char('Member Number', required=True, copy=False, readonly=True,
+    member_number = fields.Char('Member Number', required=True, readonly=True,
                                 default=lambda self: _('New'))
     date_of_birth = fields.Date('Date Of Birth', required=True, tracking=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')], required=True,
@@ -83,6 +83,14 @@ class GymMemberInformation(models.Model):
         res = super(GymMemberInformation, self).default_get(fields)
         res['marital_status'] = 'single'
         return res
+
+    def copy(self, default=None):
+        if default is None:
+            default = {}
+        if not default.get('first_name'):
+            default['first_name'] = _("%s (copy)", self.first_name)
+
+        return super(GymMemberInformation, self).copy(default)
 
     class GymEducation(models.Model):
         _name = "gym.education"

@@ -57,3 +57,5 @@ class GymSubscription(models.Model):
                 self.gender = self.member_id.gender
             else:
                 self.gender = ''
+
+
