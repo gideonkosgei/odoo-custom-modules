@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="action_create_subscriptions" model="ir.actions.server">
+        <field name="name">Create Subscription</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="gym.model_gym_member_information"/>
+        <field name="binding_model_id" ref="gym.model_gym_member_information"/>
+        <field name="binding_view_types">form</field>
+        <field name="state">code</field>
+        <field name="code">
+
+            if record:
+            action_values = env.ref('gym.action_create_subscription').sudo().read()[0]
+            action_values.update({'context': env.context})
+            action = action_values
+        </field>
+    </record>
+
 
     <record id="view_members_kanban" model="ir.ui.view">
         <field name="name">gym.members.kanban</field>
@@ -143,8 +159,8 @@
 
                                 <!--<tree>-->
                                 <!--<tree editable ="bottom">-->
-                               <!-- <tree create="0" edit = "0" delete ="0">-->
-                                <tree editable="top" delete ="0">
+                                <!-- <tree create="0" edit = "0" delete ="0">-->
+                                <tree editable="top" delete="0">
                                     <field name="institution"/>
                                     <field name="start_date"/>
                                     <field name="end_date"/>
