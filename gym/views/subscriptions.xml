@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-     <record id="action_confirm_subscription" model="ir.actions.server">
+    <record id="action_confirm_subscription" model="ir.actions.server">
         <field name="name">Confirm Subscription</field>
         <field name="type">ir.actions.server</field>
         <field name="model_id" ref="gym.model_gym_subscription"/>
-        <field name="binding_model_id"  ref="model_gym_subscription"/>
+        <field name="binding_model_id" ref="model_gym_subscription"/>
         <field name="state">code</field>
         <field name="code">records.action_confirm()</field>
     </record>
@@ -14,7 +14,7 @@
         <field name="name">gym.subscription.kanban</field>
         <field name="model">gym.subscription</field>
         <field name="arch" type="xml">
-            <kanban sample = "1">
+            <kanban sample="1">
                 <field name="id"/>
                 <field name="member_id" string="Member"/>
                 <field name="subscription_number" string="Subscription Number"/>
@@ -54,7 +54,7 @@
         <field name="name">gym.subscription.tree</field>
         <field name="model">gym.subscription</field>
         <field name="arch" type="xml">
-            <tree sample = "1">
+            <tree sample="1">
                 <header>
                     <button name="action_confirm" string="Confirm"
                             class="btn-primary" type="object"/>
@@ -88,6 +88,9 @@
 
                     <button name="action_cancelled" id="action_cancelled" string="cancelled"
                             type="object" states="draft,done,confirmed" confirm=" Are you sure you need to cancel?"/>
+
+                    <button name="action_url" id="action_url" string="Open Url"  states="draft,done,confirmed,cancelled"
+                            type="object"/>
 
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
 

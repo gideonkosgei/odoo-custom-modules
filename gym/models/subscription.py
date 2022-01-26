@@ -43,6 +43,13 @@ class GymSubscription(models.Model):
         for rec in self:
             rec.state = 'draft'
 
+    def action_url(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'target': 'new',
+            'url': 'https://app.asana.com/0/home/1165647132098783'
+        }
+
     # Override default create method
     @api.model
     def create(self, vals):
