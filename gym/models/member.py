@@ -65,6 +65,9 @@ class GymMemberInformation(models.Model):
     def action_draft(self):
         self.state = 'draft'
 
+    def action_open_subscriptions(self):
+        print('test')
+
     # Override default create method
     @api.model
     def create(self, vals):
@@ -113,6 +116,16 @@ class GymMemberInformation(models.Model):
             name = rec.first_name + ' ' + rec.last_name
             result.append((rec.id, name))
         return result
+
+    def action_open_subscriptions(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Subscriptions',
+            'res_model': 'gym.subscription',
+            'domain': [("member_id", "=", self.id)],
+            'view_mode': 'tree,form',
+            'target': 'current'
+        }
 
     class GymEducation(models.Model):
         _name = "gym.education"
