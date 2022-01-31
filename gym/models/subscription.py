@@ -26,6 +26,7 @@ class GymSubscription(models.Model):
     physical_address = fields.Char('Physical Address', related='member_id.physical_address', tracking=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')], required=True
                               , tracking=True)
+    active = fields.Boolean(string="Active", default = True)
 
     def action_confirm(self):
         for rec in self:

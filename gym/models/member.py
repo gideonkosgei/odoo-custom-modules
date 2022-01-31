@@ -46,6 +46,7 @@ class GymMemberInformation(models.Model):
     next_of_kin = fields.Char('Next Of Kin', tracking=True)
     education_ids = fields.One2many('gym.education', 'member_id', string='Education')
     subscription_ids = fields.One2many('gym.subscription', 'member_id', string='Subscription')
+    active = fields.Boolean(string="Active", default=True)
 
     # handles singleton error on tree view
     def _compute_subscription_count(self):
