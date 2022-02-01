@@ -71,7 +71,7 @@
         <field name="name">gym.members.tree</field>
         <field name="model">gym.member.information</field>
         <field name="arch" type="xml">
-            <tree default_order="date_of_birth desc,id" multi_edit="1">
+            <tree default_order="date_of_birth desc,id" multi_edit="1" expand="1">
                 <field name="title" string="Title" optional="show"/>
                 <field name="first_name" string="First Name" optional="show"/>
                 <field name="middle_name" string="Middle Name" optional="show"/>
