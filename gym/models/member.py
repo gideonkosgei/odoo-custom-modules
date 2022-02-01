@@ -124,6 +124,7 @@ class GymMemberInformation(models.Model):
             'name': 'Subscriptions',
             'res_model': 'gym.subscription',
             'domain': [("member_id", "=", self.id)],
+            'context': {"default_member_id": self.id},
             'view_mode': 'tree,form',
             'target': 'current'
         }

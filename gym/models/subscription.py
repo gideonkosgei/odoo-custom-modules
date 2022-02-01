@@ -28,6 +28,8 @@ class GymSubscription(models.Model):
                               , tracking=True)
     active = fields.Boolean(string="Active", default = True)
 
+
+
     def action_confirm(self):
         for rec in self:
             rec.state = 'confirmed'

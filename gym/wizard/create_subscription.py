@@ -1,10 +1,19 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models, _
+from odoo import fields,api, models, _
 
 
 class CreateSubscriptionWizard(models.TransientModel):
     _name = "create.subscription.wizard"
     _description = "Create Subscription Wizard"
+
+    # override default values
+    @api.model
+    def default_get(self, fields):
+        res = super(CreateSubscriptionWizard, self).default_get(fields)
+        # print('..................', self._context)
+        if self._context.get('active_id'):
+            res['member_id'] = self._context.get('active_id')
+        return res
 
     member_id = fields.Many2one(comodel_name='gym.member.information', string='Member', required=True)
     start_date = fields.Date('Start Date', required=True)
@@ -17,6 +26,8 @@ class CreateSubscriptionWizard(models.TransientModel):
     email = fields.Char('Email', related='member_id.email')
     physical_address = fields.Char('Physical Address', related='member_id.physical_address')
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')], related='member_id.gender')
+
+
 
     def action_create_subscription(self):
         values = {
