@@ -89,7 +89,7 @@
                     <button name="action_cancelled" id="action_cancelled" string="cancelled"
                             type="object" states="draft,done,confirmed" confirm=" Are you sure you need to cancel?"/>
 
-                    <button name="action_url" id="action_url" string="Open Url"  states="draft,done,confirmed,cancelled"
+                    <button name="action_url" id="action_url" string="Open Url" states="draft,done,confirmed,cancelled"
                             type="object"/>
 
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
@@ -150,6 +150,9 @@
                     <filter string="Preferred Session" name="preferred_session"
                             context="{'group_by':'preferred_session'}"/>
                 </group>
+                <searchpanel>
+                    <field name="state" string="Status" enable_counters="1"/>
+                </searchpanel>
             </search>
         </field>
     </record>

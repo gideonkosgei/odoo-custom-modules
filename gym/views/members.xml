@@ -122,10 +122,11 @@
 
                 </header>
                 <sheet>
-                    <widget name="web_ribbon" title="Archived"  bg_color="bg-danger" attrs="{'invisible': [ ('active', '=', True)]}"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [ ('active', '=', True)]}"/>
 
                     <div class="oe_button_box" name="button_box">
-                        <button class="oe_stat_button" name="action_open_subscriptions"  type="object" icon="fa-bars">
+                        <button class="oe_stat_button" name="action_open_subscriptions" type="object" icon="fa-bars">
                             <div class="o_stat_info">
                                 <span class="o_stat_value">
                                     <field name="subscription_count"/>
@@ -252,6 +253,11 @@
                     <filter string="Marital Status" name="marital_status" context="{'group_by':'marital_status'}"/>
                     <filter string="Education Level" name="education_level" context="{'group_by':'education_level'}"/>
                 </group>
+                <searchpanel>
+                    <field name="state" string="Status" enable_counters="1"/>
+                    <field name="gender" string="Gender" select="multi" enable_counters="0"/>
+                    <field name="marital_status" string="Marital Status" enable_counters="0"/>
+                </searchpanel>
             </search>
         </field>
     </record>
