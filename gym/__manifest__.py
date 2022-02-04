@@ -8,7 +8,8 @@
     'website': '',
     'license': 'LGPL-3',
     'depends': [
-        'mail'
+        'mail',
+        'report_xlsx'
     ],
     'data': [
         'security/ir.model.access.csv',

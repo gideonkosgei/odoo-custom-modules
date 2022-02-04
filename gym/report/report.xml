@@ -9,4 +9,14 @@
         <field name="binding_model_id" ref="model_gym_member_information"/>
         <field name="binding_type">report</field>
     </record>
+
+     <record id="report_member_details_xlsx" model="ir.actions.report">
+        <field name="name">Member Details Excel </field>
+        <field name="model">gym.member.information</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">gym.report_gym_member_details_xls</field>
+        <field name="report_file">gym.report_gym_member_details_xls</field>
+        <field name="binding_model_id" ref="model_gym_member_information"/>
+        <field name="binding_type">report</field>
+    </record>
 </odoo>
