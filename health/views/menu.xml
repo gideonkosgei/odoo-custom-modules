@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_health_root"
+              name="Health"
+              sequence="10"/>
+
+    <menuitem id="menu_health_config"
+              name="Configurations"
+              parent="menu_health_root"
+              sequence="10"/>
+
+    <menuitem id="menu_health_config_catalogue"
+              name="Catalogues"
+              action="action_config_catalogue"
+              parent="menu_health_config"
+              sequence="1"/>
+
+
+</odoo>

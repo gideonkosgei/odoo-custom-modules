@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Affirmation -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">1</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Yes</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Positive Affirmation</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">1</field>
+            <field name="item_code">2</field>
+            <field name="item_name">No</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Negative Affirmation</field>
+        </record>
+
+        <!-- Mineral & Vitamin Supply -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">2</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Given</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Given Mineral &amp; Vitamin Supply</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">2</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Not given</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Not given Mineral &amp; Vitamin Supply</field>
+        </record>
+
+        <!-- General Appearance -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">3</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Dull</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Dull General Appearance</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">3</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Alert</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Alert General Appearance</field>
+        </record>
+
+
+        <!-- Body coat -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">4</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Rough</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Rough Body coat</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">4</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Shiny</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Shiny Body coat</field>
+        </record>
+
+        <!-- Health condition -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">5</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Normal</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Normal Health condition</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">5</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Emaciated</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Emaciated Health condition</field>
+        </record>
+
+        <!-- Appetite -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">6</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Normal</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Normal Appetite</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">6</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Off-fed</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Off-fed Appetite</field>
+        </record>
+
+        <!-- Eyes -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">7</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Dull</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Dull Eyes</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">7</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Bright</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Bright Eyes</field>
+        </record>
+
+        <!-- Udder Appearance -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">8</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Normal</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Normal Udder Appearance</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">8</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Swollen</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Swollen Udder Appearance</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">8</field>
+            <field name="item_code">3</field>
+            <field name="item_name">Oedematous</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Oedematous Udder Appearance</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">8</field>
+            <field name="item_code">4</field>
+            <field name="item_name">Hard</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Hard Udder Appearance</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">8</field>
+            <field name="item_code">5</field>
+            <field name="item_name">Soft</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Soft Udder Appearance</field>
+        </record>
+
+
+        <!-- Foetus Position -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">9</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Half delivered</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Half delivered Foetus Position</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">9</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Not visible</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Not visible Foetus Position</field>
+        </record>
+
+
+        <!--  Water bag -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">10</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Not visible</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Not visible Water Bag</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">10</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Coming out</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Coming out Water Bag</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">10</field>
+            <field name="item_code">3</field>
+            <field name="item_name">Intact</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Intact Water Bag</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">10</field>
+            <field name="item_code">4</field>
+            <field name="item_name">Ruptured</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Ruptured Water Bag</field>
+        </record>
+
+
+        <!--  Genital discharge -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">11</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Clear</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Clear Genital discharge</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">11</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Cloudy</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Cloudy Genital discharge</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">11</field>
+            <field name="item_code">3</field>
+            <field name="item_name">Watery</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Watery Genital discharge</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">11</field>
+            <field name="item_code">4</field>
+            <field name="item_name">With Pus</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">With Pus Genital discharge</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">11</field>
+            <field name="item_code">5</field>
+            <field name="item_name">Bloody</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Bloody Genital discharge</field>
+        </record>
+
+
+        <!--  Mucous Membrane Color -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">12</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Normal</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Normal Mucous Membrane Color</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">12</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Pale</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Pale Mucous Membrane Color</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">12</field>
+            <field name="item_code">3</field>
+            <field name="item_name">Reddish</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Reddish Mucous Membrane Color</field>
+        </record>
+
+        <!--    Mating Type -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">13</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Natural</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Natural Mating Type</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">13</field>
+            <field name="item_code">2</field>
+            <field name="item_name">AI</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">AI Mating Type</field>
+        </record>
+
+        <!--  Animal Type -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">14</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Cow</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Cow Animal Type</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">14</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Heifer</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Heifer Animal Type</field>
+        </record>
+
+        <!--  Foetus Status -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">15</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Foetus Dead</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Foetus dead Foetus Status</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">15</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Heifer</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Foetus Alive Foetus Status</field>
+        </record>
+
+        <!--  Fibrotic Change -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">16</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Mild</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Mild Fibrotic Change</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">16</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Moderate</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Moderate Fibrotic Change</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">16</field>
+            <field name="item_code">3</field>
+            <field name="item_name">Severe</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Severe Fibrotic Change</field>
+        </record>
+
+        <!--  Nutritional Plan -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">17</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Concentrate Feed</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Concentrate Feed Nutritional Plan</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">17</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Conventional Feed</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Conventional Feed Nutritional Plan</field>
+        </record>
+
+    </data>
+</odoo>
+
+

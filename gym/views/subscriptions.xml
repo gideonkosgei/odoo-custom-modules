@@ -49,7 +49,6 @@
         </field>
     </record>
 
-
     <record id="view_subscription_tree" model="ir.ui.view">
         <field name="name">gym.subscription.tree</field>
         <field name="model">gym.subscription</field>
@@ -173,7 +172,6 @@
         </field>
     </record>
 
-
     <menuitem id="menu_subscription_root"
               name="Subscriptions"
               parent="menu_gym_root"
@@ -187,12 +185,6 @@
               action="action_subscriptions"
     />
 
-    <!--    <menuitem id="menu_create_subscription"-->
-    <!--              name="Create Subscription"-->
-    <!--              parent="menu_subscription_root"-->
-    <!--              sequence="20"-->
-    <!--              action="create_subscription_wizard_action"-->
-    <!--    />-->
 
 
 </odoo>
