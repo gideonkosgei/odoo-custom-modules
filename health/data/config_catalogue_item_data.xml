@@ -81,6 +81,27 @@
             <field name="item_is_active">true</field>
             <field name="item_description">Emaciated Health condition</field>
         </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">5</field>
+            <field name="item_code">3</field>
+            <field name="item_name">Good condition </field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Frame covered &amp; covering well balanced </field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">5</field>
+            <field name="item_code">4</field>
+            <field name="item_name">Skinny </field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Frame from rear view obvious</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">5</field>
+            <field name="item_code">5</field>
+            <field name="item_name">severely Under Condition</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Frame obvious, vertebrae on middle of back depressed with processes obvious</field>
+        </record>
 
         <!-- Appetite -->
         <record model="health.config.catalogue.item">
@@ -304,7 +325,7 @@
         <record model="health.config.catalogue.item">
             <field name="catalogue_id">15</field>
             <field name="item_code">2</field>
-            <field name="item_name">Heifer</field>
+            <field name="item_name">Foetus Alive</field>
             <field name="item_is_active">true</field>
             <field name="item_description">Foetus Alive Foetus Status</field>
         </record>
@@ -346,6 +367,96 @@
             <field name="item_name">Conventional Feed</field>
             <field name="item_is_active">true</field>
             <field name="item_description">Conventional Feed Nutritional Plan</field>
+        </record>
+
+        <!-- Ease of Handling -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">18</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Minimal, still and calm </field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Minimal, still and calm </field>
+        </record>
+         <record model="health.config.catalogue.item">
+            <field name="catalogue_id">18</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Some stepping/moving</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Some stepping/moving</field>
+        </record>
+         <record model="health.config.catalogue.item">
+            <field name="catalogue_id">18</field>
+            <field name="item_code">3</field>
+            <field name="item_name">Moving and risk of kicking</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Moving and risk of kicking</field>
+        </record>
+         <record model="health.config.catalogue.item">
+            <field name="catalogue_id">18</field>
+            <field name="item_code">4</field>
+            <field name="item_name">Kicking more than once</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Kicking more than once</field>
+        </record>
+         <record model="health.config.catalogue.item">
+            <field name="catalogue_id">18</field>
+            <field name="item_code">5</field>
+            <field name="item_name">Animal dangerous to handle</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Animal dangerous to handle</field>
+        </record>
+
+        <!-- Lameness -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">19</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Lameness</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Lameness </field>
+        </record>
+         <record model="health.config.catalogue.item">
+            <field name="catalogue_id">19</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Not lame</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Not lame</field>
+        </record>
+
+         <!-- Breeds -->
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">20</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Brown Swiss</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Brown Swiss</field>
+        </record>
+         <record model="health.config.catalogue.item">
+            <field name="catalogue_id">20</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Ayrshire</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Ayrshire</field>
+        </record>
+         <record model="health.config.catalogue.item">
+            <field name="catalogue_id">20</field>
+            <field name="item_code">3</field>
+            <field name="item_name">Jersey</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Jersey</field>
+        </record>
+         <record model="health.config.catalogue.item">
+            <field name="catalogue_id">20</field>
+            <field name="item_code">4</field>
+            <field name="item_name">Guernsey</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Guernsey</field>
+        </record>
+         <record model="health.config.catalogue.item">
+            <field name="catalogue_id">20</field>
+            <field name="item_code">5</field>
+            <field name="item_name">Sahiwal</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Sahiwal</field>
         </record>
 
     </data>

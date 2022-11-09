@@ -14,9 +14,16 @@
         'security/ir.model.access.csv',
         'data/config_catalogue_data.xml',
         'data/config_catalogue_item_data.xml',
+        'data/country_data.xml',
         'views/config_catalogue.xml',
         'views/config_catalogue_item.xml',
+        'views/client.xml',
+        'views/animal.xml',
+        'views/farmer.xml',
+        'views/country.xml',
+        'views/odk_submission.xml',
         'views/menu.xml'
+
     ],
     'demo': [],
     'qweb': [],

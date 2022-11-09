@@ -16,3 +16,10 @@ class HealthConfigCatalogue(models.Model):
 
 
 
+
+
+
+
+
+
+

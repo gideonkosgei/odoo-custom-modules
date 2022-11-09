@@ -17,4 +17,34 @@
               sequence="1"/>
 
 
+    <menuitem id="menu_health_clients"
+              name="Clients"
+              parent="menu_health_root"
+              action="action_client"
+              sequence="10"/>
+
+    <menuitem id="menu_health_farmers"
+              name="Farmers"
+              parent="menu_health_root"
+              action="action_farmer"
+              sequence="10"/>
+    <menuitem id="menu_health_countries"
+              name="Countries"
+              parent="menu_health_root"
+              action="action_country"
+              sequence="10"/>
+
+    <menuitem id="menu_health_animals"
+              name="Animals"
+              parent="menu_health_root"
+              action="action_animal"
+              sequence="10"/>
+
+    <menuitem id="menu_health_odk_submissions"
+              name=" Odk Submissions"
+              parent="menu_health_root"
+              action="action_odk_submission"
+              sequence="10"/>
+
+
 </odoo>

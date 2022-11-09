@@ -18,8 +18,8 @@
             <field name="catalogue_description">Body coat Catalogue</field>
         </record>
         <record model="health.config.catalogue" id="5">
-            <field name="catalogue_name">Health condition</field>
-            <field name="catalogue_description">Health condition Catalogue</field>
+            <field name="catalogue_name">General Health condition</field>
+            <field name="catalogue_description">General Health condition Catalogue</field>
         </record>
         <record model="health.config.catalogue" id="6">
             <field name="catalogue_name">Appetite</field>
@@ -68,6 +68,18 @@
         <record model="health.config.catalogue" id="17">
             <field name="catalogue_name">Nutritional plan</field>
             <field name="catalogue_description">Nutritional Plan Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="18">
+            <field name="catalogue_name">Ease of Handling</field>
+            <field name="catalogue_description">Ease of Handling Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="19">
+            <field name="catalogue_name">Lameness</field>
+            <field name="catalogue_description">Lameness Catalogue</field>
+        </record>
+         <record model="health.config.catalogue" id="20">
+            <field name="catalogue_name">Breeds</field>
+            <field name="catalogue_description">Breeds Catalogue</field>
         </record>
     </data>
 </odoo>

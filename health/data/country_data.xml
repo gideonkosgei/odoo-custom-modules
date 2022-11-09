@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="health.country" id="1">
+            <field name="country_code">1</field>
+            <field name="country_name">Ethiopia</field>
+            <field name="iso_code">ET</field>
+            <field name="region_text">Region</field>
+            <field name="zone_text">Zone</field>
+            <field name="ward_text">Wereda</field>
+            <field name="village_text">Kebele</field>
+        </record>
+
+        <record model="health.country" id="2">
+            <field name="country_code">2</field>
+            <field name="country_name">Tanzania</field>
+            <field name="iso_code">TZ</field>
+            <field name="region_text">Region</field>
+            <field name="zone_text">District</field>
+            <field name="ward_text">Ward</field>
+            <field name="village_text">Village</field>
+        </record>
+
+         <record model="health.country" id="3">
+            <field name="country_code">3</field>
+            <field name="country_name">Kenya</field>
+            <field name="iso_code">KE</field>
+            <field name="region_text">County</field>
+            <field name="zone_text">Sub-County</field>
+            <field name="ward_text">Ward</field>
+            <field name="village_text">Sub-Location</field>
+        </record>
+
+         <record model="health.country" id="4">
+            <field name="country_code">4</field>
+            <field name="country_name">Nigeria</field>
+            <field name="iso_code">NG</field>
+            <field name="region_text">State</field>
+            <field name="zone_text">District</field>
+            <field name="ward_text">Iga</field>
+            <field name="village_text">Village</field>
+        </record>
+
+        <record model="health.country" id="5">
+            <field name="country_code">5</field>
+            <field name="country_name">Zambia</field>
+            <field name="iso_code">ZB</field>
+            <field name="region_text">Zone</field>
+            <field name="zone_text">District</field>
+            <field name="ward_text">Community</field>
+            <field name="village_text">Village</field>
+        </record>
+
+         <record model="health.country" id="6">
+            <field name="country_code">6</field>
+            <field name="country_name">Uganda</field>
+            <field name="iso_code">UG</field>
+            <field name="region_text">Region</field>
+            <field name="zone_text">District</field>
+            <field name="ward_text">Constituency</field>
+            <field name="village_text">Sub-County</field>
+        </record>
+
+        <record model="health.country" id="7">
+            <field name="country_code">7</field>
+            <field name="country_name">Nepal</field>
+            <field name="iso_code">NP</field>
+            <field name="region_text">Province</field>
+            <field name="zone_text">District</field>
+            <field name="ward_text">Ward</field>
+            <field name="village_text">Village</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+

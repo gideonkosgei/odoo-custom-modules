@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_client_kanban" model="ir.ui.view">
+        <field name="name">health.client.kanban</field>
+        <field name="model">health.client</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="client_name" string="Client Name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        Name:
+                                        <field name="client_name"/>
+                                    </li>
+                                    <li>
+                                        Address :
+                                        <field name="client_address"/>
+                                    </li>
+                                    <li>
+                                        Contact Number :
+                                        <field name="client_contact_number"/>
+                                    </li>
+
+                                    <li>
+                                        Place :
+                                        <field name="client_place"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_client_form" model="ir.ui.view">
+        <field name="name">health.client.form</field>
+        <field name="model">health.client</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h3>
+                            Client
+                        </h3>
+                        <br/>
+                        <br/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="client_name" string="Name"/>
+                            <field name="client_address" string="Address"/>
+                            <field name="client_contact_number" string="Contact Number"/>
+                            <field name="client_place" string="Place"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Animals" name="animals">
+                            <field name="animal_ids">
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="animal_identification_number" string="Identification Number"/>
+                                            <field name="breed_id" string="Breed" domain="[('catalogue_id', '=', 20)]" options="{'no_create_edit': True}"/>
+                                            <field name="animal_age" string="Age"/>
+                                            <field name="animal_type_id" string="Animal Type" domain="[('catalogue_id', '=', 14)]" options="{'no_create_edit': True}"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_client_search" model="ir.ui.view">
+        <field name="name">health.client.search</field>
+        <field name="model">health.client</field>
+        <field name="arch" type="xml">
+            <search string="Clients">
+                <field name="client_name"/>
+                <field name="client_address"/>
+                <field name="client_contact_number"/>
+                <field name="client_place"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_client_tree" model="ir.ui.view">
+        <field name="name">health.client.tree</field>
+        <field name="model">health.client</field>
+        <field name="arch" type="xml">
+            <tree expand="1">
+                <field name="id" string="Code" optional="show"/>
+                <field name="client_name" string="Name" optional="show"/>
+                <field name="client_address" string="Address" optional="show"/>
+                <field name="client_contact_number" string="Contact Number" optional="show"/>
+                <field name="client_address" string="Address" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_client" model="ir.actions.act_window">
+        <field name="name">Client</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">health.client</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Your 1st Client
+            </p>
+        </field>
+    </record>
+
+</odoo>

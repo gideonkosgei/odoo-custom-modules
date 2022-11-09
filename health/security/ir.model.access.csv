@@ -1,6 +1,21 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_health_config_catalogue,access.health.config.catalogue,model_health_config_catalogue,,1,1,1,1
 access_health_config_catalogue_item,access.health.config.catalogue.item,model_health_config_catalogue_item,,1,1,1,1
+access_health_client,access.health.client,model_health_client,,1,1,1,1
+access_health_animal,access.health.animal,model_health_animal,,1,1,1,1
+access_health_odk_submission,access.health.odk.submission,model_health_odk_submission,,1,1,1,1
+access_health_farmer,access.health.farmer,model_health_farmer,,1,1,1,1
+access_health_country,access.health.country,model_health_country,,1,1,1,1
+access_health_admin_unit_level_one,access.health.admin.unit.level.one,model_health_admin_unit_level_one,,1,1,1,1
+
+
+
+
+
+
+
+
+
 
 
 
