@@ -12,8 +12,8 @@ class HealthAdminUnitLevelThree(models.Model):
     country_id = fields.Many2one(comodel_name='health.country', string='Country', required=True,
                                  tracking=True)
     level_one_id = fields.Many2one(comodel_name='health.admin.unit.level.one', string='Level One', required=True,
-                                   tracking=True)
+                                   tracking=True, domain="[('country_id', '=', country_id)]")
     level_two_id = fields.Many2one(comodel_name='health.admin.unit.level.two', string='Level Two', required=True,
-                                   tracking=True)
+                                   tracking=True, domain="[('level_one_id', '=', level_one_id)]")
     level_code = fields.Char('Level Code', required=True, tracking=True)
     level_name = fields.Char('Level Name', required=True, tracking=True)

@@ -19,3 +19,5 @@ class HealthCountry(models.Model):
     admin_unit_level_four_ids = fields.One2many('health.admin.unit.level.four', 'country_id', string='Admin Units')
 
 
+
+

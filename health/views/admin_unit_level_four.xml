@@ -58,7 +58,7 @@
                     <group>
                         <group>
                             <field name="country_id"/>
-                            <field name="level_one_id"/>
+                            <field name="level_one_id" domain="[('country_id', '=', country_id)]"/>
                             <field name="level_two_id"/>
                             <field name="level_three_id"/>
                             <field name="level_code"/>
@@ -124,7 +124,7 @@
     </record>
 
     <record id="action_admin_unit_level_four" model="ir.actions.act_window">
-        <field name="name">Level F ourAdmin Unit</field>
+        <field name="name">Level Four Admin Unit</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">health.admin.unit.level.four</field>
         <field name="view_mode">tree,kanban,form</field>
