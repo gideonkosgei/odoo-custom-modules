@@ -2,7 +2,7 @@
 from odoo import fields, models
 
 
-class HealthClient(models.Model):
+class HealthCountry(models.Model):
     _name = "health.country"
     _description = "Country"
     _inherit = ["mail.thread", "mail.activity.mixin"]
@@ -16,5 +16,6 @@ class HealthClient(models.Model):
     zone_text = fields.Char('Zone Text', required=True, tracking=True)
     ward_text = fields.Char('Ward Text', required=True, tracking=True)
     village_text = fields.Char('Village Text', required=True, tracking=True)
-    admin_unit_level_one_ids = fields.One2many('health.admin.unit.level.one', 'level_code', string='Admin Unit')
-    farmer_ids = fields.One2many('health.farmer', 'country_id', string='Farmer')
+    admin_unit_level_four_ids = fields.One2many('health.admin.unit.level.four', 'country_id', string='Admin Units')
+
+

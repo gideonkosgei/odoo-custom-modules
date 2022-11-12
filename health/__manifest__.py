@@ -17,10 +17,13 @@
         'data/country_data.xml',
         'views/config_catalogue.xml',
         'views/config_catalogue_item.xml',
-        'views/client.xml',
         'views/animal.xml',
         'views/farmer.xml',
         'views/country.xml',
+        'views/admin_unit_level_one.xml',
+        'views/admin_unit_level_two.xml',
+        'views/admin_unit_level_three.xml',
+        'views/admin_unit_level_four.xml',
         'views/odk_submission.xml',
         'views/menu.xml'
 

@@ -37,11 +37,12 @@
     <!--                </templates>-->
     <!--            </kanban>-->
     <!--        </field>-->
+    <!--        </field>-->
     <!--    </record>-->
 
-    <record id="view_client_form" model="ir.ui.view">
-        <field name="name">health.farmer.form</field>
-        <field name="model">health.farmer</field>
+    <record id="view_admin_unit_level_three_form" model="ir.ui.view">
+        <field name="name">health.admin.unit.level.three.form</field>
+        <field name="model">health.admin.unit.level.three</field>
         <field name="arch" type="xml">
             <form>
                 <header>
@@ -49,21 +50,18 @@
                 <sheet>
                     <div class="oe_title">
                         <h3>
-                            Farmer
+                            Level Three Admin Unit
                         </h3>
                         <br/>
                         <br/>
                     </div>
                     <group>
                         <group>
-                            <field name="visiting_date" string="Date of Visit"
-                                   options="{'datepicker':{'maxDate': 'now'}}"/>
-                            <field name="visiting_doctor_name" string="Doctor's Name"/>
-                            <field name="farmer_name" string="Farmer's Name"/>
-                            <field name="farmer_phone_number" string="Farmer's Phone Number"/>
-                            <field name="country_id" options="{'no_create_edit': False}"/>
-                            <field name="level_one_id" options="{'no_create_edit': False}"/>
-
+                            <field name="country_id"/>
+                            <field name="level_one_id"/>
+                            <field name="level_two_id"/>
+                            <field name="level_code"/>
+                            <field name="level_name"/>
                         </group>
                     </group>
 
@@ -108,31 +106,33 @@
     <!--        </field>-->
     <!--    </record>-->
 
-    <record id="view_farmer_tree" model="ir.ui.view">
-        <field name="name">health.farmer.tree</field>
-        <field name="model">health.farmer</field>
+    <record id="view_admin_unit_level_three_tree" model="ir.ui.view">
+        <field name="name">health.admin.unit.level.three.tree</field>
+        <field name="model">health.admin.unit.level.three</field>
         <field name="arch" type="xml">
             <tree expand="1">
-                <field name="visiting_date" optional="show"/>
-                <field name="visiting_doctor_name" optional="show"/>
-                <field name="farmer_name" optional="show"/>
-                <field name="farmer_phone_number" optional="show"/>
+                <field name="id" optional="show"/>
                 <field name="country_id" optional="show"/>
+                <field name="level_one_id" optional="show"/>
+                <field name="level_two_id" optional="show"/>
+                <field name="level_code" optional="show"/>
+                <field name="level_name" optional="show"/>
             </tree>
         </field>
     </record>
 
-
-    <record id="action_farmer" model="ir.actions.act_window">
-        <field name="name">Farmer</field>
+    <record id="action_admin_unit_level_three" model="ir.actions.act_window">
+        <field name="name">Level Three Admin Unit</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">health.farmer</field>
+        <field name="res_model">health.admin.unit.level.three</field>
         <field name="view_mode">tree,kanban,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Register Your 1st Farmer
+                Register Your 1st Level Three Admin Unit
             </p>
         </field>
     </record>
 
 </odoo>
+
+
