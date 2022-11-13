@@ -14,3 +14,5 @@ class HealthAdminUnitLevelOne(models.Model):
     level_code = fields.Char('Level Code', required=True, tracking=True)
     level_name = fields.Char('Level Name', required=True, tracking=True)
 
+
+
