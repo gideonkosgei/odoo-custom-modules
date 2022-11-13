@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data>
         <record model="health.config.catalogue" id="1">
             <field name="catalogue_name">Affirmation</field>
             <field name="catalogue_description">Affirmation(Yes/No) Catalogue</field>
@@ -80,6 +80,10 @@
          <record model="health.config.catalogue" id="20">
             <field name="catalogue_name">Breeds</field>
             <field name="catalogue_description">Breeds Catalogue</field>
+        </record>
+         <record model="health.config.catalogue" id="21">
+            <field name="catalogue_name">Species</field>
+            <field name="catalogue_description">Species Catalogue</field>
         </record>
     </data>
 </odoo>

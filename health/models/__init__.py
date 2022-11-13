@@ -8,6 +8,7 @@ from . import admin_unit_level_four
 from . import animal
 from . import odk_submission
 from . import farmer
+from . import breed
 
 
 

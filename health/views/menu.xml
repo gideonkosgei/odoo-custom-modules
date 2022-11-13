@@ -21,6 +21,12 @@
               parent="menu_health_settings"
               sequence="2"/>
 
+     <menuitem id="menu_health_breed"
+              name="Breed Matrix"
+               action="action_breed"
+              parent="menu_health_settings"
+              sequence="3"/>
+
      <menuitem id="menu_health_countries"
               name="Countries"
               parent="menu_health_admin_units"

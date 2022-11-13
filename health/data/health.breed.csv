@@ -1,0 +1,233 @@
+country_id:id,species_id.id,breed_code,breed_name,breed_is_active
+1,60,6,Brown Swiss,1
+1,60,3,Ayrshire,1
+1,60,11,Jersey,1
+1,60,8,Guernsey,1
+1,60,16,Sheko,1
+1,60,9,Holstein Friesian,1
+1,60,23,Unknown,1
+1,60,17,Simmental,1
+1,60,4,Begait,1
+1,60,24,Zebu,1
+1,60,7,Fogera,1
+1,60,27,Ethiopian highland zebu,1
+1,60,28,Afar / Kereyu,1
+1,60,2,Arsi,1
+1,60,30,Horro,1
+1,60,31,Gamo Gofa,1
+1,60,5,Boran,1
+1,60,33,Holstein-Friesian crosses,1
+1,60,34,Jersey crosses,1
+1,60,35,Aberdeen Angus,1
+1,60,36,Brahman,1
+1,60,37,Hereford,1
+1,60,38,Santa Gertrudis,1
+1,60,39,Fleckvieh,1
+1,60,42,Red Poll,1
+1,60,43,Charolais,1
+1,60,-66,Others,1
+1,60,67,Ayrshire crosses,1
+1,60,68,Sahiwal crosses,1
+1,60,71,Guernsey crosses,1
+1,60,72,Australian Illawarra Shorthorn,1
+1,60,73,Girolando,1
+1,60,74,Milking Shorthorn,1
+1,60,75,Meuse Rhine Issel,1
+1,60,76,Scandinavian Red,1
+1,60,77,Montb�liarde,1
+1,60,26,Local Zebu,1
+1,60,78,Arado,1
+1,60,79,Gir,1
+1,60,85,Ethiopian short horn zebu,1
+1,60,86,Abergele,1
+1,60,87,Raya,1
+2,60,6,Brown Swiss,1
+2,60,3,Ayrshire,1
+2,60,11,Jersey,1
+2,60,8,Guernsey,1
+2,60,9,Holstein Friesian,1
+2,60,23,Unknown,1
+2,60,1,Ankole,1
+2,60,10,Iringa Red,1
+2,60,12,Masaai,1
+2,60,13,Mbulu,1
+2,60,14,Mpwapwa,1
+2,60,17,Simmental,1
+2,60,18,Singida White,1
+2,60,19,Sukuma,1
+2,60,20,Tanzania Short Horn Zebu,1
+2,60,21,Tarime,1
+2,60,22,Ufipa,1
+2,60,24,Zebu,1
+2,60,5,Boran,1
+2,60,33,Holstein-Friesian crosses,1
+2,60,34,Jersey crosses,1
+2,60,35,Aberdeen Angus,1
+2,60,36,Brahman,1
+2,60,37,Hereford,1
+2,60,38,Santa Gertrudis,1
+2,60,39,Fleckvieh,1
+2,60,42,Red Poll,1
+2,60,43,Charolais,1
+2,60,-66,Others,1
+2,60,67,Ayrshire crosses,1
+2,60,68,Sahiwal crosses,1
+2,60,71,Guernsey crosses,1
+2,60,72,Australian Illawarra Shorthorn,1
+2,60,73,Girolando,1
+2,60,74,Milking Shorthorn,1
+2,60,75,Meuse Rhine Issel,1
+2,60,76,Scandinavian Red,1
+2,60,77,Montb�liarde,1
+2,60,26,Local Zebu,1
+2,60,79,Gir,1
+3,60,6,Brown Swiss,1
+3,60,3,Ayrshire,1
+3,60,11,Jersey,1
+3,60,8,Guernsey,1
+3,60,15,Sahiwal,1
+3,60,9,Holstein Friesian,1
+3,60,23,Unknown,1
+3,60,1,Ankole,1
+3,60,12,Masaai,1
+3,60,17,Simmental,1
+3,60,24,Zebu,1
+3,60,5,Boran,1
+3,60,33,Holstein-Friesian crosses,1
+3,60,34,Jersey crosses,1
+3,60,35,Aberdeen Angus,1
+3,60,36,Brahman,1
+3,60,37,Hereford,1
+3,60,38,Santa Gertrudis,1
+3,60,39,Fleckvieh,1
+3,60,42,Red Poll,1
+3,60,43,Charolais,1
+3,60,-66,Others,1
+3,60,67,Ayrshire crosses,1
+3,60,68,Sahiwal crosses,1
+3,60,71,Guernsey crosses,1
+3,60,72,Australian Illawarra Shorthorn,1
+3,60,73,Girolando,1
+3,60,74,Milking Shorthorn,1
+3,60,75,Meuse Rhine Issel,1
+3,60,76,Scandinavian Red,1
+3,60,77,Montb�liarde,1
+3,60,26,Local Zebu,1
+3,60,79,Gir,1
+4,60,6,Brown Swiss,1
+4,60,3,Ayrshire,1
+4,60,11,Jersey,1
+4,60,8,Guernsey,1
+4,60,9,Holstein Friesian,1
+4,60,23,Unknown,1
+4,60,17,Simmental,1
+4,60,24,Zebu,1
+4,60,5,Boran,1
+4,60,33,Holstein-Friesian crosses,1
+4,60,34,Jersey crosses,1
+4,60,35,Aberdeen Angus,1
+4,60,36,Brahman,1
+4,60,37,Hereford,1
+4,60,38,Santa Gertrudis,1
+4,60,39,Fleckvieh,1
+4,60,41,N'Dama,1
+4,60,42,Red Poll,1
+4,60,43,Charolais,1
+4,60,-66,Others,1
+4,60,67,Ayrshire crosses,1
+4,60,68,Sahiwal crosses,1
+4,60,71,Guernsey crosses,1
+4,60,72,Australian Illawarra Shorthorn,1
+4,60,73,Girolando,1
+4,60,74,Milking Shorthorn,1
+4,60,75,Meuse Rhine Issel,1
+4,60,76,Scandinavian Red,1
+4,60,77,Montb�liarde,1
+4,60,26,Local Zebu,1
+4,60,79,Gir,1
+4,60,81,Bunaji,1
+4,60,82,Gudali,1
+4,60,83,Red Bororo,1
+4,60,84,Azwak,1
+5,60,6,Brown Swiss,1
+5,60,3,Ayrshire,1
+5,60,11,Jersey,1
+5,60,8,Guernsey,1
+5,60,9,Holstein Friesian,1
+5,60,23,Unknown,1
+5,60,17,Simmental,1
+5,60,24,Zebu,1
+5,60,5,Boran,1
+5,60,33,Holstein-Friesian crosses,1
+5,60,34,Jersey crosses,1
+5,60,35,Aberdeen Angus,1
+5,60,36,Brahman,1
+5,60,37,Hereford,1
+5,60,38,Santa Gertrudis,1
+5,60,39,Fleckvieh,1
+5,60,42,Red Poll,1
+5,60,43,Charolais,1
+5,60,-66,Others,1
+5,60,67,Ayrshire crosses,1
+5,60,68,Sahiwal crosses,1
+5,60,71,Guernsey crosses,1
+5,60,72,Australian Illawarra Shorthorn,1
+5,60,73,Girolando,1
+5,60,74,Milking Shorthorn,1
+5,60,75,Meuse Rhine Issel,1
+5,60,76,Scandinavian Red,1
+5,60,77,Montb�liarde,1
+5,60,26,Local Zebu,1
+5,60,79,Gir,1
+6,60,6,Brown Swiss,1
+6,60,3,Ayrshire,1
+6,60,11,Jersey,1
+6,60,8,Guernsey,1
+6,60,9,Holstein Friesian,1
+6,60,23,Unknown,1
+6,60,1,Ankole,1
+6,60,17,Simmental,1
+6,60,24,Zebu,1
+6,60,5,Boran,1
+6,60,33,Holstein-Friesian crosses,1
+6,60,34,Jersey crosses,1
+6,60,35,Aberdeen Angus,1
+6,60,36,Brahman,1
+6,60,37,Hereford,1
+6,60,38,Santa Gertrudis,1
+6,60,39,Fleckvieh,1
+6,60,40,Nganda,1
+6,60,42,Red Poll,1
+6,60,43,Charolais,1
+6,60,-66,Others,1
+6,60,67,Ayrshire crosses,1
+6,60,68,Sahiwal crosses,1
+6,60,71,Guernsey crosses,1
+6,60,72,Australian Illawarra Shorthorn,1
+6,60,73,Girolando,1
+6,60,74,Milking Shorthorn,1
+6,60,75,Meuse Rhine Issel,1
+6,60,76,Scandinavian Red,1
+6,60,77,Montb�liarde,1
+6,60,26,Local Zebu,1
+6,60,79,Gir,1
+7,60,11,Jersey,1
+7,60,9,Holstein Friesian,1
+7,60,33,Holstein-Friesian crosses,1
+7,60,34,Jersey crosses,1
+7,60,89,Lulu,1
+7,60,90,Siri,1
+7,60,91,Achhami,1
+7,60,92,Khaila,1
+7,60,93,Terai,1
+7,60,94,Pahadi,1
+7,61,95,Lime,1
+7,61,96,Parkote,1
+7,61,97,Gaddi,1
+7,61,98,Terai,1
+7,61,99,Murrah,1
+7,61,100,Nili Ravi,1
+7,61,101,Murrah - Lime,1
+7,61,102,Murrah - Terai,1
+7,61,103,Murrah - Parkote,1
+7,61,104,Gaddi - Nili Ravi,1

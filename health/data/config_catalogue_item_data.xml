@@ -458,6 +458,21 @@
             <field name="item_is_active">true</field>
             <field name="item_description">Sahiwal</field>
         </record>
+<!--        species-->
+         <record model="health.config.catalogue.item">
+            <field name="catalogue_id">21</field>
+            <field name="item_code">7</field>
+            <field name="item_name">Cattle</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Cattle</field>
+        </record>
+         <record model="health.config.catalogue.item">
+            <field name="catalogue_id">21</field>
+            <field name="item_code">8</field>
+            <field name="item_name">Buffalo</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Buffalo</field>
+        </record>
 
     </data>
 </odoo>
