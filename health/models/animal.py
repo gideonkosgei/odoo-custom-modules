@@ -12,11 +12,13 @@ class HealthAnimal(models.Model):
     farmer_id = fields.Many2one(comodel_name='health.farmer', string='Farmer', required=True,
                                 tracking=True)
     animal_identification_number = fields.Char('Identification Number', tracking=True, required=True, )
-    breed_id = fields.Many2one(comodel_name='health.config.catalogue.item', string='Breed',
-                               tracking=True, required=True)
-    animal_age = fields.Float('Age', tracking=True)
+    species_id = fields.Many2one(comodel_name='health.config.catalogue.item', string='Species',
+                                 tracking=True, required=True)
+    breed_id = fields.Many2one(comodel_name='health.breed', string='Breed',
+                               tracking=True, required=True, domain="[('species_id', '=', species_id)]")
+    animal_age = fields.Float('Age', tracking=True, required=True)
     animal_type_id = fields.Many2one(comodel_name='health.config.catalogue.item', string='Animal Type',
-                                     tracking=True)
+                                     tracking=True, required=True)
     age_at_first_heat = fields.Integer('Age at first heat', tracking=True)
     interval_btw_2_3_successive_heats = fields.Integer('Interval between two/three successive heats, if not conceived',
                                                        tracking=True)
