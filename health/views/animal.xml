@@ -71,18 +71,48 @@
                     </group>
                     <notebook>
 
+                        <page string="Heat Details" name="animal_heat_details">
+                            <form>
+                                <group>
+                                    <div class="row">
+                                        <label for="age_at_first_heat" class="col-lg-5"/>
+                                        <field name="age_at_first_heat" id="age_at_first_heat" class="oe_inline"/>
+                                        <label for="show_sign_of_heat_after_first_heat" class="col-lg-5"/>
+                                        <field name="show_sign_of_heat_after_first_heat"
+                                               domain="[('catalogue_id', '=', 1)]"
+                                               options="{'no_create_edit': True}" class="oe_inline"/>
+                                        <label for="interval_btw_2_3_successive_heats" class="col-lg-5 "/>
+                                        <field name="interval_btw_2_3_successive_heats"
+                                               attrs="{'invisible': [('show_sign_of_heat_after_first_heat', '=', 2)]}"
+                                               class="oe_inline"/>
+                                    </div>
+                                </group>
+                            </form>
+                        </page>
+
+                        <page string="Calving Details" name="animal_calving_details">
+                            <form>
+                                <group>
+                                    <div class="row">
+                                        <label for="age_at_first_calving" class="col-lg-5"/>
+                                        <field name="age_at_first_calving" class="oe_inline"/>
+                                        <label for="number_of_lactation" class="col-lg-5"/>
+                                        <field name="number_of_lactation" class="oe_inline"/>
+                                        <label for="time_interval_btw_last_calving_to_next_heat" class="col-lg-5 "/>
+                                        <field name="time_interval_btw_last_calving_to_next_heat" class="oe_inline"/>
+                                        <label for="time_interval_btw_last_calving_to_next_conception"
+                                               class="col-lg-5 "/>
+                                        <field name="time_interval_btw_last_calving_to_next_conception"
+                                               class="oe_inline"/>
+                                    </div>
+                                </group>
+                            </form>
+                        </page>
+
                         <page string="Reproduction" name="animals_reproduction_details">
                             <form>
                                 <group>
                                     <group>
-                                        <field name="age_at_first_heat"/>
-                                        <field name="interval_btw_2_3_successive_heats"/>
-                                        <field name="age_at_first_calving"/>
-                                        <field name="number_of_lactation"/>
-                                        <field name="time_interval_btw_last_calving_to_next_heat"/>
-                                    </group>
-                                    <group>
-                                        <field name="time_interval_btw_last_calving_to_next_conception"/>
                                         <field name="type_of_mating" domain="[('catalogue_id', '=', 13)]"
                                                options="{'no_create_edit': True}"/>
                                         <field name="date_of_service"/>

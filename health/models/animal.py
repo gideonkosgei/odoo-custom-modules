@@ -19,15 +19,19 @@ class HealthAnimal(models.Model):
     animal_age = fields.Float('Age', tracking=True, required=True)
     animal_type_id = fields.Many2one(comodel_name='health.config.catalogue.item', string='Animal Type',
                                      tracking=True, required=True)
-    age_at_first_heat = fields.Integer('Age at first heat', tracking=True)
-    interval_btw_2_3_successive_heats = fields.Integer('Interval between two/three successive heats, if not conceived',
+    age_at_first_heat = fields.Integer('Age at first heat(Months)', tracking=True)
+    show_sign_of_heat_after_first_heat = fields.Many2one(comodel_name='health.config.catalogue.item',
+                                                         string='Show Sign Of Heat After First Heat',
+                                                         tracking=True)
+    interval_btw_2_3_successive_heats = fields.Integer('Interval Between Successive Heats (Days)',
                                                        tracking=True)
-    age_at_first_calving = fields.Integer('Age at first calving', tracking=True)
+    age_at_first_calving = fields.Integer('Age at first calving(months)', tracking=True)
     number_of_lactation = fields.Integer('No. of lactation', tracking=True)
-    time_interval_btw_last_calving_to_next_heat = fields.Integer('Time interval between last calving to next heat',
-                                                                 tracking=True)
+    time_interval_btw_last_calving_to_next_heat = fields.Integer(
+        'Time interval between last calving to next heat(months)',
+        tracking=True)
     time_interval_btw_last_calving_to_next_conception = fields.Integer(
-        'Time interval between last calving to next conception', tracking=True)
+        'Time interval between last calving to next conception(months)', tracking=True)
     type_of_mating = fields.Many2one(comodel_name='health.config.catalogue.item', string='Type Of Mating',
                                      tracking=True)
     date_of_service = fields.Date('Date of artificial insemination /natural mating', tracking=True)
