@@ -28,14 +28,17 @@ class HealthAnimal(models.Model):
     age_at_first_calving = fields.Integer('Age at first calving(months)', tracking=True)
     number_of_lactation = fields.Integer('No. of lactation', tracking=True)
     time_interval_btw_last_calving_to_next_heat = fields.Integer(
-        'Time interval between last calving to next heat(months)',
+        'Interval between last calving to next heat(months)',
         tracking=True)
     time_interval_btw_last_calving_to_next_conception = fields.Integer(
-        'Time interval between last calving to next conception(months)', tracking=True)
+        'Interval between last calving to next conception(months)', tracking=True)
     type_of_mating = fields.Many2one(comodel_name='health.config.catalogue.item', string='Type Of Mating',
                                      tracking=True)
-    date_of_service = fields.Date('Date of artificial insemination /natural mating', tracking=True)
-    months_of_gestation_at_present = fields.Integer('Months of gestation at present, if conceived',
+    date_of_service = fields.Date('Last Service Date', tracking=True)
+    conception_after_last_service = fields.Many2one(comodel_name='health.config.catalogue.item',
+                                                    string='Conception After Last Service',
+                                                    tracking=True, domain="[('catalogue_id', '=',1)]")
+    months_of_gestation_at_present = fields.Integer('Gestation At Present(months)',
                                                     tracking=True)
     number_of_ai_per_conception = fields.Integer('No. of AI required per conception', tracking=True)
 
@@ -114,7 +117,6 @@ class HealthAnimal(models.Model):
                                tracking=True)
 
     dystocia_foetus_status = fields.Many2one(comodel_name='health.config.catalogue.item', string='Foetus Status',
-
                                              tracking=True)
 
     retention_of_placenta = fields.Many2one(comodel_name='health.config.catalogue.item',
@@ -124,6 +126,10 @@ class HealthAnimal(models.Model):
 
     abortion = fields.Many2one(comodel_name='health.config.catalogue.item',
                                string='Abortion', tracking=True)
+
+    abortion_count = fields.Integer('Abortion Count', tracking=True)
+
+    abortion_month = fields.Integer('Abortion Gestation Stage(months)', tracking=True)
 
     still_birth = fields.Many2one(comodel_name='health.config.catalogue.item', string='Still birth',
                                   tracking=True)

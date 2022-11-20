@@ -33,6 +33,7 @@
         <field name="model">health.config.catalogue.item</field>
         <field name="arch" type="xml">
             <tree sample="1">
+                <field name="id" string="ID"/>
                 <field name="item_code" string="Code"/>
                 <field name="item_name" string="Name"/>
                 <field name="item_description" string="Description"/>
