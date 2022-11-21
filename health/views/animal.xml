@@ -71,7 +71,7 @@
                     </group>
                     <notebook>
 
-                        <page string="Heat Details" name="animal_heat_details">
+                        <page string="Heat" name="animal_heat_details">
                             <form>
                                 <group>
                                     <div class="row">
@@ -92,7 +92,7 @@
                             </form>
                         </page>
 
-                        <page string="Calving Details" name="animal_calving_details">
+                        <page string="Calving" name="animal_calving_details">
                             <form>
                                 <group>
                                     <div class="row">
@@ -111,7 +111,7 @@
                             </form>
                         </page>
 
-                        <page string="Breeding Details" name="animals_breeding_details">
+                        <page string="Breeding" name="animals_breeding_details">
                             <form>
                                 <group>
                                     <div class="row">
@@ -142,7 +142,7 @@
                             </form>
                         </page>
 
-                        <page string="Fertility Details" name="animal_fertility_details">
+                        <page string="Fertility" name="animal_fertility_details">
                             <form>
                                 <group col="4">
                                     <field name="dystocia" domain="[('catalogue_id', '=', 1)]"/>
@@ -166,7 +166,7 @@
                                     <field name="abortion" domain="[('catalogue_id', '=', 1)]"/>
                                     <field name="abortion_count"
                                            attrs="{'invisible': [('abortion', '=', 2)]}"/>
-                                     <field name="abortion_month"
+                                    <field name="abortion_month"
                                            attrs="{'invisible': [('abortion', '=', 2)]}"/>
                                 </group>
 
@@ -178,40 +178,48 @@
                             </form>
                         </page>
 
-                          <page string="Diseases/Condition History" name="prev_disease_history">
-                            <form>
+                        <page string="Diseases/Condition" name="prev_disease_history">
 
 
+                            <group col="4">
+                                <field name="repeat_breeding" domain="[('catalogue_id', '=', 1)]"/>
+                                <field name="repeat_breeding_count"
+                                       attrs="{'invisible': [('repeat_breeding', '=', 2)]}"/>
+                            </group>
+                            <group col="4">
+                                <field name="hip_dislocation_fracture_history"
+                                       domain="[('catalogue_id', '=', 1)]"/>
+                                <field name="duration_of_the_existing_disease"
+                                       domain="[('catalogue_id', '=', 1)]"
+                                       string="Recovery length"
+                                       attrs="{'invisible': [('hip_dislocation_fracture_history', '=', 2)]}"
+                                       />
+                            </group>
 
-                                <group col="4">
-                                    <field name="repeat_breeding" domain="[('catalogue_id', '=', 1)]"/>
-                                    <field name="repeat_breeding_count"
-                                           attrs="{'invisible': [('repeat_breeding', '=', 2)]}"/>
-                                </group>
 
-                                <group>
-                                    <field name="teat_canal_blockage" domain="[('catalogue_id', '=', 1)]" style="width: 40%%"/>
-                                    <field name="lameness_history" domain="[('catalogue_id', '=', 1)]" style="width: 40%%"/>
-                                    <field name="hip_dislocation_fracture_history"
-                                           domain="[('catalogue_id', '=', 1)]" style="width: 40%%"/>
-                                    <field name="duration_of_the_existing_disease"
-                                           domain="[('catalogue_id', '=', 1)]" style="width: 40%%"/>
-                                </group>
+                            <group col="4">
+                                <field name="lameness_history" domain="[('catalogue_id', '=', 1)]" />
+                                <field name="lameness_treatment"
+                                       attrs="{'invisible': [('lameness_history', '=', 2)]}" />
+                            </group>
 
-                                <group col="4">
-                                    <field name="mastitis" domain="[('catalogue_id', '=', 1)]"/>
-                                    <field name="mastitis_quarters_affected"
-                                           attrs="{'invisible': [('mastitis', '=', 2)]}"/>
-                                </group>
+                            <group col="6">
+                                <field name="mastitis" domain="[('catalogue_id', '=', 1)]"/>
+                                <field name="mastitis_quarters_affected"
+                                       attrs="{'invisible': [('mastitis', '=', 2)]}"/>
+                                 <field name="teat_canal_blockage" domain="[('catalogue_id', '=', 1)]"
+                                  attrs="{'invisible': [('mastitis', '=', 2)]}"
+                                 />
+                            </group>
 
-                                <group col="4">
+                            <group col="4">
 
-                                    <field name="udder_fibrotic_change" domain="[('catalogue_id', '=', 1)]"/>
-                                    <field name="udder_fibrotic_change_status"
-                                           attrs="{'invisible': [('udder_fibrotic_change', '=', 2)]}"
-                                           domain="[('catalogue_id', '=', 16)]"/>
-                                </group>
-                            </form>
+                                <field name="udder_fibrotic_change" domain="[('catalogue_id', '=', 1)]"/>
+                                <field name="udder_fibrotic_change_status"
+                                       attrs="{'invisible': [('udder_fibrotic_change', '=', 2)]}"
+                                       domain="[('catalogue_id', '=', 16)]"/>
+                            </group>
+
                         </page>
 
                         <page string="Previous Treatment" name="previous_treatment">

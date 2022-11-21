@@ -140,7 +140,7 @@ class HealthAnimal(models.Model):
     mastitis_quarters_affected = fields.Integer('Quarters Affected', tracking=True)
 
     teat_canal_blockage = fields.Many2one(comodel_name='health.config.catalogue.item',
-                                          string='Is there any blockage of teat canal?', tracking=True)
+                                          string='Teat Canal Blockage', tracking=True)
 
     udder_fibrotic_change = fields.Many2one(comodel_name='health.config.catalogue.item',
                                             string='Is there any fibrotic change in the udder?',
@@ -158,6 +158,8 @@ class HealthAnimal(models.Model):
 
     lameness_history = fields.Many2one(comodel_name='health.config.catalogue.item', string='History of lameness',
                                        tracking=True)
+
+    lameness_treatment = fields.Text(string='Treatment', tracking=True)
 
     per_rectum_examination_findings = fields.Text('Findings of per rectum examination', tracking=True)
     rapid_tests_done = fields.Many2one(comodel_name='health.config.catalogue.item', string='Rapid Tests Done?',
