@@ -44,33 +44,33 @@ class HealthAnimal(models.Model):
 
     general_appearance = fields.Many2one(comodel_name='health.config.catalogue.item', string='General Appearance',
                                          tracking=True)
-
     body_coat = fields.Many2one(comodel_name='health.config.catalogue.item', string='Body coat',
                                 tracking=True)
-
     general_health_condition = fields.Many2one(comodel_name='health.config.catalogue.item',
                                                string='General health condition',
                                                tracking=True)
-
     appetite = fields.Many2one(comodel_name='health.config.catalogue.item', string='Appetite',
                                tracking=True)
-
     eyes = fields.Many2one(comodel_name='health.config.catalogue.item', string='Eyes',
                            tracking=True)
+    wounded = fields.Many2one(comodel_name='health.config.catalogue.item', string='wounded(>2 cm diameter)',
+                              tracking=True, domain="[('catalogue_id', '=',1)]")
+    wound_count = fields.Integer('Number of Wound(s)', tracking=True)
+    wounded_area = fields.Text('Wounded Area', tracking=True)
 
-    number_location_of_wounds = fields.Integer('Number and location of any wounds >2 cm diameter',
-                                               tracking=True)
-
-    number_location_of_hair_loss_patches = fields.Integer('Number and location of any patches of hair loss >2 cm',
-                                                          tracking=True)
+    hair_patched = fields.Many2one(comodel_name='health.config.catalogue.item', string='Hair Patches(>2 cm diameter)',
+                                   tracking=True, domain="[('catalogue_id', '=',1)]")
+    hair_patches_count = fields.Integer('Number of Hair Patch(es)', tracking=True)
+    hair_patch_location = fields.Text('Hair Patch Location(s)', tracking=True)
 
     lameness = fields.Many2one(comodel_name='health.config.catalogue.item', string='Lameness',
                                tracking=True)
 
     body_temperature = fields.Float('Body Temperature(°C)', tracking=True)
     presence_of_injury_in_the_abdomen = fields.Many2one(comodel_name='health.config.catalogue.item',
-                                                        string='Presence of injury in the abdomen',
+                                                        string='Abdominal InjuryPresence',
                                                         tracking=True)
+    abdominal_injury_type = fields.Text('Injury Type', tracking=True)
     presence_of_external_parasite = fields.Many2one(comodel_name='health.config.catalogue.item',
                                                     string='Presence of external parasite',
                                                     tracking=True)
