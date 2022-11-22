@@ -119,7 +119,7 @@
                                         <field name="type_of_mating" domain="[('catalogue_id', '=', 13)]"
                                                options="{'no_create_edit': True}" class="oe_inline"/>
                                         <label for="date_of_service" class="col-lg-5"/>
-                                        <field name="date_of_service" class="oe_inline"/>
+                                        <field name="date_of_service" options="{'datepicker':{'maxDate': 'now'}}" class="oe_inline"/>
 
                                         <label for="conception_after_last_service" class="col-lg-5"/>
                                         <field name="conception_after_last_service" class="oe_inline"/>
@@ -222,16 +222,21 @@
 
                         </page>
 
-                        <page string="Previous Treatment" name="previous_treatment">
-                            <form>
-                                <group>
+                        <page string="Vaccination" name="vaccination_records">
+                            <field name="vaccination_ids">
+                                <tree editable ="bottom">
+                                    <field name="vaccination_date"/>
+                                    <field name="vaccine_id"/>
+                                </tree>
+                                <form>
                                     <group>
-                                        <field name="vaccination_disease"/>
-                                        <field name="vaccination_date"/>
-                                        <field name="deworming_date"/>
+                                        <group>
+                                            <field name="vaccination_date" options="{'datepicker':{'maxDate': 'now'}}"/>
+                                            <field name="vaccine_id"/>
+                                        </group>
                                     </group>
-                                </group>
-                            </form>
+                                </form>
+                            </field>
                         </page>
 
                         <page string="External Appearance" name="animal_external_appearance">

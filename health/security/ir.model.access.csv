@@ -10,6 +10,7 @@ access_health_admin_unit_level_two,access.health.admin.unit.level.two,model_heal
 access_health_admin_unit_level_three,access.health.admin.unit.level.three,model_health_admin_unit_level_three,,1,1,1,1
 access_health_admin_unit_level_four,access.health.admin.unit.level.four,model_health_admin_unit_level_four,,1,1,1,1
 access_health_breed,access.health.breed,model_health_breed,,1,1,1,1
+access_health_vaccination,access.health.vaccination,model_health_vaccination,,1,1,1,1
 
 
 

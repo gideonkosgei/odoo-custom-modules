@@ -189,10 +189,4 @@ class HealthAnimal(models.Model):
     advised = fields.Many2one(comodel_name='health.config.catalogue.item', string='Advised?',
                               tracking=True)
     treatment_advice_given = fields.Text('Advice given', tracking=True)
-
-    vaccination_disease = fields.Text('Disease Vaccinated', tracking=True)
-    vaccination_date = fields.Date('Vaccination Date', tracking=True)
-    deworming_date = fields.Date('Deworming Date', tracking=True)
-
-
-
+    vaccination_ids = fields.One2many('health.vaccination', 'animal_id', string='Vaccination')

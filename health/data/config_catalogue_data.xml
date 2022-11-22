@@ -85,6 +85,10 @@
             <field name="catalogue_name">Species</field>
             <field name="catalogue_description">Species Catalogue</field>
         </record>
+          <record model="health.config.catalogue" id="22">
+            <field name="catalogue_name">Vaccination Type</field>
+            <field name="catalogue_description">Vaccination Type Catalogue</field>
+        </record>
     </data>
 </odoo>
 

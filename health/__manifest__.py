@@ -32,7 +32,6 @@
         'views/admin_unit_level_four.xml',
         'views/odk_submission.xml',
         'views/menu.xml'
-
     ],
     'demo': [],
     'qweb': [],
