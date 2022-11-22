@@ -164,9 +164,22 @@ class HealthAnimal(models.Model):
     per_rectum_examination_findings = fields.Text('Findings of per rectum examination', tracking=True)
     rapid_tests_done = fields.Many2one(comodel_name='health.config.catalogue.item', string='Rapid Tests Done?',
                                        tracking=True)
+    rapid_tests_1 = fields.Text('Rapid Test(1)', tracking=True)
+    rapid_tests_2 = fields.Text('Rapid Test(2)', tracking=True)
+    rapid_tests_3 = fields.Text('Rapid Test(3)', tracking=True)
 
-    lab_test_recommended = fields.Text('Lab test recommended', tracking=True)
-    lab_test_results = fields.Text('Lab test results', tracking=True)
+    lab_test_recommended = fields.Many2one(comodel_name='health.config.catalogue.item', string='Lab Test Recommended',
+                                           tracking=True)
+    lab_tests_1 = fields.Text('Lab Test(1)', tracking=True)
+    lab_tests_2 = fields.Text('Lab Test(2)', tracking=True)
+    lab_tests_3 = fields.Text('Lab Test(3)', tracking=True)
+
+    lab_test_results = fields.Many2one(comodel_name='health.config.catalogue.item', string='Lab test results?',
+                                       tracking=True)
+    lab_test_result_1 = fields.Text('Lab Test Result(1)', tracking=True)
+    lab_test_result_2 = fields.Text('Lab Test Result(2)', tracking=True)
+    lab_test_result_3 = fields.Text('Lab Test Result(3)', tracking=True)
+
     treatment_advice_given = fields.Text('Treatment / Advice given', tracking=True)
 
     vaccination_disease = fields.Text('Disease Vaccinated', tracking=True)
