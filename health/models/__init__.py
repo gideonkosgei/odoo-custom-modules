@@ -10,6 +10,7 @@ from . import odk_submission
 from . import farmer
 from . import breed
 from . import vaccination
+from . import deworming
 
 
 

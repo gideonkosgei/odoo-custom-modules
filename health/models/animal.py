@@ -190,3 +190,4 @@ class HealthAnimal(models.Model):
                               tracking=True)
     treatment_advice_given = fields.Text('Advice given', tracking=True)
     vaccination_ids = fields.One2many('health.vaccination', 'animal_id', string='Vaccination')
+    deworming_ids = fields.One2many('health.deworming', 'animal_id', string='De-worming')

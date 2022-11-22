@@ -3,7 +3,7 @@ from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
 
-class HealthConfigCatalogueItem(models.Model):
+class HealthVaccination(models.Model):
     _name = "health.vaccination"
     _description = "Vaccination"
     _inherit = ["mail.thread", "mail.activity.mixin"]
