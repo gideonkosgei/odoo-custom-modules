@@ -180,7 +180,15 @@ class HealthAnimal(models.Model):
     lab_test_result_2 = fields.Text('Lab Test Result(2)', tracking=True)
     lab_test_result_3 = fields.Text('Lab Test Result(3)', tracking=True)
 
-    treatment_advice_given = fields.Text('Treatment / Advice given', tracking=True)
+    treated = fields.Many2one(comodel_name='health.config.catalogue.item', string='Treated?',
+                              tracking=True)
+    treatment_1 = fields.Text('Treatment(1)', tracking=True)
+    treatment_2 = fields.Text('Treatment(2)', tracking=True)
+    treatment_3 = fields.Text('Treatment(3)', tracking=True)
+
+    advised = fields.Many2one(comodel_name='health.config.catalogue.item', string='Advised?',
+                              tracking=True)
+    treatment_advice_given = fields.Text('Advice given', tracking=True)
 
     vaccination_disease = fields.Text('Disease Vaccinated', tracking=True)
     vaccination_date = fields.Date('Vaccination Date', tracking=True)
@@ -191,3 +199,5 @@ class HealthAnimal(models.Model):
     regular_supply_of_minerals_and_vitamins = fields.Many2one(comodel_name='health.config.catalogue.item',
                                                               string='Regular Supply Of Minerals & Vitamins',
                                                               tracking=True)
+
+

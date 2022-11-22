@@ -329,14 +329,17 @@
 
                         <page string="Treatment &amp; Advice" name="lab_and_treatment">
                             <form>
-                                <group>
-                                    <group>
-                                        <field name="per_rectum_examination_findings"/>
-                                        <field name="treatment_advice_given"/>
-                                    </group>
+                                <group col="8">
+                                    <field name="treated" domain="[('catalogue_id', '=', 1)]"/>
+                                    <field name="treatment_1" attrs="{'invisible': [('treated', '=', 2)]}"/>
+                                    <field name="treatment_2" attrs="{'invisible': [('treated', '=', 2)]}"/>
+                                    <field name="treatment_3" attrs="{'invisible': [('treated', '=', 2)]}"/>
                                 </group>
 
-
+                                <group col="4">
+                                    <field name="advised"/>
+                                    <field name="treatment_advice_given" attrs="{'invisible': [('advised', '=', 2)]}"/>
+                                </group>
                             </form>
                         </page>
 
