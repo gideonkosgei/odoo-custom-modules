@@ -193,11 +193,6 @@ class HealthAnimal(models.Model):
     vaccination_disease = fields.Text('Disease Vaccinated', tracking=True)
     vaccination_date = fields.Date('Vaccination Date', tracking=True)
     deworming_date = fields.Date('Deworming Date', tracking=True)
-    nutritional_plan = fields.Many2one(comodel_name='health.config.catalogue.item', string='Nutritional Plan',
-                                       tracking=True)
 
-    regular_supply_of_minerals_and_vitamins = fields.Many2one(comodel_name='health.config.catalogue.item',
-                                                              string='Regular Supply Of Minerals & Vitamins',
-                                                              tracking=True)
 
 

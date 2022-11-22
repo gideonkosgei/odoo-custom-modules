@@ -27,3 +27,9 @@ class HealthFarmer(models.Model):
     level_four_id = fields.Many2one(comodel_name='health.admin.unit.level.four', required=True, string='Level 4',
                                     tracking=True,
                                     domain="[('level_three_id', '=', level_three_id)]")
+    nutritional_plan = fields.Many2one(comodel_name='health.config.catalogue.item', string='Feed Type',
+                                       tracking=True)
+
+    regular_supply_of_minerals_and_vitamins = fields.Many2one(comodel_name='health.config.catalogue.item',
+                                                              string='Minerals & Vitamins',
+                                                              tracking=True)

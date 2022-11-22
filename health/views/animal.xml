@@ -229,9 +229,6 @@
                                         <field name="vaccination_disease"/>
                                         <field name="vaccination_date"/>
                                         <field name="deworming_date"/>
-                                        <field name="nutritional_plan" domain="[('catalogue_id', '=', 17)]"/>
-                                        <field name="regular_supply_of_minerals_and_vitamins"
-                                               domain="[('catalogue_id', '=', 2)]"/>
                                     </group>
                                 </group>
                             </form>
@@ -335,9 +332,8 @@
                                     <field name="treatment_2" attrs="{'invisible': [('treated', '=', 2)]}"/>
                                     <field name="treatment_3" attrs="{'invisible': [('treated', '=', 2)]}"/>
                                 </group>
-
                                 <group col="4">
-                                    <field name="advised"/>
+                                    <field name="advised" domain="[('catalogue_id', '=', 1)]"/>
                                     <field name="treatment_advice_given" attrs="{'invisible': [('advised', '=', 2)]}"/>
                                 </group>
                             </form>
