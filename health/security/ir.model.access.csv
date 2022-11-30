@@ -12,6 +12,9 @@ access_health_admin_unit_level_four,access.health.admin.unit.level.four,model_he
 access_health_breed,access.health.breed,model_health_breed,,1,1,1,1
 access_health_vaccination,access.health.vaccination,model_health_vaccination,,1,1,1,1
 access_health_deworming,access.health.deworming,model_health_deworming,,1,1,1,1
+access_health_odk_user,access.health.odk.user,model_health_odk_user,,1,1,1,1
+
+
 
 
 

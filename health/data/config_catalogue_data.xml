@@ -89,6 +89,10 @@
             <field name="catalogue_name">Vaccination Type</field>
             <field name="catalogue_description">Vaccination Type Catalogue</field>
         </record>
+         <record model="health.config.catalogue" id="23">
+            <field name="catalogue_name">User Roles </field>
+            <field name="catalogue_description">User Roles Catalogue</field>
+        </record>
     </data>
 </odoo>
 

@@ -12,6 +12,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'security/security_access.xml',
         'data/config_catalogue_data.xml',
         'data/config_catalogue_item_data.xml',
         'data/health.country.csv',
@@ -31,6 +32,7 @@
         'views/admin_unit_level_three.xml',
         'views/admin_unit_level_four.xml',
         'views/odk_submission.xml',
+        'views/odk_user.xml',
         'views/menu.xml'
     ],
     'demo': [],

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<data noupdate="1">
+
+    <record id="access_health_catalogues" model="res.groups">
+        <field name="name">Health Catalogue</field>
+    </record>
+
+</data>
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_odk_user_form" model="ir.ui.view">
+        <field name="model">health.odk.user</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h3>
+                            ODK User
+                        </h3>
+                        <br/>
+                        <br/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="full_name"/>
+                            <field name="username"/>
+                            <field name="country_id"/>
+                            <field name="password"/>
+                            <field name="role" options="{'no_create_edit': False}"/>
+                            <field name="legacy_code"/>
+                            <field name="is_active"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_odk_user_tree" model="ir.ui.view">
+        <field name="name">health.odk.user.tree</field>
+        <field name="model">health.odk.user</field>
+        <field name="arch" type="xml">
+            <tree expand="1">
+                <field name="full_name" optional="show"/>
+                <field name="username" optional="show"/>
+                <field name="country_id" optional="show"/>
+                <field name="password" optional="hide"/>
+                <field name="role" optional="show"/>
+                <field name="legacy_code" optional="show"/>
+                <field name="is_active" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_odk_user" model="ir.actions.act_window">
+        <field name="name">ODK User</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">health.odk.user</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register Your 1st ODK User
+            </p>
+        </field>
+    </record>
+
+</odoo>

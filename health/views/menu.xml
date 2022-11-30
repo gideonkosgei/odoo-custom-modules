@@ -26,6 +26,11 @@
                action="action_breed"
               parent="menu_health_settings"
               sequence="3"/>
+     <menuitem id="menu_health_odk_users"
+              name="ODK Users"
+               action="action_odk_user"
+              parent="menu_health_settings"
+              sequence="4"/>
 
      <menuitem id="menu_health_countries"
               name="Countries"

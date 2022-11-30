@@ -11,9 +11,4 @@ from . import farmer
 from . import breed
 from . import vaccination
 from . import deworming
-
-
-
-
-
-
+from . import odk_user

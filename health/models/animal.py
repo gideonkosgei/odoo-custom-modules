@@ -21,7 +21,7 @@ class HealthAnimal(models.Model):
                                      tracking=True, required=True)
     age_at_first_heat = fields.Integer('Age at first heat(Months)', tracking=True)
     show_sign_of_heat_after_first_heat = fields.Many2one(comodel_name='health.config.catalogue.item',
-                                                         string='Show Sign Of Heat After First Heat',
+                                                         string='Sign Of Heat After First Heat?',
                                                          tracking=True)
     interval_btw_2_3_successive_heats = fields.Integer('Interval Between Successive Heats (Days)',
                                                        tracking=True)
