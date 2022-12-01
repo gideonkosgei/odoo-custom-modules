@@ -10,6 +10,7 @@ class HealthOdkSubmission(models.Model):
 
     odk_submitted_object = fields.Text('Submission Object', required=True, tracking=True)
     is_processed = fields.Boolean('Is Processed', required=True, tracking=True, default=False)
+    submission_uuid = fields.Text('submission UUID', tracking=True)
 
 
 

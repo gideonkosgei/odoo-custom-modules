@@ -33,3 +33,4 @@ class HealthFarmer(models.Model):
     regular_supply_of_minerals_and_vitamins = fields.Many2one(comodel_name='health.config.catalogue.item',
                                                               string='Minerals & Vitamins',
                                                               tracking=True)
+    submission_uuid = fields.Text('submission UUID', tracking=True)

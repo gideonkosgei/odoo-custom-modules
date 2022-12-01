@@ -12,3 +12,4 @@ class HealthDeworming(models.Model):
     animal_id = fields.Many2one(comodel_name='health.animal', string='Animal',
                                 tracking=True)
     deworming_date = fields.Date('Date', tracking=True)
+    submission_uuid = fields.Text('submission UUID', tracking=True)
