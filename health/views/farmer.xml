@@ -58,9 +58,8 @@
                         <group>
                             <field name="visiting_date" string="Date of Visit"
                                    options="{'datepicker':{'maxDate': 'now'}}"/>
-                            <field name="visiting_doctor_name" string="Doctor's Name"/>
-                            <field name="farmer_name" string="Farmer's Name"/>
-                            <field name="farmer_phone_number" string="Farmer's Phone Number"/>
+                            <field name="farmer_name"/>
+                            <field name="farmer_phone_number"/>
                             <field name="country_id" options="{'no_create_edit': False}"/>
                             <field name="level_one_id" options="{'no_create_edit': False}"/>
                             <field name="level_two_id" options="{'no_create_edit': False}"/>
@@ -114,7 +113,6 @@
         <field name="arch" type="xml">
             <tree expand="1">
                 <field name="visiting_date" optional="show"/>
-                <field name="visiting_doctor_name" optional="show"/>
                 <field name="farmer_name" optional="show"/>
                 <field name="farmer_phone_number" optional="show"/>
                 <field name="country_id" optional="show"/>
