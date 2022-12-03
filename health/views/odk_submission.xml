@@ -40,7 +40,8 @@
                         <h3>
                             ODK Submission
                         </h3>
-                        <br/> <br/>
+                        <br/>
+                        <br/>
                     </div>
                     <group>
                         <group>
@@ -75,8 +76,24 @@
         <field name="arch" type="xml">
             <tree expand="1">
                 <field name="id" string="Code" optional="show"/>
-                <field name="odk_submitted_object" string="ODK Object" optional="show"/>
-                <field name="is_processed" string="Is Processed" optional="show"/>
+                <field name="odk_submitted_object" optional="show"/>
+                <field name="is_processed" optional="show"/>
+                <field name="submission_uuid" optional="show"/>
+                <field name="_id" optional="show"/>
+                <field name="start_time" optional="show"/>
+                <field name="end_time" optional="show"/>
+                <field name="form_id" optional="show"/>
+                <field name="form_name" optional="show"/>
+                <field name="instance_name" optional="show"/>
+                <field name="submitted_by" optional="show"/>
+                <field name="geo_location" optional="show"/>
+                <field name="instance_id" optional="show"/>
+                <field name="form_edited" optional="show"/>
+                <field name="version" optional="show"/>
+                <field name="duration" optional="show"/>
+                <field name="gps_location_lon" optional="show"/>
+                <field name="gps_location_lat" optional="show"/>
+                <field name="user_account" optional="show"/>
             </tree>
         </field>
     </record>

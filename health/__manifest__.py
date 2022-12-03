@@ -1,7 +1,7 @@
 {
-    'name': 'Health ',
+    'name': 'Animal Health ',
     'version': '1.O.0',
-    'summary': 'Animal & Human Health',
+    'summary': 'Animal Health Module',
     'sequence': 10,
     'description': """Animal & Human Health Module""",
     'category': 'Productivity',

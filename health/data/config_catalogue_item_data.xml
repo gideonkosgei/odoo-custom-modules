@@ -576,6 +576,13 @@
             <field name="item_is_active">true</field>
             <field name="item_description">Administrator</field>
         </record>
+         <record model="health.config.catalogue.item">
+            <field name="catalogue_id">23</field>
+            <field name="item_code">4</field>
+            <field name="item_name">Trainer</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Trainer</field>
+        </record>
 
 
     </data>

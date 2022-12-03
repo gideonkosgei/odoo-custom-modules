@@ -2,7 +2,7 @@
 <odoo>
 
     <menuitem id="menu_health_root"
-              name="Health"
+              name="Animal Health"
               sequence="10"/>
 
     <menuitem id="menu_health_settings"
