@@ -555,33 +555,120 @@
         </record>
 
         <!--user roles-->
-         <record model="health.config.catalogue.item">
+        <record model="health.config.catalogue.item">
             <field name="catalogue_id">23</field>
             <field name="item_code">1</field>
             <field name="item_name">Village Promoter</field>
             <field name="item_is_active">true</field>
             <field name="item_description">Village Promoter</field>
         </record>
-         <record model="health.config.catalogue.item">
+        <record model="health.config.catalogue.item">
             <field name="catalogue_id">23</field>
             <field name="item_code">2</field>
             <field name="item_name">Vet</field>
             <field name="item_is_active">true</field>
             <field name="item_description">Vet</field>
         </record>
-         <record model="health.config.catalogue.item">
+        <record model="health.config.catalogue.item">
             <field name="catalogue_id">23</field>
             <field name="item_code">3</field>
             <field name="item_name">Administrator</field>
             <field name="item_is_active">true</field>
             <field name="item_description">Administrator</field>
         </record>
-         <record model="health.config.catalogue.item">
+        <record model="health.config.catalogue.item">
             <field name="catalogue_id">23</field>
             <field name="item_code">4</field>
             <field name="item_name">Trainer</field>
             <field name="item_is_active">true</field>
             <field name="item_description">Trainer</field>
+        </record>
+
+        -- farm type
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">24</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Small-Scale Farm (1-5 Animals)</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Small-Scale Farm (1-5 Animals)</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">24</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Medium-Scale Farm (Between 5 and 25 Animals)</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Medium-Scale Farm (Between 5 and 25 Animals)</field>
+
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">24</field>
+            <field name="item_code">3</field>
+            <field name="item_name">Large-Scale Farm (>25 Animals)</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Large-Scale Farm (>25 Animals)</field>
+        </record>
+
+
+        -- age Group
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">25</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Teenage(15-17 Years)</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Teenage(15-17 Years)</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">25</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Youth(18-29 Years)</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Youth(18-29 Years)</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">25</field>
+            <field name="item_code">3</field>
+            <field name="item_name">Middle Age Adult(30-45 Years)</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Middle Age Adult(30-45 Years)</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">25</field>
+            <field name="item_code">4</field>
+            <field name="item_name">Elder(>45 Years)</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Elder(>45 Years)</field>
+        </record>
+
+        -- gender / sex
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">26</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Male</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Male</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">26</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Female</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Female</field>
+        </record>
+
+        --Birth Date Accuracy
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">27</field>
+            <field name="item_code">1</field>
+            <field name="item_name">Actual Date Of Birth</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Actual Date Of Birth</field>
+        </record>
+        <record model="health.config.catalogue.item">
+            <field name="catalogue_id">27</field>
+            <field name="item_code">2</field>
+            <field name="item_name">Estimated Date Of Birth</field>
+            <field name="item_is_active">true</field>
+            <field name="item_description">Estimated Date Of Birth</field>
         </record>
 
 

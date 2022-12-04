@@ -58,8 +58,11 @@
                         <group>
                             <field name="visiting_date" string="Date of Visit"
                                    options="{'datepicker':{'maxDate': 'now'}}"/>
+                            <field name="farm_type"/>
                             <field name="farmer_name"/>
                             <field name="farmer_phone_number"/>
+                            <field name="age_group"/>
+                            <field name="gender"/>
                             <field name="country_id" options="{'no_create_edit': False}"/>
                             <field name="level_one_id" options="{'no_create_edit': False}"/>
                             <field name="level_two_id" options="{'no_create_edit': False}"/>

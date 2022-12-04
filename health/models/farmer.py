@@ -10,7 +10,7 @@ class HealthFarmer(models.Model):
     _rec_name = "farmer_name"
 
     visiting_date = fields.Date('Date Of Visit', required=True, tracking=True)
-    farmer_name = fields.Char('Name', required=True, tracking=True)
+    farmer_name = fields.Char('Farmer Name', required=True, tracking=True)
     farmer_phone_number = fields.Char('Phone Number', tracking=True, required=True)
     country_id = fields.Many2one(comodel_name='health.country', string='Country', required=True, tracking=True)
     level_one_id = fields.Many2one(comodel_name='health.admin.unit.level.one', required=True, string='Level 1',
@@ -31,4 +31,13 @@ class HealthFarmer(models.Model):
     regular_supply_of_minerals_and_vitamins = fields.Many2one(comodel_name='health.config.catalogue.item',
                                                               string='Minerals & Vitamins',
                                                               tracking=True)
+    farm_type = fields.Many2one(comodel_name='health.config.catalogue.item', string='Farm Type', tracking=True,
+                                required=True,
+                                domain="[('catalogue_id', '=',24)]")
+    age_group = fields.Many2one(comodel_name='health.config.catalogue.item', string='Age Group', tracking=True,
+                                required=True,
+                                domain="[('catalogue_id', '=',25)]")
+    gender = fields.Many2one(comodel_name='health.config.catalogue.item', string=' Farmer Gender', required=True,
+                             tracking=True,
+                             domain="[('catalogue_id', '=',26)]")
     submission_uuid = fields.Text('submission UUID', tracking=True)

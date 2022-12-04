@@ -93,6 +93,22 @@
             <field name="catalogue_name">User Roles </field>
             <field name="catalogue_description">User Roles Catalogue</field>
         </record>
+        <record model="health.config.catalogue" id="24">
+            <field name="catalogue_name">Farm Type </field>
+            <field name="catalogue_description">Farm Type Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="25">
+            <field name="catalogue_name">Age Group </field>
+            <field name="catalogue_description">Age Group Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="26">
+            <field name="catalogue_name">Sex/Gender</field>
+            <field name="catalogue_description">Sex/Gender</field>
+        </record>
+        <record model="health.config.catalogue" id="27">
+            <field name="catalogue_name">Birth Date Accuracy</field>
+            <field name="catalogue_description">Birth Date Accuracy</field>
+        </record>
     </data>
 </odoo>
 

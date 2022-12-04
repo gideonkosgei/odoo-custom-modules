@@ -16,7 +16,9 @@ class HealthAnimal(models.Model):
                                  tracking=True, required=True)
     breed_id = fields.Many2one(comodel_name='health.breed', string='Breed',
                                tracking=True, required=True, domain="[('species_id', '=', species_id)]")
-    animal_age = fields.Float('Age', tracking=True, required=True)
+    animal_dob = fields.Date('Birth Date', tracking=True, required=True)
+    dob_accuracy = fields.Many2one(comodel_name='health.config.catalogue.item', string='DOB Accuracy', required=True,
+                                   tracking=True, domain="[('catalogue_id', '=',27)]")
     animal_type_id = fields.Many2one(comodel_name='health.config.catalogue.item', string='Animal Type',
                                      tracking=True, required=True)
     age_at_first_heat = fields.Integer('Age at first heat(Months)', tracking=True)
