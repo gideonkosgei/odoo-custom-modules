@@ -193,5 +193,5 @@ class HealthAnimal(models.Model):
     treatment_advice_given = fields.Text('Advice given', tracking=True)
     vaccination_ids = fields.One2many('health.vaccination', 'animal_id', string='Vaccination')
     deworming_ids = fields.One2many('health.deworming', 'animal_id', string='De-worming')
-    dk_user_id = fields.Many2one(comodel_name='health.odk.user', string='ODK User', required=True, tracking=True)
+    odk_user_id = fields.Many2one(comodel_name='health.odk.user', string='ODK User', tracking=True)
     submission_uuid = fields.Text('submission UUID', tracking=True)

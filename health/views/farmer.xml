@@ -123,6 +123,7 @@
                 <field name="level_two_id" optional="show"/>
                 <field name="level_three_id" optional="show"/>
                 <field name="level_four_id" optional="show"/>
+                <field name="odk_user_id" optional="show"/>
             </tree>
         </field>
     </record>

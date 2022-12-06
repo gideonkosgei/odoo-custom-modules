@@ -93,7 +93,7 @@
                 <field name="duration" optional="show"/>
                 <field name="gps_location_lon" optional="show"/>
                 <field name="gps_location_lat" optional="show"/>
-                <field name="user_account" optional="show"/>
+                <field name="odk_users" optional="show"/>
             </tree>
         </field>
     </record>

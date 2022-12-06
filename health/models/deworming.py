@@ -12,5 +12,5 @@ class HealthDeworming(models.Model):
     animal_id = fields.Many2one(comodel_name='health.animal', string='Animal',
                                 tracking=True)
     deworming_date = fields.Date('Date', tracking=True)
-    dk_user_id = fields.Many2one(comodel_name='health.odk.user', string='ODK User', required=True, tracking=True)
+    odk_user_id = fields.Many2one(comodel_name='health.odk.user', string='ODK User', tracking=True)
     submission_uuid = fields.Text('submission UUID', tracking=True)
