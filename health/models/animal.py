@@ -40,7 +40,7 @@ class HealthAnimal(models.Model):
     conception_after_last_service = fields.Many2one(comodel_name='health.config.catalogue.item',
                                                     string='Conception After Last Service',
                                                     tracking=True, domain="[('catalogue_id', '=',1)]")
-    months_of_gestation_at_present = fields.Integer('Gestation At Present(months)',
+    months_of_gestation_at_present = fields.Float('Gestation At Present(months)',
                                                     tracking=True)
     number_of_ai_per_conception = fields.Integer('No. of AI required per conception', tracking=True)
 
@@ -109,7 +109,7 @@ class HealthAnimal(models.Model):
     delayed_post_partum_heat = fields.Many2one(comodel_name='health.config.catalogue.item',
                                                string='Delayed post-partum heat ', tracking=True)
 
-    delayed_post_partum_heat_length = fields.Integer('Delay Length', tracking=True)
+    delayed_post_partum_heat_length = fields.Float('Delay Length', tracking=True)
 
     repeat_breeding = fields.Many2one(comodel_name='health.config.catalogue.item', string='Repeat breeding',
                                       tracking=True)
