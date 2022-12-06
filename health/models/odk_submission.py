@@ -24,5 +24,5 @@ class HealthOdkSubmission(models.Model):
     duration = fields.Float('Duration', tracking=True)
     gps_location_lon = fields.Float('GPS Longitude', tracking=True)
     gps_location_lat = fields.Float('GPS Latitude', tracking=True)
-    user_account = fields.Integer('User Account', tracking=True)
+    odk_users = fields.Integer('User Account', tracking=True)
     is_processed = fields.Boolean('Is Processed', required=True, tracking=True, default=False)

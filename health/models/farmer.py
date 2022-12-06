@@ -40,4 +40,5 @@ class HealthFarmer(models.Model):
     gender = fields.Many2one(comodel_name='health.config.catalogue.item', string=' Farmer Gender', required=True,
                              tracking=True,
                              domain="[('catalogue_id', '=',26)]")
+    dk_user_id = fields.Many2one(comodel_name='health.odk.user', string='ODK User', required=True, tracking=True)
     submission_uuid = fields.Text('submission UUID', tracking=True)

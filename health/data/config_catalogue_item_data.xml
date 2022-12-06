@@ -558,16 +558,16 @@
         <record model="health.config.catalogue.item">
             <field name="catalogue_id">23</field>
             <field name="item_code">1</field>
-            <field name="item_name">Village Promoter</field>
+            <field name="item_name">Village Livestock Promoter</field>
             <field name="item_is_active">true</field>
-            <field name="item_description">Village Promoter</field>
+            <field name="item_description">Village Livestock Promoter</field>
         </record>
         <record model="health.config.catalogue.item">
             <field name="catalogue_id">23</field>
             <field name="item_code">2</field>
-            <field name="item_name">Vet</field>
+            <field name="item_name">Veterinary Technician</field>
             <field name="item_is_active">true</field>
-            <field name="item_description">Vet</field>
+            <field name="item_description">Veterinary Technician</field>
         </record>
         <record model="health.config.catalogue.item">
             <field name="catalogue_id">23</field>

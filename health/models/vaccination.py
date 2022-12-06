@@ -14,4 +14,5 @@ class HealthVaccination(models.Model):
     vaccine_id = fields.Many2one(comodel_name='health.config.catalogue.item', string='Vaccine',
                                  tracking=True, domain="[('catalogue_id', '=', 22)]")
     vaccination_date = fields.Date('Date', tracking=True)
+    dk_user_id = fields.Many2one(comodel_name='health.odk.user', string='ODK User', required=True, tracking=True)
     submission_uuid = fields.Text('submission UUID', tracking=True)
