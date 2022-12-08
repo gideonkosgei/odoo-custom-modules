@@ -1,9 +1,5 @@
-id,country_code,country_name,iso_code,region_text,zone_text,ward_text,village_text
-1,1,Ethiopia,ET,Region,Zone,Wereda,Kebele
-2,2,Tanzania,TZ,Region,District,Ward,Village
-3,3,Kenya,KE,County,Sub-County,Ward,Sub-Location
-4,4,Nigeria,NG,State,District,Iga,Village
-5,5,Zambia,ZB,Zone,District,Sub-Location,Village
-6,6,Uganda,UG,Region,District,Constituency,Sub-County
-7,7,Nepal,NP,Province,District,Ward,Village
+country_code,country_name,iso_code,region_text,zone_text,ward_text,village_text
+1,Ethiopia,ET,Region,Zone,Wereda,Kebele
+2,Tanzania,TZ,Region,District,Ward,Village
+
 
