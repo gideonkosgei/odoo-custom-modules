@@ -20,7 +20,7 @@
         # 'data/health.admin.unit.level.two.csv',
         # 'data/health.admin.unit.level.three.csv',
         # 'data/health.admin.unit.level.four.csv',
-        # 'data/health.breed.csv',
+        'data/health.breed.csv',
         'views/config_catalogue.xml',
         'views/config_catalogue_item.xml',
         'views/animal.xml',
