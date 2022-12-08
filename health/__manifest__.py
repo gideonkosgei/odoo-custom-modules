@@ -15,7 +15,7 @@
         'security/security_access.xml',
         'data/config_catalogue_data.xml',
         'data/config_catalogue_item_data.xml',
-        # 'data/health.country.csv',
+        'data/health.country.csv',
         # 'data/health.admin.unit.level.one.csv',
         # 'data/health.admin.unit.level.two.csv',
         # 'data/health.admin.unit.level.three.csv',
