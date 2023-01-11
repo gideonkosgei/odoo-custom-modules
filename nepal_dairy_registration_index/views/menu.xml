@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_nepal_dairy_index_root"
+              name="Nepal Dairy Registration Index"
+              sequence="10"/>
+
+    <menuitem id="menu_nepal_dairy_index_settings"
+              name="Settings"
+              parent="menu_nepal_dairy_index_root"
+              sequence="1"/>
+
+    <menuitem id="menu_nepal_dairy_index_list"
+              name="Lists"
+              action="action_nepal_dairy_index_list"
+              parent="menu_nepal_dairy_index_settings"
+              sequence="1"/>
+
+    <menuitem id="menu_nepal_dairy_index_breed"
+              name="Breeds"
+              action="action_nepal_dairy_index_breed"
+              parent="menu_nepal_dairy_index_settings"
+              sequence="2"/>
+</odoo>

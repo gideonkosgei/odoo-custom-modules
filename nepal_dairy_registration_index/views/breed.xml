@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_nepal_dairy_index_breed_form" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.breed.form</field>
+        <field name="model">nepal.dairy.index.breed</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h3>
+                            Breed
+                        </h3>
+                        <br/>
+                        <br/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="species_id" options="{'no_create_edit': False}"/>
+                            <field name="breed_name"/>
+                            <field name="breed_is_active"/>
+                        </group>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_nepal_dairy_index_breed_search" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.breed.search</field>
+        <field name="model">nepal.dairy.index.breed</field>
+        <field name="arch" type="xml">
+            <search string="Breeds">
+                <field name="species_id"/>
+                <field name="breed_name"/>
+                <field name="breed_is_active"/>
+                 <separator/>
+                <filter string="Cattle" name="cattle" domain="[('species_id','=','Cattle')]"/>
+                <filter string="Buffalo" name="buffalo" domain="[('species_id','=','Buffalo')]"/>
+                <filter string="Active" name="active" domain="[('breed_is_active','=',True)]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Species" name="species_id" context="{'group_by':'species_id'}"/>
+                </group>
+                <searchpanel>
+                    <fieldstring name="species_id" string="Species"  select="multi"  enable_counters="0"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="view_nepal_dairy_index_breed_tree" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.breed.tree</field>
+        <field name="model">nepal.dairy.index.breed</field>
+        <field name="arch" type="xml">
+            <tree expand="1">
+                <field name="species_id" optional="show"/>
+                <field name="breed_name" optional="show"/>
+                <field name="breed_is_active" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_nepal_dairy_index_breed" model="ir.actions.act_window">
+        <field name="name">Breed</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">nepal.dairy.index.breed</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register Your 1st Breed
+            </p>
+        </field>
+    </record>
+
+</odoo>

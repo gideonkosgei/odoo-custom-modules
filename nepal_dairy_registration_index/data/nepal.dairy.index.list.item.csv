@@ -1,0 +1,13 @@
+"list_id.id","item_name","item_is_active","item_description"
+1,"Male",true,"Male "
+1,"Female",true,"Female"
+2,"Cattle",true,"Cattle"
+2,"Buffalo",true,"Buffalo"
+3,"Small-Scale Farmer (1-5 Animals)",true,"Small-Scale Farmer (1-5 Animals)"
+3,"Medium-Scale Farmer (6-25 Animals)",true,"Medium-Scale Farmer (6-25 Animals)"
+3,"Large-Scale Farmer (>25 Animals)",true,"Large-Scale Farmer (>25 Animals)"
+
+
+
+
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_nepal_dairy_index_list_item_form" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.list.item.form</field>
+        <field name="model">nepal.dairy.index.list.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="list_id" string="List" options="{'no_create_edit': False}"/>
+                            <field name="item_name" string="Name"/>
+                            <field name="item_is_active" string="Active"/>
+                            <field name="item_description" string="Description"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_nepal_dairy_index_list_item_tree" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.list.item.tree</field>
+        <field name="model">nepal.dairy.index.list.item</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="id" string="ID"/>
+                <field name="item_name" string="Name"/>
+                <field name="item_description" string="Description"/>
+                <field name="item_is_active" string="Active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_nepal_dairy_index_list_item" model="ir.actions.act_window">
+        <field name="name">List Items</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">nepal.dairy.index.list.item</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Your First List Item
+            </p>
+        </field>
+    </record>
+
+</odoo>
