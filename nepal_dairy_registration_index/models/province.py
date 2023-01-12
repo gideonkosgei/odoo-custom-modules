@@ -33,7 +33,7 @@ class NepalDairyIndexProvince(models.Model):
     def action_open_districts_from_province(self):
         return {
             'type': 'ir.actions.act_window',
-            'name': 'Subscriptions',
+            'name': 'Districts',
             'res_model': 'nepal.dairy.index.district',
             'domain': [("province_id", "=", self.id)],
             # 'context': {"default_member_id": self.id},
