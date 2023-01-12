@@ -30,10 +30,7 @@ class NepalDairyIndexProvince(models.Model):
             ward_count = self.env['nepal.dairy.index.ward'].search_count([('province_id', '=', rec.id)])
             rec.ward_count = ward_count
 
-
-
-
-    def action_open_districts(self):
+    def action_open_districts_from_province(self):
         return {
             'type': 'ir.actions.act_window',
             'name': 'Subscriptions',
@@ -44,7 +41,7 @@ class NepalDairyIndexProvince(models.Model):
             'target': 'current'
         }
 
-    def action_open_municipalities(self):
+    def action_open_municipalities_from_province(self):
         return {
             'type': 'ir.actions.act_window',
             'name': 'Municipalities',
@@ -55,7 +52,7 @@ class NepalDairyIndexProvince(models.Model):
             'target': 'current'
         }
 
-    def action_open_wards(self):
+    def action_open_wards_from_province(self):
         return {
             'type': 'ir.actions.act_window',
             'name': 'Wards',
@@ -65,5 +62,3 @@ class NepalDairyIndexProvince(models.Model):
             'view_mode': 'tree,form',
             'target': 'current'
         }
-
-
