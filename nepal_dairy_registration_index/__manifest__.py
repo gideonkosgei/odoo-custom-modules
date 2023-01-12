@@ -18,6 +18,10 @@
         'views/list.xml',
         'views/list_item.xml',
         'views/breed.xml',
+        'views/province.xml',
+        'views/district.xml',
+        'views/municipality.xml',
+        'views/ward.xml',
         'views/menu.xml'
     ],
     'demo': [],

@@ -20,4 +20,31 @@
               action="action_nepal_dairy_index_breed"
               parent="menu_nepal_dairy_index_settings"
               sequence="2"/>
+
+    <menuitem id="menu_nepal_dairy_index_admin_units"
+              name="Admin Units"
+              parent="menu_nepal_dairy_index_settings"
+              sequence="3"/>
+
+    <menuitem id="menu_nepal_dairy_index_provinces"
+              name="Provinces"
+              parent="menu_nepal_dairy_index_admin_units"
+              action="action_nepal_dairy_index_province"
+              sequence="1"/>
+     <menuitem id="menu_nepal_dairy_index_districts"
+              name="Districts"
+              parent="menu_nepal_dairy_index_admin_units"
+              action="action_nepal_dairy_index_district"
+              sequence="2"/>
+
+    <menuitem id="menu_nepal_dairy_index_municipalities"
+              name="Municipalities"
+              parent="menu_nepal_dairy_index_admin_units"
+              action="action_nepal_dairy_index_municipality"
+              sequence="3"/>
+     <menuitem id="menu_nepal_dairy_index_wards"
+              name="Wards"
+              parent="menu_nepal_dairy_index_admin_units"
+              action="action_nepal_dairy_index_ward"
+              sequence="4"/>
 </odoo>
