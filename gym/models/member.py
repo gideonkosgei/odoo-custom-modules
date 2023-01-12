@@ -66,8 +66,7 @@ class GymMemberInformation(models.Model):
     def action_draft(self):
         self.state = 'draft'
 
-    def action_open_subscriptions(self):
-        print('test')
+
 
     # Override default create method
     @api.model
