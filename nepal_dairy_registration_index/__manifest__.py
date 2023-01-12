@@ -15,6 +15,7 @@
         'data/nepal.dairy.index.list.csv',
         'data/nepal.dairy.index.list.item.csv',
         'data/nepal.dairy.index.breed.csv',
+        'data/nepal.dairy.index.province.csv',
         'views/list.xml',
         'views/list_item.xml',
         'views/breed.xml',

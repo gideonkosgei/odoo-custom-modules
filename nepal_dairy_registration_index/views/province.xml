@@ -71,7 +71,7 @@
         <field name="model">nepal.dairy.index.province</field>
         <field name="arch" type="xml">
             <tree expand="1">
-                <field name="id" optional="show"/>
+                <field name="id" optional="hide"/>
                 <field name="province_code" optional="show"/>
                 <field name="province_name" optional="show"/>
             </tree>
