@@ -15,3 +15,21 @@ class NepalDairyIndexMunicipality(models.Model):
                                   tracking=True, domain="[('province_id', '=', province_id)]")
     municipality_code = fields.Char('Municipality Code', required=True, tracking=True)
     municipality_name = fields.Char('Municipality Name', required=True, tracking=True)
+    ward_count = fields.Integer('Word Count', compute='_compute_ward_count')
+
+    def _compute_ward_count(self):
+        for rec in self:
+            ward_count = self.env['nepal.dairy.index.ward'].search_count([('municipality_id', '=', rec.id)])
+            rec.ward_count = ward_count
+
+    def action_open_wards_from_municipality(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Wards',
+            'res_model': 'nepal.dairy.index.ward',
+            'domain': [("municipality_id", "=", self.id)],
+            # 'context': {"default_member_id": self.id},
+            'view_mode': 'tree,form',
+            'target': 'current'
+        }
+

@@ -19,3 +19,5 @@ class NepalDairyIndexWard(models.Model):
     ward_name = fields.Char('Ward Name', required=True, tracking=True)
 
 
+
+

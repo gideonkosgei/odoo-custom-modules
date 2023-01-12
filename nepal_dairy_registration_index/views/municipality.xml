@@ -8,6 +8,19 @@
                 <header>
                 </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="action_open_wards_from_municipality" type="object" icon="fa-bars">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="ward_count"/>
+                                </span>
+                                <span class="o_stat_text">
+                                    Wards
+                                </span>
+                            </div>
+                        </button>
+
+                    </div>
                     <div class="oe_title">
                         <h1>
                             <field name="municipality_name" readonly="1"/>
