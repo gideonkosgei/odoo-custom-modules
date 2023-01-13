@@ -12,6 +12,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'data/data.xml',
         'data/nepal.dairy.index.list.csv',
         'data/nepal.dairy.index.list.item.csv',
         'data/nepal.dairy.index.breed.csv',
