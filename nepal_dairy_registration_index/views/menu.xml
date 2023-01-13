@@ -4,10 +4,22 @@
               name="Nepal Dairy Registration Index"
               sequence="10"/>
 
+    <menuitem id="menu_nepal_dairy_index_farmer"
+              name="Farmers"
+              action="action_nepal_dairy_index_farmer"
+              parent="menu_nepal_dairy_index_root"
+              sequence="1"/>
+
+    <menuitem id="menu_nepal_dairy_index_animal"
+              name="Animals"
+              action="action_nepal_dairy_index_animal"
+              parent="menu_nepal_dairy_index_root"
+              sequence="2"/>
+
     <menuitem id="menu_nepal_dairy_index_settings"
               name="Settings"
               parent="menu_nepal_dairy_index_root"
-              sequence="1"/>
+              sequence="3"/>
 
     <menuitem id="menu_nepal_dairy_index_list"
               name="Lists"
@@ -31,7 +43,7 @@
               parent="menu_nepal_dairy_index_admin_units"
               action="action_nepal_dairy_index_province"
               sequence="1"/>
-     <menuitem id="menu_nepal_dairy_index_districts"
+    <menuitem id="menu_nepal_dairy_index_districts"
               name="Districts"
               parent="menu_nepal_dairy_index_admin_units"
               action="action_nepal_dairy_index_district"
@@ -42,7 +54,7 @@
               parent="menu_nepal_dairy_index_admin_units"
               action="action_nepal_dairy_index_municipality"
               sequence="3"/>
-     <menuitem id="menu_nepal_dairy_index_wards"
+    <menuitem id="menu_nepal_dairy_index_wards"
               name="Wards"
               parent="menu_nepal_dairy_index_admin_units"
               action="action_nepal_dairy_index_ward"

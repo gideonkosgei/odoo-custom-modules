@@ -26,6 +26,8 @@
         'views/district.xml',
         'views/municipality.xml',
         'views/ward.xml',
+        'views/farmer.xml',
+        'views/animal.xml',
         'views/menu.xml'
     ],
     'demo': [],

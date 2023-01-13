@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_nepal_dairy_index_animal_form" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.animal.form</field>
+        <field name="model">nepal.dairy.index.animal</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title mb24">
+                        <h1>
+                            <field class="o_text_overflow" name="reg_number" default_focus="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="farmer_id"/>
+                            <field name="species_id" options="{'no_open': True, 'no_quick_create': True}"/>
+                            <field name="sex_id" options="{'no_open': True, 'no_quick_create': True}"/>
+                            <field name="breed_id" options="{'no_open': True, 'no_quick_create': True}"/>
+                            <field name="animal_dob"/>
+                        </group>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_nepal_dairy_index_animal_tree" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.animal.tree</field>
+        <field name="model">nepal.dairy.index.animal</field>
+        <field name="arch" type="xml">
+            <tree expand="1">
+                <field name="reg_number"/>
+                <field name="farmer_id"/>
+                <field name="species_id"/>
+                <field name="sex_id"/>
+                <field name="breed_id"/>
+                <field name="animal_dob"/>
+                <field name="create_uid" string="Created By"/>
+                <field name="create_date" string="Date Created" widget="date" options="{'format': 'dd/MM/yyyy'}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="View_nepal_dairy_index_animal_search" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.animal.search</field>
+        <field name="model">nepal.dairy.index.animal</field>
+        <field name="arch" type="xml">
+            <search string="Animals">
+
+                <field name="farmer_id"/>
+                <field name="reg_number"/>
+
+                <separator/>
+                <filter string="Cattle" name="cattle" domain="[('species_id','=','Cattle')]"/>
+                <filter string="Buffalo" name="buffalo" domain="[('species_id','=','Buffalo')]"/>
+
+                <filter string="Male" name="male" domain="[('sex_id','=','Male')]"/>
+                <filter string="Female" name="female" domain="[('sex_id','=','Female')]"/>
+
+                <group expand="1" string="Group By">
+                    <filter string="Species" name="species_id" context="{'group_by':'species_id'}"/>
+                    <filter string="Sex" name="sex_id" context="{'group_by':'sex_id'}"/>
+                    <filter string="Breed" name="breed_id" context="{'group_by':'breed_id'}"/>
+                </group>
+                <searchpanel>
+                    <field name="species_id" string="Species" enable_counters="0"/>
+                    <field name="sex_id" string="Sex" select="multi" enable_counters="0"/>
+                    <field name="breed_id" string="Breed" enable_counters="1"/>
+
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_nepal_dairy_index_animal" model="ir.actions.act_window">
+        <field name="name">Animal</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">nepal.dairy.index.animal</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register Your 1st Animal
+            </p>
+        </field>
+    </record>
+
+</odoo>

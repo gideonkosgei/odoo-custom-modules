@@ -3,9 +3,9 @@
 1,"Female",true,"Female"
 2,"Cattle",true,"Cattle"
 2,"Buffalo",true,"Buffalo"
-3,"Small-Scale Farmer (1-5 Animals)",true,"Small-Scale Farmer (1-5 Animals)"
-3,"Medium-Scale Farmer (6-25 Animals)",true,"Medium-Scale Farmer (6-25 Animals)"
-3,"Large-Scale Farmer (>25 Animals)",true,"Large-Scale Farmer (>25 Animals)"
+3,"Small-Scale(1-5 Animals)",true,"Small-Scale Farmer (1-5 Animals)"
+3,"Medium-Scale(6-25 Animals)",true,"Medium-Scale Farmer (6-25 Animals)"
+3,"Large-Scale(>25 Animals)",true,"Large-Scale Farmer (>25 Animals)"
 
 
 

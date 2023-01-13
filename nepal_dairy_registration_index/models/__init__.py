@@ -5,4 +5,6 @@ from . import province
 from . import district
 from . import municipality
 from . import ward
+from . import farmer
+from . import animal
 

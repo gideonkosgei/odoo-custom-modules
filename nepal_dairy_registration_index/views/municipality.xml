@@ -28,8 +28,8 @@
                     </div>
                     <group>
                         <group>
-                            <field name="province_id"/>
-                            <field name="district_id"/>
+                            <field name="province_id" options="{'no_open': True, 'no_quick_create': True}"   />
+                            <field name="district_id" options="{'no_open': True, 'no_quick_create': True}"   />
                             <field name="municipality_code"/>
                             <field name="municipality_name"/>
                         </group>

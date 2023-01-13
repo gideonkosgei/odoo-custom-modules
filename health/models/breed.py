@@ -14,7 +14,7 @@ class HealthBreed(models.Model):
                                  tracking=True)
     species_id = fields.Many2one(comodel_name='health.config.catalogue.item', string='Species', required=True,
                                  tracking=True, domain="[('catalogue_id', '=', 21)]")
-    breed_code = fields.Char('Breed Code', required=True, tracking=True,)
+    breed_code = fields.Char('Breed Code', required=True, tracking=True)
     breed_name = fields.Char('Breed Name', required=True, tracking=True)
     breed_is_active = fields.Boolean('Is Breed Active?', required=True, tracking=True, default=True)
 
