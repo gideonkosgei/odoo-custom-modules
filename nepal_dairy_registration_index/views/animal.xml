@@ -43,6 +43,10 @@
                 <field name="sex_id"/>
                 <field name="breed_id"/>
                 <field name="animal_dob"/>
+                <field name="province"/>
+                <field name="district"/>
+                <field name="municipality"/>
+                <field name="ward"/>
                 <field name="create_uid" string="Created By"/>
                 <field name="create_date" string="Date Created" widget="date" options="{'format': 'dd/MM/yyyy'}"/>
             </tree>
@@ -57,11 +61,15 @@
 
                 <field name="farmer_id"/>
                 <field name="reg_number"/>
+                <field name="province"/>
+                <field name="district"/>
+                <field name="municipality"/>
+                <field name="ward"/>
 
                 <separator/>
+
                 <filter string="Cattle" name="cattle" domain="[('species_id','=','Cattle')]"/>
                 <filter string="Buffalo" name="buffalo" domain="[('species_id','=','Buffalo')]"/>
-
                 <filter string="Male" name="male" domain="[('sex_id','=','Male')]"/>
                 <filter string="Female" name="female" domain="[('sex_id','=','Female')]"/>
 
@@ -71,10 +79,9 @@
                     <filter string="Breed" name="breed_id" context="{'group_by':'breed_id'}"/>
                 </group>
                 <searchpanel>
-                    <field name="species_id" string="Species" enable_counters="0"/>
-                    <field name="sex_id" string="Sex" select="multi" enable_counters="0"/>
+                    <field name="species_id" string="Species" enable_counters="1"/>
+                    <field name="sex_id" string="Sex" select="multi" enable_counters="1"/>
                     <field name="breed_id" string="Breed" enable_counters="1"/>
-
                 </searchpanel>
             </search>
         </field>

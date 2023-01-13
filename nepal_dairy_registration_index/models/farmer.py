@@ -10,16 +10,18 @@ class NepalDairyIndexFarmer(models.Model):
     _order = "id"
     _rec_name = "farmer_name"
 
-    farmer_name = fields.Char('Farmer Name', required=True, tracking=True)
+    farmer_name = fields.Char('Farmer|Farm Name', required=True, tracking=True)
     image = fields.Binary(string='farmer Photo')
     farmer_type = fields.Many2one(comodel_name='nepal.dairy.index.list.item', string='Category', tracking=True,
                                   required=True, domain="[('list_id', '=',3)]")
-    gender = fields.Many2one(comodel_name='nepal.dairy.index.list.item', string='Gender', tracking=True,
-                             required=True, domain="[('list_id', '=',1)]")
+
+    entity_type = fields.Many2one(comodel_name='nepal.dairy.index.list.item', string='Entity Type', tracking=True,
+                                  required=True, default=8, domain="[('list_id', '=',4)]")
+
     street = fields.Char('Street', required=False, tracking=True)
     house_number = fields.Char('House Number', required=False, tracking=True)
     mobile = fields.Char('Mobile', required=False, tracking=True)
-    national_identification_card_number = fields.Char('NID Number', required=True, tracking=True)
+    national_identification_card_number = fields.Char('ID|Reg Number', tracking=True)
 
     email = fields.Char('Email')
     province_id = fields.Many2one(comodel_name='nepal.dairy.index.province', string='Province', required=True,
@@ -32,6 +34,14 @@ class NepalDairyIndexFarmer(models.Model):
                               required=True, tracking=True, domain="[('district_id', '=', district_id)]")
     animal_count = fields.Integer('Animal Count', compute='_compute_animal_count')
     animal_ids = fields.One2many('nepal.dairy.index.animal', 'farmer_id', string='Farmer')
+    province = fields.Char('Province', related='province_id.province_name', tracking=True)
+    province_code = fields.Char('Province Code', related='province_id.province_code', tracking=True)
+    district = fields.Char('District', related='district_id.district_name', tracking=True)
+    district_code = fields.Char('District Code', related='district_id.district_code', tracking=True)
+    municipality = fields.Char('Municipality', related='municipality_id.municipality_name', tracking=True)
+    municipality_code = fields.Char('Municipality Code', related='municipality_id.municipality_code', tracking=True)
+    ward = fields.Char('Ward', related='ward_id.ward_name', tracking=True)
+    ward_code = fields.Char('Ward Code', related='ward_id.ward_code', tracking=True)
 
     def _compute_animal_count(self):
         for rec in self:
@@ -47,5 +57,3 @@ class NepalDairyIndexFarmer(models.Model):
             'view_mode': 'tree,form',
             'target': 'current'
         }
-
-

@@ -20,6 +20,15 @@ class NepalDairyIndexAnimal(models.Model):
     animal_dob = fields.Date('Birth Date', tracking=True)
     reg_number = fields.Char('Animal ID', required=True, tracking=True, readonly=True,
                              default=lambda self: _('New'))
+    province = fields.Char('Province', related='farmer_id.province', tracking=True)
+    province_code = fields.Char('Province Code', related='farmer_id.province_code', tracking=True)
+    district = fields.Char('District', related='farmer_id.district', tracking=True)
+    district_code = fields.Char('District Code', related='farmer_id.district_code', tracking=True)
+    municipality = fields.Char('Municipality', related='farmer_id.municipality', tracking=True)
+    municipality_code = fields.Char('Municipality Code', related='farmer_id.municipality_code', tracking=True)
+    ward = fields.Char('Ward', related='farmer_id.ward', tracking=True)
+    ward_code = fields.Char('Ward Code', related='farmer_id.ward_code', tracking=True)
+
 
     @api.model
     def create(self, vals):
