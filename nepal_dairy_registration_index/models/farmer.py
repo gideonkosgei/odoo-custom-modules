@@ -57,3 +57,26 @@ class NepalDairyIndexFarmer(models.Model):
             'view_mode': 'tree,form',
             'target': 'current'
         }
+
+    @api.onchange('province_id')
+    def onchange_province_id(self):
+        if self.province_id:
+            self.district_id = None
+            self.municipality_id = None
+            self.ward_id = None
+
+    @api.onchange('district_id')
+    def onchange_district_id(self):
+        if self.district_id:
+            self.municipality_id = None
+            self.ward_id = None
+
+    @api.onchange('municipality_id')
+    def onchange_municipality_id(self):
+        if self.municipality_id:
+            self.ward_id = None
+
+
+
+
+
