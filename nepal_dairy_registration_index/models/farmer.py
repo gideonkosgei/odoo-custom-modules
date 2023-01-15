@@ -7,7 +7,7 @@ class NepalDairyIndexFarmer(models.Model):
     _name = "nepal.dairy.index.farmer"
     _description = "Farmer"
     _inherit = ["mail.thread", "mail.activity.mixin"]
-    _order = "id"
+    _order = "id desc"
     _rec_name = "farmer_name"
 
     farmer_name = fields.Char('Farmer|Farm Name', required=True, tracking=True)
