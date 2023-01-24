@@ -10,19 +10,17 @@ class NepalDairyIndexFarmer(models.Model):
     _order = "id desc"
     _rec_name = "farmer_name"
 
-    farmer_name = fields.Char('Farmer|Farm Name', required=True, tracking=True)
+    farmer_name = fields.Char('Herd Name', required=True, tracking=True)
     image = fields.Binary(string='farmer Photo')
     farmer_type = fields.Many2one(comodel_name='nepal.dairy.index.list.item', string='Category', tracking=True,
                                   required=True, domain="[('list_id', '=',3)]")
-
-    entity_type = fields.Many2one(comodel_name='nepal.dairy.index.list.item', string='Entity Type', tracking=True,
-                                  required=True, default=8, domain="[('list_id', '=',4)]")
-
     street = fields.Char('Street', required=False, tracking=True)
     house_number = fields.Char('House Number', required=False, tracking=True)
     mobile = fields.Char('Mobile', required=False, tracking=True)
-    national_identification_card_number = fields.Char('ID|Reg Number', tracking=True)
-
+    herd_prefix = fields.Char('Herd Prefix', required=False, tracking=True)
+    herd_id = fields.Char('Herd ID', required=True, tracking=True, readonly=True,
+                          default=lambda self: _('New'))
+    serial_number = fields.Integer('Serial No', tracking=True, required=True)
     email = fields.Char('Email')
     province_id = fields.Many2one(comodel_name='nepal.dairy.index.province', string='Province', required=True,
                                   tracking=True)
@@ -42,6 +40,53 @@ class NepalDairyIndexFarmer(models.Model):
     municipality_code = fields.Char('Municipality Code', related='municipality_id.municipality_code', tracking=True)
     ward = fields.Char('Ward', related='ward_id.ward_name', tracking=True)
     ward_code = fields.Char('Ward Code', related='ward_id.ward_code', tracking=True)
+    _sql_constraints = [('herd_id_unique', 'unique (herd_id)', 'Herd ID Already Exists')]
+
+    @api.model
+    def create(self, vals):
+        province_id = vals.get('province_id')
+        if province_id:
+            province_code = self.env['nepal.dairy.index.province'].search([("id", "=", province_id)]).province_code
+        else:
+            raise ValidationError("Error Fetching Province Code")
+
+        district_id = vals.get('district_id')
+        if district_id:
+            district_code = self.env['nepal.dairy.index.district'].search(
+                [("id", "=", district_id)]).district_code.zfill(2)
+        else:
+            raise ValidationError("Error Fetching District Code")
+
+        municipality_id = vals.get('municipality_id')
+        if municipality_id:
+            municipality_code = self.env['nepal.dairy.index.municipality'].search(
+                [("id", "=", municipality_id)]).municipality_code.zfill(2)
+        else:
+            raise ValidationError("Error Fetching Municipality Code")
+
+        ward_id = vals.get('ward_id')
+        if ward_id:
+            ward_code = self.env['nepal.dairy.index.ward'].search([("id", "=", ward_id)]).ward_code.zfill(2)
+        else:
+            raise ValidationError("Error Fetching Ward Code")
+
+        # Generate new serial number -> get the last serial number & increment by 1
+        herd_prefix = province_code + district_code + municipality_code + ward_code
+        herd_recs = self.env['nepal.dairy.index.farmer'].search([("herd_prefix", "=", herd_prefix)])
+
+        if herd_recs:
+            last_serial = max(d.serial_number for d in herd_recs)
+            serial = last_serial + 1
+        else:
+            serial = 1
+
+        if vals.get('herd_id', _('New')) == _('New'):
+            vals['herd_prefix'] = herd_prefix
+            vals['serial_number'] = serial
+
+            vals['herd_id'] = herd_prefix + str(serial).zfill(3)
+        res = super(NepalDairyIndexFarmer, self).create(vals)
+        return res
 
     def _compute_animal_count(self):
         for rec in self:
@@ -75,8 +120,3 @@ class NepalDairyIndexFarmer(models.Model):
     def onchange_municipality_id(self):
         if self.municipality_id:
             self.ward_id = None
-
-
-
-
-

@@ -21,7 +21,6 @@
 
                     <field name="image" widget='image' class="oe_avatar"/>
                     <div class="oe_title mb24">
-                        <field name="entity_type" widget="radio" options="{'horizontal': true}"/>
                         <h1>
                             <field class="o_text_overflow" name="farmer_name" default_focus="1"
                                    placeholder="Farmer Name e.g. Brandom Freeman"/>
@@ -47,7 +46,7 @@
 
                         </group>
                         <group>
-                            <field name="national_identification_card_number"/>
+                            <field name="herd_id"/>
                             <field name="mobile" widget="phone"/>
                             <field name="email" widget="email" context="{'gravatar_image': True}"/>
                             <field name="farmer_type" options="{'no_open': True, 'no_quick_create': True}"/>
@@ -59,11 +58,12 @@
                         <page string="Animals" name="animals">
                             <field name="animal_ids">
                                 <tree editable="top" delete="0">
-                                    <field name="reg_number"/>
+                                    <field name="animal_id"/>
+                                     <field name="tag_id"/>
                                     <field name="species_id"/>
                                     <field name="sex_id"/>
                                     <field name="breed_id"/>
-                                    <field name="animal_dob" options="{'datepicker':{'maxDate': 'now'}}"/>
+                                    <field name="animal_dob" widget="date" options="{'datepicker':{'maxDate': 'now'}}"/>
                                     <field name="create_uid" string="Created By"/>
                                     <field name="create_date" string="Date Created" widget="date"
                                            options="{'format': 'dd/MM/yyyy'}"/>
@@ -71,7 +71,7 @@
                                 <form>
                                     <group>
                                         <group>
-                                            <field name="reg_number"/>
+                                            <field name="animal_id"/>
                                             <field name="farmer_id"/>
                                             <field name="species_id"
                                                    options="{'no_open': True, 'no_quick_create': True}"/>
@@ -104,9 +104,8 @@
         <field name="model">nepal.dairy.index.farmer</field>
         <field name="arch" type="xml">
             <tree expand="1">
-                <field name="entity_type"/>
                 <field name="farmer_name"/>
-                <field name="national_identification_card_number"/>
+                <field name="herd_id"/>
                 <field name="email"/>
                 <field name="mobile"/>
                 <field name="farmer_type"/>
@@ -128,7 +127,7 @@
         <field name="arch" type="xml">
             <search string="Farmers">
                 <field name="farmer_name"/>
-                <field name="national_identification_card_number"/>
+                <field name="herd_id"/>
                 <field name="email"/>
                 <field name="mobile"/>
                 <field name="district_id"/>
@@ -144,12 +143,10 @@
                     <filter string="District" name="district_id" context="{'group_by':'district_id'}"/>
                     <filter string="Municipality" name="municipality_id" context="{'group_by':'municipality_id'}"/>
                     <filter string="Ward" name="ward_id" context="{'group_by':'ward_id'}"/>
-                    <filter string="Entity" name="entity_type" context="{'group_by':'entity_type'}"/>
                 </group>
                 <searchpanel>
                     <field name="province_id" string="Province" enable_counters="1"/>
                     <field name="farmer_type" string="Category" enable_counters="1"/>
-                    <field name="entity_type" string="Entity Type" enable_counters="1" select="multi"/>
                 </searchpanel>
             </search>
         </field>
@@ -157,13 +154,13 @@
 
 
     <record id="action_nepal_dairy_index_farmer" model="ir.actions.act_window">
-        <field name="name">Farmer|Farm</field>
+        <field name="name">Herd</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">nepal.dairy.index.farmer</field>
         <field name="view_mode">tree,kanban,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Register Your 1st Farmer|Farm
+                Register Your 1st Herd
             </p>
         </field>
     </record>

@@ -8,16 +8,17 @@
                 <sheet>
                     <div class="oe_title mb24">
                         <h1>
-                            <field class="o_text_overflow" name="reg_number" default_focus="1"/>
+                            <field class="o_text_overflow" name="animal_id"  default_focus="1"/>
                         </h1>
                     </div>
                     <group>
                         <group>
+                            <field name="tag_id"  default_focus="1"/>
                             <field name="farmer_id"/>
                             <field name="species_id" options="{'no_open': True, 'no_quick_create': True}"/>
                             <field name="sex_id" options="{'no_open': True, 'no_quick_create': True}"/>
                             <field name="breed_id" options="{'no_open': True, 'no_quick_create': True}"/>
-                            <field name="animal_dob" options="{'datepicker':{'maxDate': 'now'}}"/>
+                            <field name="animal_dob" widget="date" options="{'datepicker':{'maxDate': 'now'}}"/>
                         </group>
                     </group>
 
@@ -37,8 +38,10 @@
         <field name="model">nepal.dairy.index.animal</field>
         <field name="arch" type="xml">
             <tree expand="1">
-                <field name="reg_number"/>
                 <field name="farmer_id"/>
+                <field name="herd_id"/>
+                <field name="tag_id"/>
+                <field name="animal_id"/>
                 <field name="species_id"/>
                 <field name="sex_id"/>
                 <field name="breed_id"/>
@@ -58,14 +61,14 @@
         <field name="model">nepal.dairy.index.animal</field>
         <field name="arch" type="xml">
             <search string="Animals">
-
                 <field name="farmer_id"/>
-                <field name="reg_number"/>
+                <field name="herd_id"/>
+                <field name="animal_id"/>
                 <field name="province"/>
                 <field name="district"/>
                 <field name="municipality"/>
                 <field name="ward"/>
-                <field name="reg_number"/>
+                <field name="animal_id"/>
 
                 <separator/>
 

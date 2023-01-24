@@ -5,7 +5,7 @@
               sequence="10"/>
 
     <menuitem id="menu_nepal_dairy_index_farmer"
-              name="Farmers|Farms"
+              name="Herds"
               action="action_nepal_dairy_index_farmer"
               parent="menu_nepal_dairy_index_root"
               sequence="1"/>

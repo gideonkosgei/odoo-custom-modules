@@ -8,9 +8,9 @@ class NepalDairyIndexAnimal(models.Model):
     _description = "Animal"
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _order = "id desc"
-    _rec_name = "reg_number"
+    _rec_name = "animal_id"
 
-    farmer_id = fields.Many2one(comodel_name='nepal.dairy.index.farmer', string='Farmer', tracking=True, required=True)
+    farmer_id = fields.Many2one(comodel_name='nepal.dairy.index.farmer', string='Herd', tracking=True, required=True)
     species_id = fields.Many2one(comodel_name='nepal.dairy.index.list.item', string='Species', tracking=True,
                                  required=True, domain="[('list_id', '=',2)]")
     sex_id = fields.Many2one(comodel_name='nepal.dairy.index.list.item', string='Sex', tracking=True,
@@ -18,8 +18,6 @@ class NepalDairyIndexAnimal(models.Model):
     breed_id = fields.Many2one(comodel_name='nepal.dairy.index.breed', string='Breed',
                                tracking=True, domain="[('species_id', '=', species_id)]")
     animal_dob = fields.Date('Birth Date', tracking=True)
-    reg_number = fields.Char('Animal ID', required=True, tracking=True, readonly=True,
-                             default=lambda self: _('New'))
     province = fields.Char('Province', related='farmer_id.province', tracking=True)
     province_code = fields.Char('Province Code', related='farmer_id.province_code', tracking=True)
     district = fields.Char('District', related='farmer_id.district', tracking=True)
@@ -28,9 +26,15 @@ class NepalDairyIndexAnimal(models.Model):
     municipality_code = fields.Char('Municipality Code', related='farmer_id.municipality_code', tracking=True)
     ward = fields.Char('Ward', related='farmer_id.ward', tracking=True)
     ward_code = fields.Char('Ward Code', related='farmer_id.ward_code', tracking=True)
-    herd_id = fields.Char('Herd ID', tracking=True, required=True)
+
+    herd_id = fields.Char('Herd ID', related='farmer_id.herd_id', tracking=True)
     serial_number = fields.Integer('Serial No', tracking=True, required=True)
-    _sql_constraints = [('reg_number_unique', 'unique (reg_number)', 'A Record Exists With The Same Animal ID')]
+    tag_id = fields.Char('Tag ID', tracking=True, required=True, readonly=True,
+                         default=lambda self: _('New'))
+    animal_id = fields.Char('Animal ID', required=True, tracking=True, readonly=True,
+                            default=lambda self: _('New'))
+
+    _sql_constraints = [('animal_id_unique', 'unique (animal_id)', 'A Record Exists With The Same Animal ID')]
 
     @api.model
     def create(self, vals):
@@ -38,12 +42,7 @@ class NepalDairyIndexAnimal(models.Model):
         farm_rec = self.env['nepal.dairy.index.farmer'].search([("id", "=", farm_id)])
 
         if farm_rec:
-            province_code = farm_rec.province_code
-            district_code = farm_rec.district_code.zfill(2)
-            municipality_code = farm_rec.municipality_code.zfill(2)
-            ward_code = farm_rec.ward_code.zfill(2)
-            herd_id = province_code + district_code + municipality_code + ward_code
-
+            herd_id = farm_rec.herd_id
             # Generate new serial number -> get the last serial number & increment by 1
             animal_rec = self.env['nepal.dairy.index.animal'].search([("herd_id", "=", herd_id)])
             if animal_rec:
@@ -55,9 +54,10 @@ class NepalDairyIndexAnimal(models.Model):
         else:
             raise ValidationError("Error In Generating Registration Number. Cannot Retrieve Administrative Codes")
 
-        if vals.get('reg_number', _('New')) == _('New'):
-            vals['reg_number'] = herd_id + str(serial).zfill(4)
-            vals['herd_id'] = herd_id
+        if vals.get('animal_id', _('New')) == _('New'):
+            tag_id = str(serial).zfill(5)
+            vals['animal_id'] = herd_id + tag_id
+            vals['tag_id'] = tag_id
             vals['serial_number'] = serial
         res = super(NepalDairyIndexAnimal, self).create(vals)
         return res
