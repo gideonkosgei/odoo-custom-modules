@@ -6,14 +6,15 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <field name="qr_code" widget='image' class="oe_avatar"/>
                     <div class="oe_title mb24">
                         <h1>
-                            <field class="o_text_overflow" name="animal_id"  default_focus="1"/>
+                            <field class="o_text_overflow" name="animal_id" default_focus="1"/>
                         </h1>
                     </div>
                     <group>
                         <group>
-                            <field name="tag_id"  default_focus="1"/>
+                            <field name="tag_id" default_focus="1"/>
                             <field name="farmer_id"/>
                             <field name="species_id" options="{'no_open': True, 'no_quick_create': True}"/>
                             <field name="sex_id" options="{'no_open': True, 'no_quick_create': True}"/>

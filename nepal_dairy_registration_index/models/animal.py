@@ -1,6 +1,17 @@
 # -*- coding: utf-8 -*-
+try:
+    import qrcode
+except ImportError:
+    qrcode = None
+try:
+    import base64
+except ImportError:
+    base64 = None
+
+from io import BytesIO
+
 from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 
 class NepalDairyIndexAnimal(models.Model):
@@ -11,21 +22,33 @@ class NepalDairyIndexAnimal(models.Model):
     _rec_name = "animal_id"
 
     farmer_id = fields.Many2one(comodel_name='nepal.dairy.index.farmer', string='Herd', tracking=True, required=True)
+    herd_name = fields.Char('Herd', related='farmer_id.farmer_name')
+
     species_id = fields.Many2one(comodel_name='nepal.dairy.index.list.item', string='Species', tracking=True,
                                  required=True, domain="[('list_id', '=',2)]")
+    species = fields.Char('Species', related='species_id.item_name')
+
     sex_id = fields.Many2one(comodel_name='nepal.dairy.index.list.item', string='Sex', tracking=True,
                              required=True, domain="[('list_id', '=',1)]")
+    sex = fields.Char('Sex', related='sex_id.item_name')
+
     breed_id = fields.Many2one(comodel_name='nepal.dairy.index.breed', string='Breed',
                                tracking=True, domain="[('species_id', '=', species_id)]")
+    breed = fields.Char('Breed', related='breed_id.breed_name')
+
     animal_dob = fields.Date('Birth Date', tracking=True)
+
     province = fields.Char('Province', related='farmer_id.province', tracking=True)
-    province_code = fields.Char('Province Code', related='farmer_id.province_code', tracking=True)
+    province_code = fields.Char('Province Code', related='farmer_id.province_code')
+
     district = fields.Char('District', related='farmer_id.district', tracking=True)
-    district_code = fields.Char('District Code', related='farmer_id.district_code', tracking=True)
+    district_code = fields.Char('District Code', related='farmer_id.district_code')
+
     municipality = fields.Char('Municipality', related='farmer_id.municipality', tracking=True)
-    municipality_code = fields.Char('Municipality Code', related='farmer_id.municipality_code', tracking=True)
+    municipality_code = fields.Char('Municipality Code', related='farmer_id.municipality_code')
+
     ward = fields.Char('Ward', related='farmer_id.ward', tracking=True)
-    ward_code = fields.Char('Ward Code', related='farmer_id.ward_code', tracking=True)
+    ward_code = fields.Char('Ward Code', related='farmer_id.ward_code')
 
     herd_id = fields.Char('Herd ID', related='farmer_id.herd_id', tracking=True)
     serial_number = fields.Integer('Serial No', tracking=True, required=True)
@@ -33,6 +56,7 @@ class NepalDairyIndexAnimal(models.Model):
                          default=lambda self: _('New'))
     animal_id = fields.Char('Animal ID', required=True, tracking=True, readonly=True,
                             default=lambda self: _('New'))
+    qr_code = fields.Binary('QRcode', compute="_generate_qr")
 
     _sql_constraints = [('animal_id_unique', 'unique (animal_id)', 'A Record Exists With The Same Animal ID')]
 
@@ -61,3 +85,58 @@ class NepalDairyIndexAnimal(models.Model):
             vals['serial_number'] = serial
         res = super(NepalDairyIndexAnimal, self).create(vals)
         return res
+
+    def _generate_qr(self):
+        "method to generate QR code"
+        for rec in self:
+            if qrcode and base64:
+                qr = qrcode.QRCode(
+                    version=1,
+                    error_correction=qrcode.constants.ERROR_CORRECT_L,
+                    box_size=3,
+                    border=4,
+                )
+                qr.add_data("Herd: ")
+                qr.add_data(rec.herd_name)
+
+                qr.add_data(", Herd ID: ")
+                qr.add_data(rec.herd_id)
+
+                qr.add_data(", Animal ID: ")
+                qr.add_data(rec.animal_id)
+
+                qr.add_data(", Tag ID: ")
+                qr.add_data(rec.tag_id)
+
+                qr.add_data(", DOB: ")
+                qr.add_data(rec.animal_dob)
+
+                qr.add_data(", Species: ")
+                qr.add_data(rec.species)
+
+                qr.add_data(", Sex: ")
+                qr.add_data(rec.sex)
+
+                qr.add_data(", Breed: ")
+                qr.add_data(rec.breed)
+
+                qr.add_data(", Province: ")
+                qr.add_data(rec.province)
+
+                qr.add_data(", District: ")
+                qr.add_data(rec.district)
+
+                qr.add_data(", Municipality: ")
+                qr.add_data(rec.municipality)
+
+                qr.add_data(", Ward: ")
+                qr.add_data(rec.ward)
+
+                qr.make(fit=True)
+                img = qr.make_image()
+                temp = BytesIO()
+                img.save(temp, format="PNG")
+                qr_image = base64.b64encode(temp.getvalue())
+                rec.update({'qr_code': qr_image})
+            else:
+                raise UserError(_('Necessary Requirements To Run This Operation Is Not Satisfied'))

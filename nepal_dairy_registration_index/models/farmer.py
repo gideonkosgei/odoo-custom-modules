@@ -32,14 +32,19 @@ class NepalDairyIndexFarmer(models.Model):
                               required=True, tracking=True, domain="[('district_id', '=', district_id)]")
     animal_count = fields.Integer('Animal Count', compute='_compute_animal_count')
     animal_ids = fields.One2many('nepal.dairy.index.animal', 'farmer_id', string='Farmer')
+
     province = fields.Char('Province', related='province_id.province_name', tracking=True)
     province_code = fields.Char('Province Code', related='province_id.province_code', tracking=True)
+
     district = fields.Char('District', related='district_id.district_name', tracking=True)
     district_code = fields.Char('District Code', related='district_id.district_code', tracking=True)
+
     municipality = fields.Char('Municipality', related='municipality_id.municipality_name', tracking=True)
     municipality_code = fields.Char('Municipality Code', related='municipality_id.municipality_code', tracking=True)
+
     ward = fields.Char('Ward', related='ward_id.ward_name', tracking=True)
     ward_code = fields.Char('Ward Code', related='ward_id.ward_code', tracking=True)
+
     _sql_constraints = [('herd_id_unique', 'unique (herd_id)', 'Herd ID Already Exists')]
 
     @api.model
