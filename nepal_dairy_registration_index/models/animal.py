@@ -86,6 +86,11 @@ class NepalDairyIndexAnimal(models.Model):
         res = super(NepalDairyIndexAnimal, self).create(vals)
         return res
 
+    @api.onchange('species_id')
+    def onchange_species_id(self):
+        if self.species_id:
+            self.breed_id = None
+
     def _generate_qr(self):
         "method to generate QR code"
         for rec in self:
