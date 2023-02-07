@@ -29,11 +29,9 @@
                     <group>
                         <group>
                             <span class="o_form_label o_td_label" name="address_name">
-                                <b>Address</b>
+                                <b>Location</b>
                             </span>
                             <div class="o_address_format">
-                                <field name="house_number" placeholder="House Number" class="o_address_city"/>
-                                <field name="street" placeholder="Street" class="o_address_city"/>
                                 <field name="province_id" class="o_address_street" placeholder="Province"
                                        options="{'no_open': True, 'no_quick_create': True}"/>
                                 <field name="district_id" class="o_address_street" placeholder="District"
@@ -48,7 +46,6 @@
                         <group>
                             <field name="herd_id"/>
                             <field name="mobile" widget="phone"/>
-                            <field name="email" widget="email" context="{'gravatar_image': True}"/>
                             <field name="farmer_type" options="{'no_open': True, 'no_quick_create': True}"/>
                         </group>
                     </group>
@@ -106,15 +103,12 @@
             <tree expand="1">
                 <field name="farmer_name"/>
                 <field name="herd_id"/>
-                <field name="email"/>
                 <field name="mobile"/>
                 <field name="farmer_type"/>
                 <field name="province_id"/>
                 <field name="district_id"/>
                 <field name="municipality_id"/>
                 <field name="ward_id"/>
-                <field name="street"/>
-                <field name="house_number"/>
                 <field name="create_uid" string="Created By"/>
                 <field name="create_date" string="Date Created" widget="date" options="{'format': 'dd/MM/yyyy'}"/>
             </tree>
@@ -128,14 +122,10 @@
             <search string="Farmers">
                 <field name="farmer_name"/>
                 <field name="herd_id"/>
-                <field name="email"/>
                 <field name="mobile"/>
                 <field name="district_id"/>
                 <field name="municipality_id"/>
                 <field name="ward_id"/>
-                <field name="street"/>
-                <field name="house_number"/>
-
                 <separator/>
 
                 <group expand="1" string="Group By">

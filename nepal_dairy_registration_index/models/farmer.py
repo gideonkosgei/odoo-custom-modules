@@ -14,14 +14,11 @@ class NepalDairyIndexFarmer(models.Model):
     image = fields.Binary(string='farmer Photo')
     farmer_type = fields.Many2one(comodel_name='nepal.dairy.index.list.item', string='Category', tracking=True,
                                   required=True, domain="[('list_id', '=',3)]")
-    street = fields.Char('Street', required=False, tracking=True)
-    house_number = fields.Char('House Number', required=False, tracking=True)
     mobile = fields.Char('Mobile', required=False, tracking=True)
     herd_prefix = fields.Char('Herd Prefix', required=False, tracking=True)
     herd_id = fields.Char('Herd ID', required=True, tracking=True, readonly=True,
                           default=lambda self: _('New'))
     serial_number = fields.Integer('Serial No', tracking=True, required=True)
-    email = fields.Char('Email')
     province_id = fields.Many2one(comodel_name='nepal.dairy.index.province', string='Province', required=True,
                                   tracking=True)
     district_id = fields.Many2one(comodel_name='nepal.dairy.index.district', string='District', required=True,

@@ -10,7 +10,8 @@
                 <sheet>
                     <div class="oe_button_box" name="button_box">
 
-                        <button class="oe_stat_button" name="action_open_districts_from_province" type="object" icon="fa-bars">
+                        <button class="oe_stat_button" name="action_open_districts_from_province" type="object"
+                                icon="fa-bars">
                             <div class="o_stat_info">
                                 <span class="o_stat_value">
                                     <field name="district_count"/>
@@ -21,7 +22,8 @@
                             </div>
                         </button>
 
-                         <button class="oe_stat_button" name="action_open_municipalities_from_province" type="object" icon="fa-bars">
+                        <button class="oe_stat_button" name="action_open_municipalities_from_province" type="object"
+                                icon="fa-bars">
                             <div class="o_stat_info">
                                 <span class="o_stat_value">
                                     <field name="municipality_count"/>
@@ -32,7 +34,8 @@
                             </div>
                         </button>
 
-                         <button class="oe_stat_button" name="action_open_wards_from_province" type="object" icon="fa-bars">
+                        <button class="oe_stat_button" name="action_open_wards_from_province" type="object"
+                                icon="fa-bars">
                             <div class="o_stat_info">
                                 <span class="o_stat_value">
                                     <field name="ward_count"/>
@@ -53,6 +56,7 @@
                         <group>
                             <field name="province_code"/>
                             <field name="province_name"/>
+                            <field name="province_abbreviation"/>
                         </group>
                     </group>
 
@@ -74,6 +78,7 @@
                 <field name="id" optional="hide"/>
                 <field name="province_code" optional="show"/>
                 <field name="province_name" optional="show"/>
+                <field name="province_abbreviation" optional="show"/>
             </tree>
         </field>
     </record>
