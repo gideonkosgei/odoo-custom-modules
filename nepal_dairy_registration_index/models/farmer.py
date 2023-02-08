@@ -32,6 +32,7 @@ class NepalDairyIndexFarmer(models.Model):
 
     province = fields.Char('Province', related='province_id.province_name', tracking=True)
     province_code = fields.Char('Province Code', related='province_id.province_code', tracking=True)
+    province_abbreviation = fields.Char('Province Abbreviation', related='province_id.province_abbreviation', tracking=True)
 
     district = fields.Char('District', related='district_id.district_name', tracking=True)
     district_code = fields.Char('District Code', related='district_id.district_code', tracking=True)

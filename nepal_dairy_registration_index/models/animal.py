@@ -40,6 +40,7 @@ class NepalDairyIndexAnimal(models.Model):
 
     province = fields.Char('Province', related='farmer_id.province', tracking=True)
     province_code = fields.Char('Province Code', related='farmer_id.province_code')
+    province_abbreviation = fields.Char('Province Abbreviation', related='farmer_id.province_abbreviation')
 
     district = fields.Char('District', related='farmer_id.district', tracking=True)
     district_code = fields.Char('District Code', related='farmer_id.district_code')
@@ -66,9 +67,11 @@ class NepalDairyIndexAnimal(models.Model):
         farm_rec = self.env['nepal.dairy.index.farmer'].search([("id", "=", farm_id)])
 
         if farm_rec:
+            province_code = farm_rec.province_code
+            province_abbreviation = farm_rec.province_abbreviation
             herd_id = farm_rec.herd_id
             # Generate new serial number -> get the last serial number & increment by 1
-            animal_rec = self.env['nepal.dairy.index.animal'].search([("herd_id", "=", herd_id)])
+            animal_rec = self.env['nepal.dairy.index.animal'].search([("province_code", "=", province_code)])
             if animal_rec:
                 last_serial = max(d.serial_number for d in animal_rec)
                 serial = last_serial + 1
@@ -79,7 +82,8 @@ class NepalDairyIndexAnimal(models.Model):
             raise ValidationError("Error In Generating Registration Number. Cannot Retrieve Administrative Codes")
 
         if vals.get('animal_id', _('New')) == _('New'):
-            tag_id = str(serial).zfill(5)
+            padded_serial = str(serial).zfill(5)
+            tag_id = province_abbreviation + padded_serial
             vals['animal_id'] = herd_id + tag_id
             vals['tag_id'] = tag_id
             vals['serial_number'] = serial
