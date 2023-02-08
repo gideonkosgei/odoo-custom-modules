@@ -126,6 +126,7 @@
                 <field name="district_id"/>
                 <field name="municipality_id"/>
                 <field name="ward_id"/>
+                 <field name="herd_id"/>
                 <separator/>
 
                 <group expand="1" string="Group By">

@@ -25,7 +25,7 @@ class NepalDairyIndexFarmer(models.Model):
                                   tracking=True, domain="[('province_id', '=', province_id)]")
     municipality_id = fields.Many2one(comodel_name='nepal.dairy.index.municipality', string='Municipality',
                                       required=True, tracking=True, domain="[('district_id', '=', district_id)]")
-    ward_id = fields.Many2one(comodel_name='nepal.dairy.index.ward', string='Municipality',
+    ward_id = fields.Many2one(comodel_name='nepal.dairy.index.ward', string='Ward',
                               required=True, tracking=True, domain="[('district_id', '=', district_id)]")
     animal_count = fields.Integer('Animal Count', compute='_compute_animal_count')
     animal_ids = fields.One2many('nepal.dairy.index.animal', 'farmer_id', string='Farmer')
