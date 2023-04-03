@@ -83,7 +83,8 @@ class NepalDairyIndexAnimal(models.Model):
 
         if vals.get('animal_id', _('New')) == _('New'):
             padded_serial = str(serial).zfill(5)
-            tag_id = province_abbreviation + padded_serial
+            # tag_id = province_abbreviation + padded_serial
+            tag_id = province_code + padded_serial
             vals['animal_id'] = herd_id + tag_id
             vals['tag_id'] = tag_id
             vals['serial_number'] = serial
