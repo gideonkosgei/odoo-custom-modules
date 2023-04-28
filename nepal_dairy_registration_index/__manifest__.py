@@ -28,6 +28,7 @@
         'views/ward.xml',
         'views/farmer.xml',
         'views/animal.xml',
+        'views/movement.xml',
         'views/menu.xml'
     ],
     'demo': [],

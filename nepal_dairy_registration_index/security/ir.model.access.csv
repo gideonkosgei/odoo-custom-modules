@@ -8,6 +8,9 @@ access_nepal_dairy_index_municipality,access.nepal.dairy.index.municipality,mode
 access_nepal_dairy_index_ward,access.nepal.dairy.index.ward,model_nepal_dairy_index_ward,,1,1,1,1
 access_nepal_dairy_index_farmer,access.nepal.dairy.index.farmer,model_nepal_dairy_index_farmer,,1,1,1,1
 access_nepal_dairy_index_animal,access.nepal.dairy.index.animal,model_nepal_dairy_index_animal,,1,1,1,1
+access_nepal_dairy_index_movement,access.nepal.dairy.index.movement,model_nepal_dairy_index_movement,,1,1,1,1
+
+
 
 
 

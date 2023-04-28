@@ -32,7 +32,8 @@ class NepalDairyIndexFarmer(models.Model):
 
     province = fields.Char('Province', related='province_id.province_name', tracking=True)
     province_code = fields.Char('Province Code', related='province_id.province_code', tracking=True)
-    province_abbreviation = fields.Char('Province Abbreviation', related='province_id.province_abbreviation', tracking=True)
+    province_abbreviation = fields.Char('Province Abbreviation', related='province_id.province_abbreviation',
+                                        tracking=True)
 
     district = fields.Char('District', related='district_id.district_name', tracking=True)
     district_code = fields.Char('District Code', related='district_id.district_code', tracking=True)
@@ -42,6 +43,11 @@ class NepalDairyIndexFarmer(models.Model):
 
     ward = fields.Char('Ward', related='ward_id.ward_name', tracking=True)
     ward_code = fields.Char('Ward Code', related='ward_id.ward_code', tracking=True)
+
+    destination_herd_ids = fields.One2many('nepal.dairy.index.movement', 'destination_herd_id',
+                                           string='Destination Herd')
+    origin_herd_ids = fields.One2many('nepal.dairy.index.movement', 'origin_herd_id',
+                                      string='Origin Herd')
 
     _sql_constraints = [('herd_id_unique', 'unique (herd_id)', 'Herd ID Already Exists')]
 

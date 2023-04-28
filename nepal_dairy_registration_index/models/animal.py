@@ -9,7 +9,6 @@ except ImportError:
     base64 = None
 
 from io import BytesIO
-
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError, UserError
 
@@ -38,17 +37,16 @@ class NepalDairyIndexAnimal(models.Model):
 
     animal_dob = fields.Date('Birth Date', tracking=True)
 
-    province = fields.Char('Province', related='farmer_id.province', tracking=True)
+    province = fields.Char('Province', related='farmer_id.province')
     province_code = fields.Char('Province Code', related='farmer_id.province_code')
-    province_abbreviation = fields.Char('Province Abbreviation', related='farmer_id.province_abbreviation')
 
-    district = fields.Char('District', related='farmer_id.district', tracking=True)
+    district = fields.Char('District', related='farmer_id.district')
     district_code = fields.Char('District Code', related='farmer_id.district_code')
 
-    municipality = fields.Char('Municipality', related='farmer_id.municipality', tracking=True)
+    municipality = fields.Char('Municipality', related='farmer_id.municipality')
     municipality_code = fields.Char('Municipality Code', related='farmer_id.municipality_code')
 
-    ward = fields.Char('Ward', related='farmer_id.ward', tracking=True)
+    ward = fields.Char('Ward', related='farmer_id.ward')
     ward_code = fields.Char('Ward Code', related='farmer_id.ward_code')
 
     herd_id = fields.Char('Herd ID', related='farmer_id.herd_id', tracking=True)
@@ -68,7 +66,6 @@ class NepalDairyIndexAnimal(models.Model):
 
         if farm_rec:
             province_code = farm_rec.province_code
-            province_abbreviation = farm_rec.province_abbreviation
             herd_id = farm_rec.herd_id
             # Generate new serial number -> get the last serial number & increment by 1
             animal_rec = self.env['nepal.dairy.index.animal'].search([("province_code", "=", province_code)])
@@ -83,7 +80,6 @@ class NepalDairyIndexAnimal(models.Model):
 
         if vals.get('animal_id', _('New')) == _('New'):
             padded_serial = str(serial).zfill(5)
-            # tag_id = province_abbreviation + padded_serial
             tag_id = province_code + padded_serial
             vals['animal_id'] = herd_id + tag_id
             vals['tag_id'] = tag_id
@@ -95,6 +91,17 @@ class NepalDairyIndexAnimal(models.Model):
     def onchange_species_id(self):
         if self.species_id:
             self.breed_id = None
+
+    @api.onchange('farmer_id')
+    def onchange_farmer_id(self):
+        if self.herd_id:
+            vals = {
+                'origin_herd_id': self._origin.farmer_id.id,
+                'destination_herd_id': self.farmer_id.id,
+                'animal_id': self._origin.id
+            }
+
+        self.env['nepal.dairy.index.movement'].create(vals)
 
     def _generate_qr(self):
         "method to generate QR code"
