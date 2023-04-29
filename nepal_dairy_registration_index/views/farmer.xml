@@ -86,20 +86,22 @@
                         <page string="Movement In" name="movement_in">
                             <field name="destination_herd_ids">
                                 <tree editable="top" delete="0">
+                                     <field name="animal_id"/>
+                                    <field name="tag_id"/>
+                                    <field name="species"/>
+                                    <field name="sex"/>
+                                    <field name="breed"/>
+                                    <field name="animal_dob"/>
                                     <field name="origin_herd_id"/>
                                     <field name="origin_herd_code"/>
                                     <field name="origin_province"/>
                                     <field name="origin_district"/>
                                     <field name="origin_municipality"/>
                                     <field name="origin_ward"/>
-                                    <field name="animal_id"/>
-                                    <field name="tag_id"/>
-                                    <field name="species"/>
-                                    <field name="sex"/>
-                                    <field name="breed"/>
-                                    <field name="animal_dob"/>
                                     <field name="create_date" string="Date" widget="date"
                                            options="{'format': 'dd/MM/yyyy'}"/>
+                                    <field name="origin_ward"/>
+                                    <field name="create_uid" string="Created By"/>
                                 </tree>
                             </field>
                         </page>
@@ -107,20 +109,21 @@
                         <page string="Movement Out" name="movement_out">
                             <field name="origin_herd_ids">
                                 <tree editable="top" delete="0">
-                                    <field name="destination_herd_id"/>
-                                    <field name="destination_herd_code"/>
-                                    <field name="destination_province"/>
-                                    <field name="destination_district"/>
-                                    <field name="destination_municipality"/>
-                                    <field name="destination_ward"/>
                                     <field name="animal_id"/>
                                     <field name="tag_id"/>
                                     <field name="species"/>
                                     <field name="sex"/>
                                     <field name="breed"/>
                                     <field name="animal_dob"/>
+                                    <field name="destination_herd_id"/>
+                                    <field name="destination_herd_code"/>
+                                    <field name="destination_province"/>
+                                    <field name="destination_district"/>
+                                    <field name="destination_municipality"/>
+                                    <field name="destination_ward"/>
                                     <field name="create_date" string="Date" widget="date"
                                            options="{'format': 'dd/MM/yyyy'}"/>
+                                    <field name="create_uid" string="Created By"/>
                                 </tree>
                             </field>
                         </page>

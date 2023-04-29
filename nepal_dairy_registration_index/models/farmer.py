@@ -5,7 +5,7 @@ from odoo.exceptions import ValidationError
 
 class NepalDairyIndexFarmer(models.Model):
     _name = "nepal.dairy.index.farmer"
-    _description = "Farmer"
+    _description = "Herd"
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _order = "id desc"
     _rec_name = "farmer_name"

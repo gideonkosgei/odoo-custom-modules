@@ -16,16 +16,18 @@
               parent="menu_nepal_dairy_index_root"
               sequence="2"/>
 
-    <menuitem id="menu_nepal_dairy_index_settings"
-              name="Settings"
-              parent="menu_nepal_dairy_index_root"
-              sequence="3"/>
-
     <menuitem id="menu_nepal_dairy_index_movement"
               name="Movement"
               action="action_nepal_dairy_index_movement"
               parent="menu_nepal_dairy_index_root"
+              sequence="3"/>
+
+    <menuitem id="menu_nepal_dairy_index_settings"
+              name="Settings"
+              parent="menu_nepal_dairy_index_root"
               sequence="4"/>
+
+
 
     <menuitem id="menu_nepal_dairy_index_list"
               name="Lists"

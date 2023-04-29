@@ -57,6 +57,8 @@ class NepalDairyIndexAnimal(models.Model):
                             default=lambda self: _('New'))
     qr_code = fields.Binary('QRcode', compute="_generate_qr")
 
+    movement_ids = fields.One2many('nepal.dairy.index.movement', 'animal_id', string='Movement')
+
     _sql_constraints = [('animal_id_unique', 'unique (animal_id)', 'A Record Exists With The Same Animal ID')]
 
     @api.model
