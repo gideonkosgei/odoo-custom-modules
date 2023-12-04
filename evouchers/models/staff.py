@@ -56,9 +56,9 @@ class Evoucher(models.Model):
                 )
 
                 base_url = self.env['ir.config_parameter'].get_param('web.base.url')
-                if not 'localhost' in base_url:
-                    if 'http://' in base_url:
-                        base_url = base_url.replace('http://', 'https://')
+                # if not 'localhost' in base_url:
+                #     if 'http://' in base_url:
+                #         base_url = base_url.replace('http://', 'https://')
                 base_url = base_url + '/web#id=' + str(self.id) + '&model=evoucher.staff&view_type=form&cids='
                 qr.add_data(base_url)
                 # qr.add_data("Staff ID: ")
