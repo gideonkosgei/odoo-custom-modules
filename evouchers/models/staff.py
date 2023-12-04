@@ -71,6 +71,7 @@ class Evoucher(models.Model):
             else:
                 raise UserError(_('Necessary Requirements To Run This Operation Is Not Satisfied'))
 
+
     @api.depends('token_food', 'token_drink1', 'token_drink2', 'token_drink3', 'token_drink4', 'token_drink5', 'token_drink6')
     def _compute_status(self):
         for rec in self:
@@ -78,3 +79,4 @@ class Evoucher(models.Model):
                 rec.status = 'Closed'
             else:
                 rec.status = 'Open'
+
