@@ -31,11 +31,11 @@
                                     <group>
                                         <field name="token_food" invisible="token_food == True"/>
                                         <field name="token_drink1" invisible="token_drink1 == True"/>
-                                        <field name="token_drink2" Invisible="token_drink2 ==True"/>
-                                        <field name="token_drink3" Invisible="token_drink3 == True"/>
-                                        <field name="token_drink4" Invisible="token_drink4 == True"/>
-                                        <field name="token_drink5" Invisible="token_drink5 == True"/>
-                                        <field name="token_drink6" Invisible="token_drink6 == 'True'"/>
+                                        <field name="token_drink2" invisible="token_drink2 ==True"/>
+                                        <field name="token_drink3" invisible="token_drink3 == True"/>
+                                        <field name="token_drink4" invisible="token_drink4 == True"/>
+                                        <field name="token_drink5" invisible="token_drink5 == True"/>
+                                        <field name="token_drink6" invisible="token_drink6 == True"/>
                                     </group>
                                 </group>
                             </form>
