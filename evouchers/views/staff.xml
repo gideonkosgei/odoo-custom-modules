@@ -6,9 +6,9 @@
         <field name="arch" type="xml">
             <form create="false" delete="false">
                 <sheet>
-                     <widget name="web_ribbon" title="Closed" bg_color="bg-danger"
+                    <widget name="web_ribbon" title="Closed" bg_color="bg-danger"
                             attrs="{'invisible': [ ('status', '=', 'Open')]}"/>
-                     <field name="qr_code" widget='image' class="oe_avatar"/>
+                    <field name="qr_code" widget='image' class="oe_avatar"/>
                     <div class="oe_title mb24">
                         <h1>
                             <field class="o_text_overflow" name="staff_name" default_focus="1"/>
@@ -17,34 +17,36 @@
                     <group>
                         <group>
                             <field name="staff_number" default_focus="1"/>
-                            <field name="staff_name"  invisible="1"/>
+                            <field name="staff_name" invisible="1"/>
                             <field name="department"/>
                             <field name="diet"/>
                             <field name="beverage"/>
-                             <field name="status"  invisible="1"/>
+                            <field name="status" invisible="1"/>
                         </group>
                     </group>
 
                     <notebook>
                         <page string="Tokens" name="tokens">
-                                <form>
-                                    <group>
-                                        <group>
-                                            <field name="token_food" attrs="{'invisible': [('token_food', '=', True)]}"/>
-                                            <field name="token_drink1" attrs="{'invisible': [('token_drink1', '=', True)]}"/>
-                                            <field name="token_drink2" attrs="{'invisible': [('token_drink2', '=', True)]}"/>
-                                            <field name="token_drink3" attrs="{'invisible': [('token_drink3', '=', True)]}"/>
-                                            <field name="token_drink4" attrs="{'invisible': [('token_drink4', '=', True)]}"/>
-                                            <field name="token_drink5" attrs="{'invisible': [('token_drink5', '=', True)]}"/>
-                                            <field name="token_drink6" attrs="{'invisible': [('token_drink6', '=', True)]}"/>
-                                        </group>
-                                    </group>
-                                </form>
+                            <form>
+                                <group>
+                                    <field name="token_food" attrs="{'invisible': [('token_food', '=', True)]}"/>
+                                    <field name="token_drink1"
+                                           attrs="{'invisible': [('token_drink1', '=', True)]}"/>
+                                    <field name="token_drink2"
+                                           attrs="{'invisible': [('token_drink2', '=', True)]}"/>
+                                    <field name="token_drink3"
+                                           attrs="{'invisible': [('token_drink3', '=', True)]}"/>
+                                    <field name="token_drink4"
+                                           attrs="{'invisible': [('token_drink4', '=', True)]}"/>
+                                    <field name="token_drink5"
+                                           attrs="{'invisible': [('token_drink5', '=', True)]}"/>
+                                    <field name="token_drink6"
+                                           attrs="{'invisible': [('token_drink6', '=', True)]}"/>
+                                </group>
+
+                            </form>
                         </page>
-
-
                     </notebook>
-
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_ids"/>
@@ -61,7 +63,10 @@
                 <field name="staff_number"/>
                 <field name="staff_name"/>
                 <field name="department"/>
+                <field name="diet"/>
+                <field name="beverage"/>
             </tree>
+
         </field>
     </record>
 
@@ -73,10 +78,10 @@
                 <field name="staff_number"/>
                 <field name="staff_name"/>
                 <separator/>
-                 <group expand="1" string="Group By">
+                <group expand="1" string="Group By">
                     <filter string="Department" name="department" context="{'group_by':'department'}"/>
                 </group>
-                  <searchpanel>
+                <searchpanel>
                     <field name="department" string="Department" enable_counters="1"/>
                 </searchpanel>
             </search>
