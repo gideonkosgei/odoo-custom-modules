@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_nepal_dairy_index_root"
+              name="Nepal Dairy Registration Index"
+              sequence="10"/>
+
+    <menuitem id="menu_nepal_dairy_index_farmer"
+              name="Herds"
+              action="action_nepal_dairy_index_farmer"
+              parent="menu_nepal_dairy_index_root"
+              sequence="1"/>
+
+    <menuitem id="menu_nepal_dairy_index_animal"
+              name="Animals"
+              action="action_nepal_dairy_index_animal"
+              parent="menu_nepal_dairy_index_root"
+              sequence="2"/>
+
+    <menuitem id="menu_nepal_dairy_index_movement"
+              name="Movement"
+              action="action_nepal_dairy_index_movement"
+              parent="menu_nepal_dairy_index_root"
+              sequence="3"/>
+
+    <menuitem id="menu_nepal_dairy_index_exit"
+              name="Exit"
+              action="action_nepal_dairy_index_exit"
+              parent="menu_nepal_dairy_index_root"
+              sequence="4"/>
+
+    <menuitem id="menu_nepal_dairy_index_settings"
+              name="Settings"
+              parent="menu_nepal_dairy_index_root"
+              sequence="5"/>
+
+
+
+    <menuitem id="menu_nepal_dairy_index_list"
+              name="Lists"
+              action="action_nepal_dairy_index_list"
+              parent="menu_nepal_dairy_index_settings"
+              sequence="1"/>
+
+    <menuitem id="menu_nepal_dairy_index_breed"
+              name="Breeds"
+              action="action_nepal_dairy_index_breed"
+              parent="menu_nepal_dairy_index_settings"
+              sequence="2"/>
+
+    <menuitem id="menu_nepal_dairy_index_admin_units"
+              name="Admin Units"
+              parent="menu_nepal_dairy_index_settings"
+              sequence="3"/>
+
+    <menuitem id="menu_nepal_dairy_index_provinces"
+              name="Provinces"
+              parent="menu_nepal_dairy_index_admin_units"
+              action="action_nepal_dairy_index_province"
+              sequence="1"/>
+    <menuitem id="menu_nepal_dairy_index_districts"
+              name="Districts"
+              parent="menu_nepal_dairy_index_admin_units"
+              action="action_nepal_dairy_index_district"
+              sequence="2"/>
+
+    <menuitem id="menu_nepal_dairy_index_municipalities"
+              name="Municipalities"
+              parent="menu_nepal_dairy_index_admin_units"
+              action="action_nepal_dairy_index_municipality"
+              sequence="3"/>
+    <menuitem id="menu_nepal_dairy_index_wards"
+              name="Wards"
+              parent="menu_nepal_dairy_index_admin_units"
+              action="action_nepal_dairy_index_ward"
+              sequence="4"/>
+</odoo>
