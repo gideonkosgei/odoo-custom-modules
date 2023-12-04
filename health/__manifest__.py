@@ -1,6 +1,6 @@
 {
     'name': 'Animal Health ',
-    'version': '1.O.0',
+    'version': '1.0.0',
     'summary': 'Animal Health Module',
     'sequence': 10,
     'description': """Animal & Human Health Module""",

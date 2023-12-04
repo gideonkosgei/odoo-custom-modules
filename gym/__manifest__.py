@@ -1,6 +1,6 @@
 {
     'name': 'Gym ',
-    'version': '1.O',
+    'version': '1.0.0',
     'summary': 'Gym',
     'sequence': 10,
     'description': """Gym System""",

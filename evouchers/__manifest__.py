@@ -1,6 +1,6 @@
 {
     'name': 'Evouchers',
-    'version': '1.O.0',
+    'version': '1.0.0',
     'summary': 'Evouchers',
     'sequence': 13,
     'description': """Evouchers""",
