@@ -4,7 +4,7 @@
         <field name="name">nepal.dairy.index.animal.form</field>
         <field name="model">nepal.dairy.index.animal</field>
         <field name="arch" type="xml">
-            <form>
+            <form create="false">
                 <sheet>
                     <field name="qr_code" widget='image' class="oe_avatar"/>
                     <div class="oe_title mb24">
@@ -27,7 +27,7 @@
 
                         <page string="Movement" name="movement">
                             <field name="movement_ids">
-                                <tree editable="top" delete="0">
+                                <tree editable="top" delete="0"  create="false" edit="false">
                                     <field name="origin_herd_id"/>
                                     <field name="origin_herd_code" />
                                     <field name="origin_province" />
@@ -47,9 +47,17 @@
                             </field>
                         </page>
 
+
+                        <page string="Exit/Cull" name="exit">
+                            <field name="exit_ids">
+                                <tree editable="top" delete="0"  create="true" edit="true">
+                                    <field name="exit_date"/>
+                                    <field name="exit_reason" />
+                                    <field name="remarks" />
+                                </tree>
+                            </field>
+                        </page>
                     </notebook>
-
-
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
@@ -65,7 +73,7 @@
         <field name="name">nepal.dairy.index.animal.tree</field>
         <field name="model">nepal.dairy.index.animal</field>
         <field name="arch" type="xml">
-            <tree expand="1">
+            <tree expand="1" create="false"  edit="false">
                 <field name="farmer_id"/>
                 <field name="herd_id"/>
                 <field name="tag_id"/>
@@ -92,6 +100,7 @@
                 <field name="farmer_id"/>
                 <field name="herd_id"/>
                 <field name="animal_id"/>
+                 <field name="tag_id"/>
                 <field name="province"/>
                 <field name="district"/>
                 <field name="municipality"/>

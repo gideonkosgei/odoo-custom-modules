@@ -58,6 +58,7 @@ class NepalDairyIndexAnimal(models.Model):
     qr_code = fields.Binary('QRcode', compute="_generate_qr")
 
     movement_ids = fields.One2many('nepal.dairy.index.movement', 'animal_id', string='Movement')
+    exit_ids = fields.One2many('nepal.dairy.index.exit', 'animal_id', string='Exit')
 
     _sql_constraints = [('animal_id_unique', 'unique (animal_id)', 'A Record Exists With The Same Animal ID')]
 
@@ -96,14 +97,14 @@ class NepalDairyIndexAnimal(models.Model):
 
     @api.onchange('farmer_id')
     def onchange_farmer_id(self):
-        if self.herd_id:
+        if self.herd_id and self._origin.farmer_id.id != self.farmer_id.id:
             vals = {
                 'origin_herd_id': self._origin.farmer_id.id,
                 'destination_herd_id': self.farmer_id.id,
                 'animal_id': self._origin.id
             }
 
-        self.env['nepal.dairy.index.movement'].create(vals)
+            self.env['nepal.dairy.index.movement'].create(vals)
 
     def _generate_qr(self):
         "method to generate QR code"

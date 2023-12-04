@@ -8,11 +8,11 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="animal_id"/>
-                            <field name="tag_id"/>
+                            <field name="animal_id" readonly="1"/>
+                            <field name="tag_id" readonly="1"/>
                              <field name="create_date" string="Movement Date" widget="date"
-                                           options="{'format': 'dd/MM/yyyy'}"/>
-                            <field name="create_uid" string="Created By"/>
+                                           options="{'format': 'dd/MM/yyyy'}" readonly="1"/>
+                            <field name="create_uid" string="Created By" readonly="1"/>
                         </group>
                     </group>
 
@@ -23,7 +23,7 @@
                                 <b>Movement From</b>
                             </span>
                             <div class="o_address_format">
-                                <field name="origin_herd_id" class="o_address_street" />
+                                <field name="origin_herd_id" class="o_address_street" readonly="1"  />
                                 <field name="origin_province" class="o_address_street" />
                                 <field name="origin_district" class="o_address_street" />
                                 <field name="origin_municipality" class="o_address_street" />
@@ -36,7 +36,7 @@
                                 <b>Movement To</b>
                             </span>
                             <div class="o_address_format">
-                                <field name="destination_herd_id" class="o_address_street" />
+                                <field name="destination_herd_id" class="o_address_street" readonly="1" />
                                 <field name="destination_province" class="o_address_street" />
                                 <field name="destination_district" class="o_address_street" />
                                 <field name="destination_municipality" class="o_address_street" />
@@ -60,7 +60,7 @@
         <field name="name">nepal.dairy.index.movement.tree</field>
         <field name="model">nepal.dairy.index.movement</field>
         <field name="arch" type="xml">
-            <tree expand="1" create="false" >
+            <tree expand="1" create="false"  edit="false">
                 <field name="animal_id"/>
                 <field name="tag_id"/>
                 <field name="species"/>

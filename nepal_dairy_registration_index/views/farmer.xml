@@ -40,6 +40,7 @@
                                        options="{'no_open': True, 'no_quick_create': True}"/>
                                 <field name="ward_id" class="o_address_street" placeholder="Ward"
                                        options="{'no_open': True, 'no_quick_create': True}"/>
+                                <field name="tole" class="o_address_street" placeholder="Tole"/>
                             </div>
 
                         </group>
@@ -47,6 +48,9 @@
                             <field name="herd_id"/>
                             <field name="mobile" widget="phone"/>
                             <field name="farmer_type" options="{'no_open': True, 'no_quick_create': True}"/>
+                            <field name="longitude"/>
+                            <field name="latitude"/>
+
                         </group>
                     </group>
 
@@ -84,9 +88,9 @@
 
 
                         <page string="Movement In" name="movement_in">
-                            <field name="destination_herd_ids">
-                                <tree editable="top" delete="0">
-                                     <field name="animal_id"/>
+                            <field name="destination_herd_ids" string="Movement Details">
+                                <tree editable="top" delete="0" create="false" edit="false">
+                                    <field name="animal_id"/>
                                     <field name="tag_id"/>
                                     <field name="species"/>
                                     <field name="sex"/>
@@ -107,8 +111,8 @@
                         </page>
 
                         <page string="Movement Out" name="movement_out">
-                            <field name="origin_herd_ids">
-                                <tree editable="top" delete="0">
+                            <field name="origin_herd_ids" string="Movement Details">
+                                <tree editable="top" delete="0" create="false" edit="false">
                                     <field name="animal_id"/>
                                     <field name="tag_id"/>
                                     <field name="species"/>

@@ -8,4 +8,5 @@ from . import ward
 from . import farmer
 from . import animal
 from . import movement
+from . import exit
 

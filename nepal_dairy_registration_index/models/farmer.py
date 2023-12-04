@@ -14,7 +14,7 @@ class NepalDairyIndexFarmer(models.Model):
     image = fields.Binary(string='farmer Photo')
     farmer_type = fields.Many2one(comodel_name='nepal.dairy.index.list.item', string='Category', tracking=True,
                                   required=True, domain="[('list_id', '=',3)]")
-    mobile = fields.Char('Mobile', required=False, tracking=True)
+    mobile = fields.Char('Mobile', required=True, tracking=True)
     herd_prefix = fields.Char('Herd Prefix', required=False, tracking=True)
     herd_id = fields.Char('Herd ID', required=True, tracking=True, readonly=True,
                           default=lambda self: _('New'))
@@ -43,6 +43,9 @@ class NepalDairyIndexFarmer(models.Model):
 
     ward = fields.Char('Ward', related='ward_id.ward_name', tracking=True)
     ward_code = fields.Char('Ward Code', related='ward_id.ward_code', tracking=True)
+    tole = fields.Char('Tole', tracking=True)
+    longitude = fields.Float('Longitude', digits=(8, 5), tracking=True)
+    latitude = fields.Float('Latitude', digits=(8, 5), tracking=True)
 
     destination_herd_ids = fields.One2many('nepal.dairy.index.movement', 'destination_herd_id',
                                            string='Destination Herd')
@@ -129,3 +132,15 @@ class NepalDairyIndexFarmer(models.Model):
     def onchange_municipality_id(self):
         if self.municipality_id:
             self.ward_id = None
+
+    @api.constrains('longitude')
+    def _check_longitude(self):
+        for record in self:
+            if not (-180 <= record.longitude <= 180):
+                raise ValidationError(_("Longitude must be between -180 and 180."))
+
+    @api.constrains('latitude')
+    def _check_latitude(self):
+        for record in self:
+            if not (-90 <= record.latitude <= 90):
+                raise ValidationError(_("Latitude must be between -90 and 90."))
