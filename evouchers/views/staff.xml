@@ -6,8 +6,7 @@
         <field name="arch" type="xml">
             <form create="false" delete="false">
                 <sheet>
-                    <widget name="web_ribbon" title="Closed" bg_color="bg-danger"
-                            attrs="{'invisible': [ ('status', '=', 'Open')]}"/>
+                    <widget name="web_ribbon" title="Closed" bg_color="bg-danger" invisible="'status' == 'Open'"/>
                     <field name="qr_code" widget='image' class="oe_avatar"/>
                     <div class="oe_title mb24">
                         <h1>
@@ -30,19 +29,13 @@
                             <form>
                                 <group>
                                     <group>
-                                        <field name="token_food" attrs="{'invisible': [('token_food', '=', True)]}"/>
-                                        <field name="token_drink1"
-                                               attrs="{'invisible': [('token_drink1', '=', True)]}"/>
-                                        <field name="token_drink2"
-                                               attrs="{'invisible': [('token_drink2', '=', True)]}"/>
-                                        <field name="token_drink3"
-                                               attrs="{'invisible': [('token_drink3', '=', True)]}"/>
-                                        <field name="token_drink4"
-                                               attrs="{'invisible': [('token_drink4', '=', True)]}"/>
-                                        <field name="token_drink5"
-                                               attrs="{'invisible': [('token_drink5', '=', True)]}"/>
-                                        <field name="token_drink6"
-                                               attrs="{'invisible': [('token_drink6', '=', True)]}"/>
+                                        <field name="token_food" invisible=" 'token_food' == 'True'"/>
+                                        <field name="token_drink1" invisible=" 'token_drink1' == True"/>
+                                        <field name="token_drink2" invisible="'token_drink2' ==True"/>
+                                        <field name="token_drink3" invisible="'token_drink3' == True"/>
+                                        <field name="token_drink4" invisible="'token_drink4' == True"/>
+                                        <field name="token_drink5" invisible="'token_drink5' == True"/>
+                                        <field name="token_drink6" invisible="'token_drink6' == True"/>
                                     </group>
                                 </group>
                             </form>
