@@ -29,21 +29,22 @@
                         <page string="Tokens" name="tokens">
                             <form>
                                 <group>
-                                    <field name="token_food" attrs="{'invisible': [('token_food', '=', True)]}"/>
-                                    <field name="token_drink1"
-                                           attrs="{'invisible': [('token_drink1', '=', True)]}"/>
-                                    <field name="token_drink2"
-                                           attrs="{'invisible': [('token_drink2', '=', True)]}"/>
-                                    <field name="token_drink3"
-                                           attrs="{'invisible': [('token_drink3', '=', True)]}"/>
-                                    <field name="token_drink4"
-                                           attrs="{'invisible': [('token_drink4', '=', True)]}"/>
-                                    <field name="token_drink5"
-                                           attrs="{'invisible': [('token_drink5', '=', True)]}"/>
-                                    <field name="token_drink6"
-                                           attrs="{'invisible': [('token_drink6', '=', True)]}"/>
+                                    <group>
+                                        <field name="token_food" attrs="{'invisible': [('token_food', '=', True)]}"/>
+                                        <field name="token_drink1"
+                                               attrs="{'invisible': [('token_drink1', '=', True)]}"/>
+                                        <field name="token_drink2"
+                                               attrs="{'invisible': [('token_drink2', '=', True)]}"/>
+                                        <field name="token_drink3"
+                                               attrs="{'invisible': [('token_drink3', '=', True)]}"/>
+                                        <field name="token_drink4"
+                                               attrs="{'invisible': [('token_drink4', '=', True)]}"/>
+                                        <field name="token_drink5"
+                                               attrs="{'invisible': [('token_drink5', '=', True)]}"/>
+                                        <field name="token_drink6"
+                                               attrs="{'invisible': [('token_drink6', '=', True)]}"/>
+                                    </group>
                                 </group>
-
                             </form>
                         </page>
                     </notebook>

@@ -20,17 +20,25 @@ class Evoucher(models.Model):
     _order = "id"
     _rec_name = "staff_number"
 
-    staff_number = fields.Char('Staff/Payroll Number', tracking=True, required=True ,readonly=True)
-    staff_name = fields.Char('Staff Name', tracking=True, required=True ,readonly=True)
+    staff_number = fields.Char('Staff/Payroll Number', tracking=True, required=True, readonly=True)
+    staff_name = fields.Char('Staff Name', tracking=True, required=True, readonly=True)
     department = fields.Selection(
-    [("1","Operation:Supply chain, Engineering, Security, Hospitality"),("2","Finance"), ("3","Biosciences"),("4","People & Organizational Development"),
-     ("5","Institutional Planning & Partnerships"),("6","Policies, Institutions and Livelihoods"),("7","Animal and Human Health"),
-     ("7","Sustainable Livestock Systems"),("8","Director Generals Office"),("9","ICT"),("10","Communications and Knowledge Management"),
-     ("11","Gender Platform"), ("12","Livestock Genetics"), ("13","DDG - Biosciences Office"), ("14","Sustainable Livestock Systems"),
-     ("15","Data and Research Methods Unit"), ("16","Capacity Development"), ("17","Internal Audit"), ("18","Feed and Forage  Development"),
-     ("19","Legal"), ("20","Program  Management"),("21","Hosted Institutions"),("22","Integrated  Science")],string='Program/Department', tracking=True,readonly=True)
-    diet = fields.Selection( [("1", "Vegetarian"), ("2", "Non-vegetarian"), ("3", "Other")],string='Dietary Preference', tracking=True,readonly=True)
-    beverage = fields.Selection([('1','Beer'),('2','Wine'),('3','Juice/Beer')],string = 'Beverage', tracking=True,readonly=True)
+        [("1", "Operation:Supply chain, Engineering, Security, Hospitality"), ("2", "Finance"), ("3", "Biosciences"),
+         ("4", "People & Organizational Development"),
+         ("5", "Institutional Planning & Partnerships"), ("6", "Policies, Institutions and Livelihoods"),
+         ("7", "Animal and Human Health"),
+         ("7", "Sustainable Livestock Systems"), ("8", "Director Generals Office"), ("9", "ICT"),
+         ("10", "Communications and Knowledge Management"),
+         ("11", "Gender Platform"), ("12", "Livestock Genetics"), ("13", "DDG - Biosciences Office"),
+         ("14", "Sustainable Livestock Systems"),
+         ("15", "Data and Research Methods Unit"), ("16", "Capacity Development"), ("17", "Internal Audit"),
+         ("18", "Feed and Forage  Development"),
+         ("19", "Legal"), ("20", "Program  Management"), ("21", "Hosted Institutions"), ("22", "Integrated  Science")],
+        string='Program/Department', tracking=True, readonly=True)
+    diet = fields.Selection([("1", "Vegetarian"), ("2", "Non-vegetarian"), ("3", "Other")], string='Dietary Preference',
+                            tracking=True, readonly=True)
+    beverage = fields.Selection([('1', 'Beer'), ('2', 'Wine'), ('3', 'Juice/Beer')], string='Beverage', tracking=True,
+                                readonly=True)
 
     qr_code = fields.Binary('QRcode', compute="_generate_qr")
 
@@ -41,7 +49,8 @@ class Evoucher(models.Model):
     token_drink4 = fields.Boolean('Drink 4', tracking=True)
     token_drink5 = fields.Boolean('Drink 5', tracking=True)
     token_drink6 = fields.Boolean('Drink 6', tracking=True)
-    status = fields.Selection([('Open', 'Open'), ('Closed', 'Closed')],string='Status', default='Open', compute='_compute_status')
+    status = fields.Selection([('Open', 'Open'), ('Closed', 'Closed')], string='Status', default='Open',
+                              compute='_compute_status')
 
     def _generate_qr(self):
         "method to generate QR code"
@@ -71,12 +80,12 @@ class Evoucher(models.Model):
             else:
                 raise UserError(_('Necessary Requirements To Run This Operation Is Not Satisfied'))
 
-
-    @api.depends('token_food', 'token_drink1', 'token_drink2', 'token_drink3', 'token_drink4', 'token_drink5', 'token_drink6')
+    @api.depends('token_food', 'token_drink1', 'token_drink2', 'token_drink3', 'token_drink4', 'token_drink5',
+                 'token_drink6')
     def _compute_status(self):
         for rec in self:
-            if all([rec.token_food, rec.token_drink1, rec.token_drink2, rec.token_drink3, rec.token_drink4, rec.token_drink5, rec.token_drink6]):
+            if all([rec.token_food, rec.token_drink1, rec.token_drink2, rec.token_drink3, rec.token_drink4,
+                    rec.token_drink5, rec.token_drink6]):
                 rec.status = 'Closed'
             else:
                 rec.status = 'Open'
-
