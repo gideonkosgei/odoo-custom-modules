@@ -1,5 +1,11 @@
 "staff_number","staff_name","department","diet","beverage"
-"KSN00001","Gideon Kosgei",1,1,1
-"KSN00002","Mathew",1,1,1
-"KSN00003","John",1,1,1
-
+"KSN00001","User One",1,1,1
+"KSN00002","User Two",2,1,1
+"KSN00003","User Three",3,1,1
+"KSN00004","User Four",4,2,2
+"KSN00005","User Five",5,2,2
+"KSN00006","User Six",6,2,3
+"KSN00007","User Seven",7,1,3
+"KSN00008","User Eight",8,1,1
+"KSN00009","User Nine",9,3,2
+"KSN00010","User Ten",10,3,3

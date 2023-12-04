@@ -17,7 +17,7 @@ class Evoucher(models.Model):
     _name = "evoucher.staff"
     _description = "staff"
     _inherit = ["mail.thread", "mail.activity.mixin"]
-    _order = "id desc"
+    _order = "id"
     _rec_name = "staff_number"
 
     staff_number = fields.Char('Staff/Payroll Number', tracking=True, required=True ,readonly=True)
