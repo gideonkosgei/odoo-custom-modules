@@ -1,142 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_nepal_dairy_index_animal_form" model="ir.ui.view">
-        <field name="name">nepal.dairy.index.animal.form</field>
-        <field name="model">nepal.dairy.index.animal</field>
+    <record id="view_evoucher_staff_form" model="ir.ui.view">
+        <field name="name">evoucher.staff.form</field>
+        <field name="model">evoucher.staff</field>
         <field name="arch" type="xml">
-            <form create="false">
+            <form create="false" delete="false">
                 <sheet>
-                    <field name="qr_code" widget='image' class="oe_avatar"/>
+                     <field name="qr_code" widget='image' class="oe_avatar"/>
                     <div class="oe_title mb24">
                         <h1>
-                            <field class="o_text_overflow" name="animal_id" default_focus="1"/>
+                            <field class="o_text_overflow" name="staff_number" default_focus="1"/>
                         </h1>
                     </div>
                     <group>
                         <group>
-                            <field name="tag_id" default_focus="1"/>
-                            <field name="farmer_id"/>
-                            <field name="species_id" options="{'no_open': True, 'no_quick_create': True}"/>
-                            <field name="sex_id" options="{'no_open': True, 'no_quick_create': True}"/>
-                            <field name="breed_id" options="{'no_open': True, 'no_quick_create': True}"/>
-                            <field name="animal_dob" widget="date" options="{'datepicker':{'maxDate': 'now'}}"/>
+                            <field name="staff_number" default_focus="1"/>
+                            <field name="staff_name"/>
+                            <field name="department"/>
+                            <field name="diet"/>
+                            <field name="beverage"/>
                         </group>
                     </group>
 
                     <notebook>
-
-                        <page string="Movement" name="movement">
-                            <field name="movement_ids">
-                                <tree editable="top" delete="0"  create="false" edit="false">
-                                    <field name="origin_herd_id"/>
-                                    <field name="origin_herd_code" />
-                                    <field name="origin_province" />
-                                    <field name="origin_district"/>
-                                    <field name="origin_municipality"/>
-                                    <field name="origin_ward"/>
-                                    <field name="destination_herd_id"/>
-                                    <field name="destination_herd_code"/>
-                                    <field name="destination_province"/>
-                                    <field name="destination_district"/>
-                                    <field name="destination_municipality"/>
-                                    <field name="destination_ward"/>
-                                    <field name="create_date" string="Movement Date" widget="date"
-                                           options="{'format': 'dd/MM/yyyy'}"/>
-                                    <field name="create_uid" string="Created By"/>
-                                </tree>
-                            </field>
+                        <page string="Tokens" name="tokens">
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="token_food" attrs="{'invisible': [('token_food', '=', True)]}"/>
+                                            <field name="token_drink1" attrs="{'invisible': [('token_drink1', '=', True)]}"/>
+                                            <field name="token_drink2" attrs="{'invisible': [('token_drink2', '=', True)]}"/>
+                                            <field name="token_drink3" attrs="{'invisible': [('token_drink3', '=', True)]}"/>
+                                            <field name="token_drink4" attrs="{'invisible': [('token_drink4', '=', True)]}"/>
+                                            <field name="token_drink5" attrs="{'invisible': [('token_drink5', '=', True)]}"/>
+                                            <field name="token_drink6" attrs="{'invisible': [('token_drink6', '=', True)]}"/>
+                                        </group>
+                                    </group>
+                                </form>
                         </page>
 
 
-                        <page string="Exit/Cull" name="exit">
-                            <field name="exit_ids">
-                                <tree editable="top" delete="0"  create="true" edit="true">
-                                    <field name="exit_date"/>
-                                    <field name="exit_reason" />
-                                    <field name="remarks" />
-                                </tree>
-                            </field>
-                        </page>
                     </notebook>
+
                 </sheet>
                 <div class="oe_chatter">
-                    <field name="message_follower_ids"/>
-                    <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </div>
             </form>
         </field>
     </record>
 
-
-    <record id="view_nepal_dairy_index_animal_tree" model="ir.ui.view">
-        <field name="name">nepal.dairy.index.animal.tree</field>
-        <field name="model">nepal.dairy.index.animal</field>
+    <record id="view_evoucher_staff_tree" model="ir.ui.view">
+        <field name="name">evoucher.staff.tree</field>
+        <field name="model">evoucher.staff</field>
         <field name="arch" type="xml">
-            <tree expand="1" create="false"  edit="false">
-                <field name="farmer_id"/>
-                <field name="herd_id"/>
-                <field name="tag_id"/>
-                <field name="animal_id"/>
-                <field name="species_id"/>
-                <field name="sex_id"/>
-                <field name="breed_id"/>
-                <field name="animal_dob"/>
-                <field name="province"/>
-                <field name="district"/>
-                <field name="municipality"/>
-                <field name="ward"/>
-                <field name="create_uid" string="Created By"/>
-                <field name="create_date" string="Date Created" widget="date" options="{'format': 'dd/MM/yyyy'}"/>
+            <tree expand="1" edit="false" create="false">
+                <field name="staff_number"/>
+                <field name="staff_name"/>
+                <field name="department"/>
             </tree>
         </field>
     </record>
 
-    <record id="View_nepal_dairy_index_animal_search" model="ir.ui.view">
-        <field name="name">nepal.dairy.index.animal.search</field>
-        <field name="model">nepal.dairy.index.animal</field>
+    <record id="View_evoucher_staff_search" model="ir.ui.view">
+        <field name="name">evoucher.staff.search</field>
+        <field name="model">evoucher.staff</field>
         <field name="arch" type="xml">
-            <search string="Animals">
-                <field name="farmer_id"/>
-                <field name="herd_id"/>
-                <field name="animal_id"/>
-                 <field name="tag_id"/>
-                <field name="province"/>
-                <field name="district"/>
-                <field name="municipality"/>
-                <field name="ward"/>
-                <field name="animal_id"/>
-
+            <search string="Staff">
+                <field name="staff_number"/>
+                <field name="staff_name"/>
                 <separator/>
-
-                <filter string="Cattle" name="cattle" domain="[('species_id','=','Cattle')]"/>
-                <filter string="Buffalo" name="buffalo" domain="[('species_id','=','Buffalo')]"/>
-                <filter string="Male" name="male" domain="[('sex_id','=','Male')]"/>
-                <filter string="Female" name="female" domain="[('sex_id','=','Female')]"/>
-
-                <group expand="1" string="Group By">
-                    <filter string="Species" name="species_id" context="{'group_by':'species_id'}"/>
-                    <filter string="Sex" name="sex_id" context="{'group_by':'sex_id'}"/>
-                    <filter string="Breed" name="breed_id" context="{'group_by':'breed_id'}"/>
+                 <group expand="1" string="Group By">
+                    <filter string="Department" name="department" context="{'group_by':'department'}"/>
                 </group>
-                <searchpanel>
-                    <field name="species_id" string="Species" enable_counters="1"/>
-                    <field name="sex_id" string="Sex" select="multi" enable_counters="1"/>
-                    <field name="breed_id" string="Breed" enable_counters="1"/>
+                  <searchpanel>
+                    <field name="department" string="Department" enable_counters="1"/>
                 </searchpanel>
             </search>
         </field>
     </record>
 
 
-    <record id="action_nepal_dairy_index_animal" model="ir.actions.act_window">
-        <field name="name">Animal</field>
+
+
+    <record id="action_evoucher_staff" model="ir.actions.act_window">
+        <field name="name">Staff</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">nepal.dairy.index.animal</field>
-        <field name="view_mode">tree,kanban,form</field>
+        <field name="res_model">evoucher.staff</field>
+        <field name="view_mode">tree,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Register Your 1st Animal
+                Register Staff
             </p>
         </field>
     </record>
