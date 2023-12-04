@@ -41,8 +41,7 @@ class Evoucher(models.Model):
     token_drink4 = fields.Boolean('Drink 4', tracking=True)
     token_drink5 = fields.Boolean('Drink 5', tracking=True)
     token_drink6 = fields.Boolean('Drink 6', tracking=True)
-
-
+    status = fields.Selection([('Open', 'Open'), ('Closed', 'Closed')],string='Status', default='Open', compute='_compute_status')
 
     def _generate_qr(self):
         "method to generate QR code"
@@ -61,23 +60,6 @@ class Evoucher(models.Model):
                 #         base_url = base_url.replace('http://', 'https://')
                 base_url = base_url + '/web#id=' + str(self.id) + '&model=evoucher.staff&view_type=form&cids='
                 qr.add_data(base_url)
-                # qr.add_data("Staff ID: ")
-                # qr.add_data(rec.staff_number)
-                #
-                # qr.add_data(", Staff Name: ")
-                # qr.add_data(rec.staff_name)
-                #
-                # qr.add_data(", Dept: ")
-                # qr.add_data(rec.department)
-                #
-                # qr.add_data(", Project: ")
-                # qr.add_data(rec.project)
-                #
-                # qr.add_data(", diet: ")
-                # qr.add_data(rec.diet)
-                #
-                # qr.add_data(", Beverage: ")
-                # qr.add_data(rec.beverage)
 
                 qr.make(fit=True)
                 img = qr.make_image()
@@ -86,7 +68,13 @@ class Evoucher(models.Model):
                 qr_image = base64.b64encode(temp.getvalue())
                 rec.update({'qr_code': qr_image})
 
-
-
             else:
                 raise UserError(_('Necessary Requirements To Run This Operation Is Not Satisfied'))
+
+    @api.depends('token_food', 'token_drink1', 'token_drink2', 'token_drink3', 'token_drink4', 'token_drink5', 'token_drink6')
+    def _compute_status(self):
+        for rec in self:
+            if all([rec.token_food, rec.token_drink1, rec.token_drink2, rec.token_drink3, rec.token_drink4, rec.token_drink5, rec.token_drink6]):
+                rec.status = 'Closed'
+            else:
+                rec.status = 'Open'

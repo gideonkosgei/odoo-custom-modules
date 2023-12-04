@@ -6,6 +6,8 @@
         <field name="arch" type="xml">
             <form create="false" delete="false">
                 <sheet>
+                     <widget name="web_ribbon" title="Closed" bg_color="bg-danger"
+                            attrs="{'invisible': [ ('status', '=', 'Open')]}"/>
                      <field name="qr_code" widget='image' class="oe_avatar"/>
                     <div class="oe_title mb24">
                         <h1>
@@ -19,6 +21,7 @@
                             <field name="department"/>
                             <field name="diet"/>
                             <field name="beverage"/>
+                             <field name="status"  invisible="1"/>
                         </group>
                     </group>
 
@@ -79,9 +82,6 @@
             </search>
         </field>
     </record>
-
-
-
 
     <record id="action_evoucher_staff" model="ir.actions.act_window">
         <field name="name">Staff</field>
