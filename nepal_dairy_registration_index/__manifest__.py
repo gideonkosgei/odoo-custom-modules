@@ -1,6 +1,6 @@
 {
     'name': 'Nepal Dairy Registration Index',
-    'version': '1.O.0',
+    'version': '1.0.0',
     'summary': 'Nepal Dairy Registration Index',
     'sequence': 10,
     'description': """Nepal Dairy Registration Index""",
@@ -29,6 +29,7 @@
         'views/farmer.xml',
         'views/animal.xml',
         'views/movement.xml',
+        'views/exit.xml',
         'views/menu.xml'
     ],
     'demo': [],
