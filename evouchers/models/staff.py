@@ -49,8 +49,8 @@ class Evoucher(models.Model):
     token_drink4 = fields.Boolean('Drink 4', tracking=True)
     token_drink5 = fields.Boolean('Drink 5', tracking=True)
     token_drink6 = fields.Boolean('Drink 6', tracking=True)
-    status = fields.Selection([('Open', 'Open'), ('Closed', 'Closed')], string='Status', default='Open',
-                              compute='_compute_status')
+    state = fields.Selection([('Open', 'Open'), ('Closed', 'Closed')], string='state', default='Open',
+                              compute='_compute_state')
 
     def _generate_qr(self):
         "method to generate QR code"
@@ -82,10 +82,10 @@ class Evoucher(models.Model):
 
     @api.depends('token_food', 'token_drink1', 'token_drink2', 'token_drink3', 'token_drink4', 'token_drink5',
                  'token_drink6')
-    def _compute_status(self):
+    def _compute_state(self):
         for rec in self:
             if all([rec.token_food, rec.token_drink1, rec.token_drink2, rec.token_drink3, rec.token_drink4,
                     rec.token_drink5, rec.token_drink6]):
-                rec.status = 'Closed'
+                rec.state = 'Closed'
             else:
-                rec.status = 'Open'
+                rec.state = 'Open'
