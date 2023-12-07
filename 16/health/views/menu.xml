@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_health_root"
+              name="Animal Health"
+              sequence="10"/>
+
+    <menuitem id="menu_health_settings"
+              name="Settings"
+              parent="menu_health_root"
+              sequence="1"/>
+
+    <menuitem id="menu_health_config_catalogue"
+              name="Catalogues"
+              action="action_config_catalogue"
+              parent="menu_health_settings"
+              sequence="1"/>
+
+     <menuitem id="menu_health_admin_units"
+              name="Admin Units"
+              parent="menu_health_settings"
+              sequence="2"/>
+
+     <menuitem id="menu_health_breed"
+              name="Breed Matrix"
+               action="action_breed"
+              parent="menu_health_settings"
+              sequence="3"/>
+     <menuitem id="menu_health_odk_users"
+              name="ODK Users"
+               action="action_odk_user"
+              parent="menu_health_settings"
+              sequence="4"/>
+
+     <menuitem id="menu_health_countries"
+              name="Countries"
+              parent="menu_health_admin_units"
+              action="action_country"
+              sequence="1"/>
+
+     <menuitem id="menu_health_admin_unit_level_one"
+              name="Level 1"
+              parent="menu_health_admin_units"
+              action="action_admin_unit_level_one"
+              sequence="2"/>
+
+    <menuitem id="menu_health_admin_unit_level_two"
+              name="Level 2"
+              parent="menu_health_admin_units"
+              action="action_admin_unit_level_two"
+              sequence="3"/>
+
+    <menuitem id="menu_health_admin_unit_level_three"
+              name="Level 3"
+              parent="menu_health_admin_units"
+              action="action_admin_unit_level_three"
+              sequence="4"/>
+
+    <menuitem id="menu_health_admin_unit_level_four"
+              name="Level 4"
+              parent="menu_health_admin_units"
+              action="action_admin_unit_level_four"
+              sequence="5"/>
+
+    <menuitem id="menu_health_farmers"
+              name="Farmers"
+              parent="menu_health_root"
+              action="action_farmer"
+              sequence="11"/>
+
+
+
+
+
+<!--    <menuitem id="menu_health_admin_unit_level_two"-->
+<!--              name="Level Two"-->
+<!--              parent="menu_health_root"-->
+<!--              action="action_admin_unit_level_two"-->
+<!--              sequence="10"/>-->
+
+
+    <menuitem id="menu_health_animals"
+              name="Animals"
+              parent="menu_health_root"
+              action="action_animal"
+              sequence="10"/>
+
+    <menuitem id="menu_health_odk_submissions"
+              name=" Odk Submissions"
+              parent="menu_health_root"
+              action="action_odk_submission"
+              sequence="10"/>
+
+
+</odoo>

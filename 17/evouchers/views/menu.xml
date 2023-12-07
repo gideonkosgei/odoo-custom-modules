@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_evoucher_root"
+              name="ILRI eVouchers"
+              sequence="10"/>
+
+    <menuitem id="menu_evoucher_staff"
+              name="staff"
+              action="action_evoucher_staff"
+              parent="menu_evoucher_root"
+              sequence="1"/>
+
+</odoo>

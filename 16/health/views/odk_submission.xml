@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="view_odk_submission_kanban" model="ir.ui.view">
+        <field name="name">health.odk.submission.kanban</field>
+        <field name="model">health.odk.submission</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="odk_submitted_object" string="Submission Object"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        Object:
+                                        <field name="odk_submitted_object"/>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_odk_submission_form" model="ir.ui.view">
+        <field name="name">health.odk.submission.form</field>
+        <field name="model">health.odk.submission</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h3>
+                            ODK Submission
+                        </h3>
+                        <br/>
+                        <br/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="odk_submitted_object" string="ODK Object"/>
+                            <field name="is_processed" string="Is Processed?"/>
+                        </group>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_odk_submission_search" model="ir.ui.view">
+        <field name="name">health.odk.submission.search</field>
+        <field name="model">health.odk.submission</field>
+        <field name="arch" type="xml">
+            <search string="Submissions">
+                <field name="odk_submitted_object"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_odk_submission_tree" model="ir.ui.view">
+        <field name="name">health.odk.submission.tree</field>
+        <field name="model">health.odk.submission</field>
+        <field name="arch" type="xml">
+            <tree expand="1">
+                <field name="id" string="Code" optional="show"/>
+                <field name="odk_submitted_object" optional="show"/>
+                <field name="is_processed" optional="show"/>
+                <field name="submission_uuid" optional="show"/>
+                <field name="_id" optional="show"/>
+                <field name="start_time" optional="show"/>
+                <field name="end_time" optional="show"/>
+                <field name="form_id" optional="show"/>
+                <field name="form_name" optional="show"/>
+                <field name="instance_name" optional="show"/>
+                <field name="submitted_by" optional="show"/>
+                <field name="geo_location" optional="show"/>
+                <field name="instance_id" optional="show"/>
+                <field name="form_edited" optional="show"/>
+                <field name="version" optional="show"/>
+                <field name="duration" optional="show"/>
+                <field name="gps_location_lon" optional="show"/>
+                <field name="gps_location_lat" optional="show"/>
+                <field name="odk_user_id" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_odk_submission" model="ir.actions.act_window">
+        <field name="name">Odk</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">health.odk.submission</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Your Submission
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,123 @@
+country_id:id,level_one_id.id,level_two_id.id,level_code,level_name
+7,1,1,24342,Ramdhuni Municipality
+7,1,1,24341,Koshi Gaunpalika
+7,1,1,24340,Itahari Sub-Metropolitian City
+7,1,1,24339,Inaruwa Municipality
+7,1,1,24338,Harinagara Gaunpalika
+7,1,1,24337,Gadhi Gaunpalika
+7,1,1,24336,Duhabi Municipality
+7,1,1,24335,Dharan Sub-Metropolitian City
+7,1,1,24334,Dewangunj Gaunpalika
+7,1,1,24333,Bhokraha Gaunpalika
+7,1,1,24332,Barju Gaunpalika
+7,1,1,24331,Baraha Municipality
+7,2,2,24496,Ramnagar Gaunpalika
+7,2,2,24495,Parsa Gaunpalika
+7,2,2,24494,Malangawa Municipality
+7,2,2,24493,Lalbandi Municipality
+7,2,2,24492,Kaudena Gaunpalika
+7,2,2,24491,Kabilashi Municipality
+7,2,2,24490,Ishworpur Municipality
+7,2,2,24489,Hariwan Municipality
+7,2,2,24488,Haripurwa Municipality
+7,2,2,24487,Haripur Municipality
+7,2,2,24486,Godaita Municipality
+7,2,2,24485,Dhanakaul Gaunpalika
+7,2,2,24484,Chandranagar Gaunpalika
+7,2,2,24483,Chakraghatta Gaunpalika
+7,2,2,24482,Brahmapuri Gaunpalika
+7,2,2,24481,Bishnu Gaunpalika
+7,2,2,24480,Basbariya Gaunpalika
+7,2,2,24479,Barahathawa Municipality
+7,2,2,24478,Balara Municipality
+7,2,2,24477,Bagmati Municipality
+7,2,3,24476,Sonama Gaunpalika
+7,2,3,24475,Samsi Gaunpalika
+7,2,3,24474,Ram Gopalpur Municipality
+7,2,3,24473,Pipara Gaunpalika
+7,2,3,24472,Matihani Municipality
+7,2,3,24471,Manara Shisawa Municipality
+7,2,3,24470,Mahottari Gaunpalika
+7,2,3,24469,Loharpatti Municipality
+7,2,3,24468,Jaleshwor Municipality
+7,2,3,24467,Gaushala Municipality
+7,2,3,24466,Ekadara Gaunpalika
+7,2,3,24465,Bhangaha Municipality
+7,2,3,24464,Bardibas Municipality
+7,2,3,24463,Balawa Municipality
+7,2,3,24462,Aurahi Municipality
+7,2,4,24461,Shahidnagar Municipality
+7,2,4,24460,Sabaila Municipality
+7,2,4,24459,Nagarain Municipality
+7,2,4,24458,Mukhiyapatti Musaharmiya Gaunpalika
+7,2,4,24457,Mithila Municipality
+7,2,4,24456,Mithila Bihari Municipality
+7,2,4,24455,Laxminiya Gaunpalika
+7,2,4,24454,Kamala Municipality
+7,2,4,24453,Janakpur Sub-Metropolitian City
+7,2,4,24452,Janak Nandini Gaunpalika
+7,2,4,24451,Hansapur Municipality
+7,2,4,24450,Ganeshman Charnath Municipality
+7,2,4,24449,Dhanushadham Municipality
+7,2,4,24448,Dhanauji Gaunpalika
+7,2,4,24447,Chhireshwornath Municipality
+7,2,4,24446,Bideha Municipality
+7,2,4,24445,Bateshwor Gaunpalika
+7,2,4,24444,Aurahi Gaunpalika
+7,2,5,24443,Sukhipur Municipality
+7,2,5,24442,Siraha Municipality
+7,2,5,24441,Sakhuwa Nankarkatti Gaunpalika
+7,2,5,24440,Nawarajpur Gaunpalika
+7,2,5,24439,Naraha Gaunpalika
+7,2,5,24438,Mirchaiya Municipality
+7,2,5,24437,Laxmipur Patari Gaunpalika
+7,2,5,24436,Lahan Municipality
+7,2,5,24435,Karjanha Municipality
+7,2,5,24434,Kalyanpur Municipality
+7,2,5,24433,Golbazar Municipality
+7,2,5,24432,Dhangadhimai Municipality
+7,2,5,24431,Bishnupur Gaunpalika
+7,2,5,24430,Bhagawanpur Gaunpalika
+7,2,5,24429,Bariyarpatti Gaunpalika
+7,2,5,24428,Aurahi Gaunpalika
+7,2,5,24427,Arnama Gaunpalika
+7,2,6,24426,Tirahut Gaunpalika
+7,2,6,24425,Tilathi Koiladi Gaunpalika
+7,2,6,24424,Surunga Municipality
+7,2,6,24423,Shambhunath Municipality
+7,2,6,24422,Saptakoshi Municipality
+7,2,6,24421,Rupani Gaunpalika
+7,2,6,24420,Rajbiraj Municipality
+7,2,6,24419,Mahadewa Gaunpalika
+7,2,6,24418,Khadak Municipality
+7,2,6,24417,Kanchanrup Municipality
+7,2,6,24416,Hanumannagar Kankalini Municipality
+7,2,6,24415,Dakneshwori Municipality
+7,2,6,24414,Chhinnamasta Gaunpalika
+7,2,6,24413,Bode Barsain Municipality
+7,2,6,24412,Bishnupur Gaunpalika
+7,2,6,24411,Belhi Chapena Gaunpalika
+7,2,6,24410,Balan-Bihul Gaunpalika
+7,2,6,24409,Agmisair Krishna Sabaran Gaunpalika
+7,3,7,24740,Tarakhola Gaunpalika
+7,3,7,24739,Tamankhola Gaunpalika
+7,3,7,24738,Nisikhola Gaunpalika
+7,3,7,24737,Kathekhola Gaunpalika
+7,3,7,24736,Jaimuni Municipality
+7,3,7,24735,Galkot Municipality
+7,3,7,24734,Dhorpatan Municipality
+7,3,7,24733,Bareng Gaunpalika
+7,3,7,24732,Baglung Municipality
+7,3,7,24731,Badigad Gaunpalika
+7,3,8,24730,Phalebas Municipality
+7,3,8,24729,Paiyu Gaunpalika
+7,3,8,24728,Modi Gaunpalika
+7,3,8,24727,Mahashila Gaunpalika
+7,3,8,24726,Kushma Municipality
+7,3,8,24725,Jaljala Gaunpalika
+7,3,8,24724,Bihadi Gaunpalika
+7,3,9,24708,Rupa Gaunpalika
+7,3,9,24707,Pokhara Lekhnath Metropolitian City
+7,3,9,24706,Madi Gaunpalika
+7,3,9,24705,Machhapuchchhre Gaunpalika
+7,3,9,24704,Annapurna Gaunpalika

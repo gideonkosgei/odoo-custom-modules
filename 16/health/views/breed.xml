@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    <record id="view_farmer_kanban" model="ir.ui.view">-->
+    <!--        <field name="name">health.farmer.kanban</field>-->
+    <!--        <field name="model">health.farmer</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <kanban>-->
+    <!--                <field name="id"/>-->
+    <!--                <field name="farmer_name" string="Frmer Name"/>-->
+    <!--                <templates>-->
+    <!--                    <t t-name="kanban-box">-->
+    <!--                        <div t-attf-class="oe_kanban_global_click">-->
+    <!--                            <div class="oe_kanban_details">-->
+    <!--                                <ul>-->
+    <!--                                    <li>-->
+    <!--                                        Name:-->
+    <!--                                        <field name="client_name"/>-->
+    <!--                                    </li>-->
+    <!--                                    <li>-->
+    <!--                                        Address :-->
+    <!--                                        <field name="client_address"/>-->
+    <!--                                    </li>-->
+    <!--                                    <li>-->
+    <!--                                        Contact Number :-->
+    <!--                                        <field name="client_contact_number"/>-->
+    <!--                                    </li>-->
+
+    <!--                                    <li>-->
+    <!--                                        Place :-->
+    <!--                                        <field name="client_place"/>-->
+    <!--                                    </li>-->
+    <!--                                </ul>-->
+    <!--                            </div>-->
+    <!--                        </div>-->
+    <!--                    </t>-->
+    <!--                </templates>-->
+    <!--            </kanban>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <record id="view_breed_form" model="ir.ui.view">
+        <field name="name">health.breed.form</field>
+        <field name="model">health.breed</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h3>
+                            Breed
+                        </h3>
+                        <br/>
+                        <br/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="country_id" options="{'no_create_edit': False}"/>
+                            <field name="species_id" options="{'no_create_edit': False}"/>
+                            <field name="breed_code"/>
+                            <field name="breed_name"/>
+                            <field name="breed_is_active"/>
+                        </group>
+
+                    </group>
+
+
+                    <!--                    <notebook>-->
+                    <!--                        <page string="Animals" name="animals">-->
+                    <!--                            <field name="animal_ids">-->
+                    <!--                                <form>-->
+                    <!--                                    <group>-->
+                    <!--                                        <group>-->
+                    <!--                                            <field name="animal_identification_number" string="Identification Number"/>-->
+                    <!--                                            <field name="breed_id" string="Breed" domain="[('catalogue_id', '=', 20)]" options="{'no_create_edit': True}"/>-->
+                    <!--                                            <field name="animal_age" string="Age"/>-->
+                    <!--                                            <field name="animal_type_id" string="Animal Type" domain="[('catalogue_id', '=', 14)]" options="{'no_create_edit': True}"/>-->
+                    <!--                                        </group>-->
+                    <!--                                    </group>-->
+                    <!--                                </form>-->
+                    <!--                            </field>-->
+                    <!--                        </page>-->
+                    <!--                    </notebook>-->
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_breed_search" model="ir.ui.view">
+        <field name="name">health.breed.search</field>
+        <field name="model">health.breed</field>
+        <field name="arch" type="xml">
+            <search string="Breeds">
+                <field name="country_id"/>
+                <field name="species_id"/>
+                <field name="breed_code"/>
+                <field name="breed_name"/>
+                <field name="breed_is_active"/>
+                 <separator/>
+                <filter string="Cattle" name="cattle" domain="[('species_id','=','Cattle')]"/>
+                <filter string="Buffalo" name="buffalo" domain="[('species_id','=','Buffalo')]"/>
+                <filter string="Active" name="active" domain="[('breed_is_active','=',True)]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Country" name="country_id" context="{'group_by':'country_id'}"/>
+                    <filter string="Species" name="species_id" context="{'group_by':'species_id'}"/>
+                </group>
+                <searchpanel>
+                    <field name="country_id" string="Country" enable_counters="1"/>
+                    <fieldstring name="species_id" string="Species"  select="multi"  enable_counters="0"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="view_breed_tree" model="ir.ui.view">
+        <field name="name">health.breed.tree</field>
+        <field name="model">health.breed</field>
+        <field name="arch" type="xml">
+            <tree expand="1">
+                <field name="country_id" optional="show"/>
+                <field name="species_id" optional="show"/>
+                <field name="breed_code" optional="show"/>
+                <field name="breed_name" optional="show"/>
+                <field name="breed_is_active" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_breed" model="ir.actions.act_window">
+        <field name="name">Breed</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">health.breed</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register Your 1st Breed
+            </p>
+        </field>
+    </record>
+
+</odoo>

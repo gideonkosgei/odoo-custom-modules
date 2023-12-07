@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    <record id="view_farmer_kanban" model="ir.ui.view">-->
+    <!--        <field name="name">health.farmer.kanban</field>-->
+    <!--        <field name="model">health.farmer</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <kanban>-->
+    <!--                <field name="id"/>-->
+    <!--                <field name="farmer_name" string="Frmer Name"/>-->
+    <!--                <templates>-->
+    <!--                    <t t-name="kanban-box">-->
+    <!--                        <div t-attf-class="oe_kanban_global_click">-->
+    <!--                            <div class="oe_kanban_details">-->
+    <!--                                <ul>-->
+    <!--                                    <li>-->
+    <!--                                        Name:-->
+    <!--                                        <field name="client_name"/>-->
+    <!--                                    </li>-->
+    <!--                                    <li>-->
+    <!--                                        Address :-->
+    <!--                                        <field name="client_address"/>-->
+    <!--                                    </li>-->
+    <!--                                    <li>-->
+    <!--                                        Contact Number :-->
+    <!--                                        <field name="client_contact_number"/>-->
+    <!--                                    </li>-->
+
+    <!--                                    <li>-->
+    <!--                                        Place :-->
+    <!--                                        <field name="client_place"/>-->
+    <!--                                    </li>-->
+    <!--                                </ul>-->
+    <!--                            </div>-->
+    <!--                        </div>-->
+    <!--                    </t>-->
+    <!--                </templates>-->
+    <!--            </kanban>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <record id="view_farmer_form" model="ir.ui.view">
+        <field name="name">health.farmer.form</field>
+        <field name="model">health.farmer</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h3>
+                            Farmer
+                        </h3>
+                        <br/>
+                        <br/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="visiting_date" string="Date of Visit"
+                                   options="{'datepicker':{'maxDate': 'now'}}"/>
+                            <field name="farm_type"/>
+                            <field name="farmer_name"/>
+                            <field name="farmer_phone_number"/>
+                            <field name="age_group"/>
+                            <field name="gender"/>
+                            <field name="country_id" options="{'no_create_edit': False}"/>
+                            <field name="level_one_id" options="{'no_create_edit': False}"/>
+                            <field name="level_two_id" options="{'no_create_edit': False}"/>
+                            <field name="level_three_id" options="{'no_create_edit': False}"/>
+                            <field name="level_four_id" options="{'no_create_edit': False}"/>
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Feeding  &amp; Nutrition" name="nutrition_plan">
+                            <form>
+                                <group>
+                                    <group>
+                                        <field name="nutritional_plan" domain="[('catalogue_id', '=', 17)]"/>
+                                        <field name="regular_supply_of_minerals_and_vitamins"
+                                               domain="[('catalogue_id', '=', 2)]"/>
+                                    </group>
+
+                                </group>
+
+                            </form>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--    <record id="view_client_search" model="ir.ui.view">-->
+    <!--        <field name="name">health.client.search</field>-->
+    <!--        <field name="model">health.client</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <search string="Clients">-->
+    <!--                <field name="client_name"/>-->
+    <!--                <field name="client_address"/>-->
+    <!--                <field name="client_contact_number"/>-->
+    <!--                <field name="client_place"/>-->
+    <!--            </search>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <record id="view_farmer_tree" model="ir.ui.view">
+        <field name="name">health.farmer.tree</field>
+        <field name="model">health.farmer</field>
+        <field name="arch" type="xml">
+            <tree expand="1">
+                <field name="visiting_date" optional="show"/>
+                <field name="farmer_name" optional="show"/>
+                <field name="farmer_phone_number" optional="show"/>
+                <field name="country_id" optional="show"/>
+                <field name="level_one_id" optional="show"/>
+                <field name="level_two_id" optional="show"/>
+                <field name="level_three_id" optional="show"/>
+                <field name="level_four_id" optional="show"/>
+                <field name="odk_user_id" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_farmer" model="ir.actions.act_window">
+        <field name="name">Farmer</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">health.farmer</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register Your 1st Farmer
+            </p>
+        </field>
+    </record>
+
+</odoo>

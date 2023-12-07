@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="health.config.catalogue" id="1">
+            <field name="catalogue_name">Affirmation</field>
+            <field name="catalogue_description">Affirmation(Yes/No) Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="2">
+            <field name="catalogue_name">Mineral &amp; Vitamin Supply</field>
+            <field name="catalogue_description">Mineral &amp; Vitamin Supply Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="3">
+            <field name="catalogue_name">General Appearance</field>
+            <field name="catalogue_description">General Appearance Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="4">
+            <field name="catalogue_name">Body coat</field>
+            <field name="catalogue_description">Body coat Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="5">
+            <field name="catalogue_name">General Health condition</field>
+            <field name="catalogue_description">General Health condition Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="6">
+            <field name="catalogue_name">Appetite</field>
+            <field name="catalogue_description">Appetite Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="7">
+            <field name="catalogue_name">Eyes</field>
+            <field name="catalogue_description">Eyes Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="8">
+            <field name="catalogue_name">Udder Appearance</field>
+            <field name="catalogue_description">Udder Appearance Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="9">
+            <field name="catalogue_name">Foetus Position</field>
+            <field name="catalogue_description">Foetus Position Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="10">
+            <field name="catalogue_name">Water Bag</field>
+            <field name="catalogue_description">Water Bag Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="11">
+            <field name="catalogue_name">Genital Discharge</field>
+            <field name="catalogue_description">Genital Discharge Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="12">
+            <field name="catalogue_name">Mucous Membrane Color</field>
+            <field name="catalogue_description">Mucous Membrane Color Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="13">
+            <field name="catalogue_name">Mating Type</field>
+            <field name="catalogue_description">Mating Type Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="14">
+            <field name="catalogue_name">Animal Type</field>
+            <field name="catalogue_description">Animal Type Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="15">
+            <field name="catalogue_name">Foetus Status</field>
+            <field name="catalogue_description">Foetus Status Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="16">
+            <field name="catalogue_name">Fibrotic Change</field>
+            <field name="catalogue_description">Fibrotic Change Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="17">
+            <field name="catalogue_name">Nutritional plan</field>
+            <field name="catalogue_description">Nutritional Plan Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="18">
+            <field name="catalogue_name">Ease of Handling</field>
+            <field name="catalogue_description">Ease of Handling Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="19">
+            <field name="catalogue_name">Lameness</field>
+            <field name="catalogue_description">Lameness Catalogue</field>
+        </record>
+         <record model="health.config.catalogue" id="20">
+            <field name="catalogue_name">Breeds</field>
+            <field name="catalogue_description">Breeds Catalogue</field>
+        </record>
+         <record model="health.config.catalogue" id="21">
+            <field name="catalogue_name">Species</field>
+            <field name="catalogue_description">Species Catalogue</field>
+        </record>
+          <record model="health.config.catalogue" id="22">
+            <field name="catalogue_name">Vaccination Type</field>
+            <field name="catalogue_description">Vaccination Type Catalogue</field>
+        </record>
+         <record model="health.config.catalogue" id="23">
+            <field name="catalogue_name">User Roles </field>
+            <field name="catalogue_description">User Roles Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="24">
+            <field name="catalogue_name">Farm Type </field>
+            <field name="catalogue_description">Farm Type Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="25">
+            <field name="catalogue_name">Age Group </field>
+            <field name="catalogue_description">Age Group Catalogue</field>
+        </record>
+        <record model="health.config.catalogue" id="26">
+            <field name="catalogue_name">Sex/Gender</field>
+            <field name="catalogue_description">Sex/Gender</field>
+        </record>
+        <record model="health.config.catalogue" id="27">
+            <field name="catalogue_name">Birth Date Accuracy</field>
+            <field name="catalogue_description">Birth Date Accuracy</field>
+        </record>
+    </data>
+</odoo>
+
+
+
+
