@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_evoucher_card" model="ir.actions.report">
+        <field name="name"> Evoucher</field>
+        <field name="model">evoucher.staff</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">evoucher.report_staff_voucher</field>
+        <field name="report_file">evoucher.report_staff_voucher</field>
+        <field name="binding_model_id" ref="model_evoucher_staff"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

@@ -1,9 +1,9 @@
 {
-    'name': 'Evouchers',
+    'name': 'Evoucher',
     'version': '1.0.0',
     'summary': 'Evouchers',
     'sequence': 13,
-    'description': """Evouchers""",
+    'description': """Evoucher""",
     'category': 'Productivity',
     'website': '',
     'license': 'LGPL-3',
@@ -14,7 +14,9 @@
         'security/ir.model.access.csv',
         'data/evoucher.staff.csv',
         'views/staff.xml',
-        'views/menu.xml'
+        'views/menu.xml',
+        'report/evoucher_card.xml',
+        'report/report.xml'
     ],
     'demo': [],
     'qweb': [],

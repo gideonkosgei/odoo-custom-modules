@@ -18,25 +18,42 @@ class Evoucher(models.Model):
     _description = "staff"
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _order = "id"
-    _rec_name = "staff_name"
+    _rec_name = "id"
 
     staff_name = fields.Char('Staff Name', tracking=True, required=True, readonly=True)
     department = fields.Selection(
-        [("1", "Operation:Supply chain, Engineering, Security, Hospitality"), ("2", "Finance"), ("3", "Biosciences"),
-         ("4", "People & Organizational Development"),
-         ("5", "Institutional Planning & Partnerships"), ("6", "Policies, Institutions and Livelihoods"),
-         ("7", "Animal and Human Health"),
-         ("7", "Sustainable Livestock Systems"), ("8", "Director Generals Office"), ("9", "ICT"),
-         ("10", "Communications and Knowledge Management"),
-         ("11", "Gender Platform"), ("12", "Livestock Genetics"), ("13", "DDG - Biosciences Office"),
-         ("14", "Sustainable Livestock Systems"),
-         ("15", "Data and Research Methods Unit"), ("16", "Capacity Development"), ("17", "Internal Audit"),
-         ("18", "Feed and Forage  Development"),
-         ("19", "Legal"), ("20", "Program  Management"), ("21", "Hosted Institutions"), ("22", "Integrated  Science")],
+        [
+            ("department", "department"),
+            ("Legal", "Legal"),
+            ("Finance", "Finance"),
+            ("Sustainable Livestock Systems", "Sustainable Livestock Systems"),
+            ("People & Organizational Development", "People & Organizational Development"),
+            ("Animal and Human Health", "Animal and Human Health"),
+            ("Policies, Institutions and Livelihoods", "Policies, Institutions and Livelihoods"),
+            ("ILRI Ugadanda", "ILRI Ugadanda"),
+            ("Biosciences", "Biosciences"),
+            ("Operations-Kenya (Supply chain, Security, Hospitality)",
+             "Operations-Kenya (Supply chain, Security, Hospitality)"),
+            ("Communications and Knowledge Management", "Communications and Knowledge Management"),
+            ("Director Generals Office", "Director Generals Office"),
+            ("Internal Audit", "Internal Audit"),
+            ("Feed and Forage Development", "Feed and Forage Development"),
+            ("ICT", "ICT"),
+            ("Hosted Institutions", "Hosted Institutions"),
+            ("GENDER Platform", "GENDER Platform"),
+            ("Livestock Genetics", "Livestock Genetics"),
+            ("Program Management", "Program Management"),
+            ("Capacity Development", "Capacity Development"),
+            ("Institutional Planning & Partnerships", "Institutional Planning & Partnerships"),
+            ("Data and Research Methods Unit", "Data and Research Methods Unit"),
+            ("Integrated Science", "Integrated Science"),
+            ("Operations-Kenya (Supply chain, Engineering ,Security, Hospitality)",
+             "Operations-Kenya (Supply chain, Engineering ,Security, Hospitality)")
+        ],
         string='Program/Department', tracking=True, readonly=True)
-    diet = fields.Selection([("1", "Vegetarian"), ("2", "Non-vegetarian"), ("3", "Other")], string='Dietary Preference',
+    diet = fields.Selection([("1", "Vegetarian"), ("2", "Non-Vegetarian")], string='Dietary Preference',
                             tracking=True, readonly=True)
-    beverage = fields.Selection([('1', 'Beer'), ('2', 'Wine'), ('3', 'Juice/Beer')], string='Beverage', tracking=True,
+    beverage = fields.Selection([('1', 'Beer'), ('2', 'Wine'), ('3', 'Juice/Soda')], string='Beverage', tracking=True,
                                 readonly=True)
 
     qr_code = fields.Binary('QRcode', compute="_generate_qr")
@@ -44,7 +61,7 @@ class Evoucher(models.Model):
     token_food = fields.Boolean('Food', tracking=True)
     token_drink = fields.Boolean('Drinks', tracking=True)
     state = fields.Selection([('Open', 'Open'), ('Closed', 'Closed')], string='state', default='Open',
-                              compute='_compute_state')
+                             compute='_compute_state')
 
     def _generate_qr(self):
         "method to generate QR code"
@@ -73,6 +90,11 @@ class Evoucher(models.Model):
 
             else:
                 raise UserError(_('Necessary Requirements To Run This Operation Is Not Satisfied'))
+
+    def get_base64_qr_code(self):
+        if self.qr_code:
+            return base64.b64encode(self.qr_code).decode('utf-8')
+        return False
 
     @api.depends('token_food', 'token_drink')
     def _compute_state(self):
