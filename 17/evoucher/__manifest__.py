@@ -16,6 +16,7 @@
         'views/staff.xml',
         'views/menu.xml',
         'report/evoucher_card.xml',
+        'report/evoucher_cards.xml',
         'report/report.xml'
     ],
     'demo': [],

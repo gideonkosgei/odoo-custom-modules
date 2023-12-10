@@ -64,37 +64,25 @@ class Evoucher(models.Model):
                              compute='_compute_state')
 
     def _generate_qr(self):
-        "method to generate QR code"
         for rec in self:
-            if qrcode and base64:
-                qr = qrcode.QRCode(
-                    version=1,
-                    error_correction=qrcode.constants.ERROR_CORRECT_L,
-                    box_size=5,
-                    border=6,
-                )
+            qr = qrcode.QRCode(
+                version=1,
+                error_correction=qrcode.constants.ERROR_CORRECT_L,
+                box_size=5,
+                border=6,
+            )
 
-                base_url = self.env['ir.config_parameter'].get_param('web.base.url')
-                # if not 'localhost' in base_url:
-                #     if 'http://' in base_url:
-                #         base_url = base_url.replace('http://', 'https://')
-                base_url = base_url + '/web#id=' + str(self.id) + '&model=evoucher.staff&view_type=form&cids='
-                qr.add_data(base_url)
+            base_url = self.env['ir.config_parameter'].get_param('web.base.url')
+            qr_data = f'{base_url}/web#id={rec.id}&model=evoucher.staff&view_type=form&cids='
+            qr.add_data(qr_data)
+            qr.make(fit=True)
+            img = qr.make_image()
 
-                qr.make(fit=True)
-                img = qr.make_image()
-                temp = BytesIO()
-                img.save(temp, format="PNG")
-                qr_image = base64.b64encode(temp.getvalue())
-                rec.update({'qr_code': qr_image})
-
-            else:
-                raise UserError(_('Necessary Requirements To Run This Operation Is Not Satisfied'))
-
-    def get_base64_qr_code(self):
-        if self.qr_code:
-            return base64.b64encode(self.qr_code).decode('utf-8')
-        return False
+            # Save QR code image to BytesIO and encode it to base64
+            temp = BytesIO()
+            img.save(temp, format="PNG")
+            qr_image = base64.b64encode(temp.getvalue())
+            rec.qr_code = qr_image
 
     @api.depends('token_food', 'token_drink')
     def _compute_state(self):

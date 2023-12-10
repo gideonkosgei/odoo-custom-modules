@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="report_staff_voucher">
-        <t t-foreach="docs" t-as="o">
-            <t t-call="web.basic_layout">
-                <div class="page">
-                    <div class="oe_structure"/>
-                    <div class="row">
-                        <div class="col-xs-8">
+    <template id="report_evoucher_template">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <div class="oe_structure"/>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <t t-foreach="docs" t-as="o">
                             <table class="table table-condensed" style="border: 3px solid black !important;">
                                 <tr>
                                     <td width="40%">
-
                                         <p style="text-align:center;padding-top:10px;">
-                                            <img  t-att-src="image_data_uri(o.qr_code)"
+                                            <img t-if="o.qr_code"
+                                                 t-att-src="'data:image/png;base64,%s' % o.qr_code.decode('utf-8')"
                                                  style="width: 200px; height: 200px;"/>
                                         </p>
-
                                     </td>
                                     <td width="60%">
                                         <table>
@@ -66,16 +65,13 @@
                                         </table>
                                     </td>
 
-
-
                                 </tr>
 
                             </table>
-
-                        </div>
+                        </t>
                     </div>
                 </div>
-            </t>
+            </div>
         </t>
     </template>
 
