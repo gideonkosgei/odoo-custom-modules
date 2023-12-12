@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-     <record id="action_all_vouchers" model="ir.actions.report">
-        <field name="name"> Evouchers</field>
-        <field name="model">evoucher.staff</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">evoucher.report_evoucher_template</field>
-        <field name="report_file">evoucher.report_evoucher_template</field>
-        <field name="binding_model_id" ref="model_evoucher_staff"/>
-        <field name="binding_type">report</field>
-    </record>
-
     <menuitem id="menu_evoucher_root"
-              name="ILRI eVouchers"
+              name="Evoucher"
               sequence="10"/>
 
     <menuitem id="menu_evoucher_staff"
@@ -22,10 +11,8 @@
               sequence="1"/>
 
     <menuitem id="menu_evoucher_staff_all"
-              name="All Staff"
+              name="Print Vouchers"
               action="action_all_vouchers"
               parent="menu_evoucher_root"
               sequence="2"/>
-
-
 </odoo>

@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="report_evoucher_card" model="ir.actions.report">
-        <field name="name"> Evoucher</field>
+    <record id="paperformat_ilri_staff_party_evoucher" model="report.paperformat">
+        <field name="name">Custom Paperformat for the Event Full Page Ticket report</field>
+        <field name="default" eval="False"/>
+        <field name="disable_shrinking" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">8</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <record id="action_all_vouchers" model="ir.actions.report">
+        <field name="name">Print Voucher</field>
         <field name="model">evoucher.staff</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">evoucher.report_staff_voucher</field>
-        <field name="report_file">evoucher.report_staff_voucher</field>
+        <field name="report_name">evoucher.report_evoucher_template</field>
+        <field name="report_file">evoucher.report_evoucher_template</field>
         <field name="binding_model_id" ref="model_evoucher_staff"/>
         <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_ilri_staff_party_evoucher"/>
     </record>
 </odoo>

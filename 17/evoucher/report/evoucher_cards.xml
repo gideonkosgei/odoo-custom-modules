@@ -1,78 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="report_evoucher_template">
-        <t t-call="web.basic_layout">
-            <div class="page">
-                <div class="oe_structure"/>
-                <div class="row">
-                    <div class="col-xs-8">
-                        <t t-foreach="docs" t-as="o">
-                            <table class="table table-condensed" style="border: 3px solid black !important;">
-                                <tr>
-                                    <td width="40%">
-                                        <p style="text-align:center;padding-top:10px;">
-                                            <img t-if="o.qr_code"
-                                                 t-att-src="'data:image/png;base64,%s' % o.qr_code.decode('utf-8')"
-                                                 style="width: 200px; height: 200px;"/>
-                                        </p>
-                                    </td>
-                                    <td width="60%">
-                                        <table>
-                                            <tr>
-                                                <td colspan="3" class="text-center">
-                                                    <span t-field="o.staff_name"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span>
-                                                        <strong>Department</strong>
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span>:</span>
-                                                </td>
-                                                <td>
-                                                    <span t-field="o.department"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span>
-                                                        <strong>Diet</strong>
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span>:</span>
-                                                </td>
-                                                <td>
-                                                    <span t-field="o.diet"/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span>
-                                                        <strong>Beverage</strong>
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span>:</span>
-                                                </td>
-                                                <td>
-                                                    <span t-field="o.beverage"/>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
+    <template id="evoucher_report_template_full_page_ticket">
+        <div class="row page">
+            <div t-attf-class="o_event_full_page_ticket_container page w-100 #{'o_event_full_page_ticket_responsive_html' if responsive_html else 'o_event_full_page_ticket'}">
+                <div class="o_event_full_page_ticket_wrapper">
+                    <!--                    <div class="o_event_full_page_ticket_details d-flex">-->
+                    <!--                        <img src="/evoucher/static/src/img/staff-party-banner.png" alt="Party Image"/>-->
+                    <!--                    </div>-->
+                    <div class="o_event_full_page_ticket_details d-flex">
+                        <div class="o_event_full_page_left_details ps-3 pt-4 pb-3 pe-2">
+                            <h2 class="o_event_full_page_ticket_event_name fw-bold pt-3 pb-2"
+                                t-field="event.staff_name"/>
+                            <div>
+                                <span>ILRI Staff Party 2023</span>
+                            </div>
+                            <div t-if="not responsive_html" class="o_event_full_page_extra_instructions pt-3">
+                                <ul style="list-style-type: none;">
+                                    <li>
+                                        <span class="text-muted">12.00 - 12.30 - Guest Registration</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-muted">12.30 - 13.30 - Trivia</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-muted">13.30 - 14.30 - Lunch</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-muted">14.30 - 15.30 - Long Service Awards</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-muted">15.30 - 16.00 - Speech</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-muted">16.00 - 17.00 - Talent Show</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-muted">17.00 - Dance Till Late</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="o_event_full_page_ticket_barcode">
+                            <div class="o_event_full_page_ticket_barcode_container px-2">
+                                <img t-if="event.qr_code"
+                                     t-att-src="'data:image/png;base64,%s' % event.qr_code.decode('utf-8')"
+                                     style="width: 200px; height: 200px;"/>
+                            </div>
+                        </div>
 
-                                </tr>
-
-                            </table>
-                        </t>
                     </div>
                 </div>
             </div>
-        </t>
+        </div>
     </template>
 
+    <template id="evoucher_report_full_page_ticket_layout">
+        <div class="article"
+             t-att-data-oe-model="main_object and main_object._name"
+             t-att-data-oe-id="main_object and main_object.id"
+             t-att-data-oe-lang="main_object and main_object.env.context.get('lang')">
+            <main>
+                <t t-out="0"/>
+            </main>
+        </div>
+    </template>
+
+    <template id="report_evoucher_template">
+        <t t-call="web.html_container">
+            <t t-set="main_object" t-value="evoucher"/>
+            <t t-set="responsive_html" t-value="False"/>
+            <t t-call="evoucher.evoucher_report_full_page_ticket_layout">
+                <t t-set="counter" t-value="0"/>
+                <t t-foreach="docs" t-as="event">
+                    <t t-call="evoucher.evoucher_report_template_full_page_ticket"/>
+                    <!--Check for every 3rd item and insert a page break -->
+                    <t t-if="counter % 3 == 2 and counter != 0">
+                        <div style="page-break-before: always;"></div>
+                    </t>
+                    <t t-set="counter" t-value="counter + 1"/>
+                </t>
+            </t>
+        </t>
+    </template>
 </odoo>
