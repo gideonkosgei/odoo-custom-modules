@@ -72,7 +72,8 @@ class Evoucher(models.Model):
                 border=6,
             )
 
-            base_url = self.env['ir.config_parameter'].get_param('web.base.url')
+            # base_url = self.env['ir.config_parameter'].get_param('web.base.url')
+            base_url= 'http://109.74.196.59:8069'
             qr_data = f'{base_url}/web#id={rec.id}&model=evoucher.staff&view_type=form&cids='
             qr.add_data(qr_data)
             qr.make(fit=True)
