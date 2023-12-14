@@ -20,7 +20,7 @@ class Evoucher(models.Model):
     _order = "id"
     _rec_name = "id"
 
-    staff_name = fields.Char('Staff Name', tracking=True, required=True, readonly=True)
+    staff_name = fields.Char('Staff Name', tracking=True, readonly=True)
     department = fields.Selection(
         [
             ("department", "department"),
@@ -48,6 +48,7 @@ class Evoucher(models.Model):
             ("Data and Research Methods Unit", "Data and Research Methods Unit"),
             ("Integrated Science", "Integrated Science"),
             ("IFPRI", "IFPRI"),
+            ("Others", "Others"),
             ("Corporate Services", "Corporate Services"),
             ("Operations-Kenya (Supply chain, Engineering ,Security, Hospitality)",
              "Operations-Kenya (Supply chain, Engineering ,Security, Hospitality)")
@@ -61,7 +62,8 @@ class Evoucher(models.Model):
     qr_code = fields.Binary('QRcode', compute="_generate_qr")
 
     token_food = fields.Boolean('Food', tracking=True)
-    token_drink = fields.Boolean('Drinks', tracking=True)
+    token_drink1 = fields.Boolean('Drinks(3)', tracking=True)
+    token_drink2 = fields.Boolean('Drinks(3)', tracking=True)
     state = fields.Selection([('Open', 'Open'), ('Closed', 'Closed')], string='state', default='Open',
                              compute='_compute_state')
 
@@ -87,10 +89,10 @@ class Evoucher(models.Model):
             qr_image = base64.b64encode(temp.getvalue())
             rec.qr_code = qr_image
 
-    @api.depends('token_food', 'token_drink')
+    @api.depends('token_food', 'token_drink1','token_drink2')
     def _compute_state(self):
         for rec in self:
-            if all([rec.token_food, rec.token_drink]):
+            if all([rec.token_food, rec.token_drink1, rec.token_drink2]):
                 rec.state = 'Closed'
             else:
                 rec.state = 'Open'

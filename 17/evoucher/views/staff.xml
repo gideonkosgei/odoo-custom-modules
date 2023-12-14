@@ -29,7 +29,8 @@
                                 <group>
                                     <group>
                                         <field name="token_food" invisible="token_food == True"/>
-                                        <field name="token_drink" invisible="token_drink == True"/>
+                                        <field name="token_drink1" invisible="token_drink1 == True"/>
+                                        <field name="token_drink2" invisible="token_drink2 == True"/>
                                     </group>
                                 </group>
                             </form>
