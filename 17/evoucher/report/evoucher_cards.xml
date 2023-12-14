@@ -15,36 +15,48 @@
                                 <span>ILRI Staff Party 2023</span>
                             </div>
                             <div t-if="not responsive_html" class="o_event_full_page_extra_instructions pt-3">
-                                <ul style="list-style-type: none;">
-                                    <li>
-                                        <span class="text-muted">12.00 - 12.30 - Guest Registration</span>
-                                    </li>
-                                    <li>
-                                        <span class="text-muted">12.30 - 13.30 - Trivia</span>
-                                    </li>
-                                    <li>
-                                        <span class="text-muted">13.30 - 14.30 - Lunch</span>
-                                    </li>
-                                    <li>
-                                        <span class="text-muted">14.30 - 15.30 - Long Service Awards</span>
-                                    </li>
-                                    <li>
-                                        <span class="text-muted">15.30 - 16.00 - Speech</span>
-                                    </li>
-                                    <li>
-                                        <span class="text-muted">16.00 - 17.00 - Talent Show</span>
-                                    </li>
-                                    <li>
-                                        <span class="text-muted">17.00 - Dance Till Late</span>
-                                    </li>
-                                </ul>
+                                <div style="float: left; width: 50%;">
+                                    <ul style="list-style-type: none;">
+                                        <li>
+                                            <span class="text-muted">12.00: Guest registration</span>
+                                        </li>
+                                        <li>
+                                            <span class="text-muted">12.30: Opening</span>
+                                        </li>
+                                        <li>
+                                            <span class="text-muted">1.00 pm: Lunch</span>
+                                        </li>
+                                        <li>
+                                            <span class="text-muted">2.30pm: Trivia</span>
+                                        </li>
+                                        <li>
+                                            <span class="text-muted">2.45pm: Long Service Awards</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div style="float: left; width: 50%;">
+                                    <ul style="list-style-type: none;">
+                                        <li>
+                                            <span class="text-muted">3.30pm: Speech</span>
+                                        </li>
+                                        <li>
+                                            <span class="text-muted">3.45pm: Trivia</span>
+                                        </li>
+                                        <li>
+                                            <span class="text-muted">4.00pm: Football Awards</span>
+                                        </li>
+                                        <li>
+                                            <span class="text-muted">5.00pm Dance till late</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="o_event_full_page_ticket_barcode">
                             <div class="o_event_full_page_ticket_barcode_container px-2">
                                 <img t-if="event.qr_code"
                                      t-att-src="'data:image/png;base64,%s' % event.qr_code.decode('utf-8')"
-                                     style="width: 200px; height: 200px;"/>
+                                     style="width: 150px; height: 150px;"/>
                             </div>
                         </div>
 

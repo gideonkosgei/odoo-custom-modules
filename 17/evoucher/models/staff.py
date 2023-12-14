@@ -30,7 +30,7 @@ class Evoucher(models.Model):
             ("People & Organizational Development", "People & Organizational Development"),
             ("Animal and Human Health", "Animal and Human Health"),
             ("Policies, Institutions and Livelihoods", "Policies, Institutions and Livelihoods"),
-            ("ILRI Ugadanda", "ILRI Ugadanda"),
+            ("ILRI Uganda", "ILRI Uganda"),
             ("Biosciences", "Biosciences"),
             ("Operations-Kenya (Supply chain, Security, Hospitality)",
              "Operations-Kenya (Supply chain, Security, Hospitality)"),
@@ -47,6 +47,8 @@ class Evoucher(models.Model):
             ("Institutional Planning & Partnerships", "Institutional Planning & Partnerships"),
             ("Data and Research Methods Unit", "Data and Research Methods Unit"),
             ("Integrated Science", "Integrated Science"),
+            ("IFPRI", "IFPRI"),
+            ("Corporate Services", "Corporate Services"),
             ("Operations-Kenya (Supply chain, Engineering ,Security, Hospitality)",
              "Operations-Kenya (Supply chain, Engineering ,Security, Hospitality)")
         ],
