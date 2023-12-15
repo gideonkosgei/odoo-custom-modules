@@ -20,7 +20,7 @@ class Evoucher(models.Model):
     _order = "id"
     _rec_name = "id"
 
-    staff_name = fields.Char('Staff Name', tracking=True, readonly=True)
+    staff_name = fields.Char('Staff Name', tracking=True)
     department = fields.Selection(
         [
             ("department", "department"),
@@ -53,11 +53,11 @@ class Evoucher(models.Model):
             ("Operations-Kenya (Supply chain, Engineering ,Security, Hospitality)",
              "Operations-Kenya (Supply chain, Engineering ,Security, Hospitality)")
         ],
-        string='Program/Department', tracking=True, readonly=True)
+        string='Program/Department', tracking=True)
     diet = fields.Selection([("1", "Vegetarian"), ("2", "Non-Vegetarian")], string='Dietary Preference',
-                            tracking=True, readonly=True)
+                            tracking=True)
     beverage = fields.Selection([('1', 'Beer'), ('2', 'Wine'), ('3', 'Juice/Soda')], string='Beverage', tracking=True,
-                                readonly=True)
+                            )
 
     qr_code = fields.Binary('QRcode', compute="_generate_qr")
 

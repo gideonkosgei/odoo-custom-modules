@@ -4,7 +4,7 @@
         <field name="name">evoucher.staff.form</field>
         <field name="model">evoucher.staff</field>
         <field name="arch" type="xml">
-            <form create="false" delete="false">
+            <form  delete="false">
                 <sheet>
                     <widget name="web_ribbon" title="Closed" bg_color="bg-danger" invisible="state == 'Open'"/>
                     <field name="qr_code" widget='image' class="oe_avatar"/>
@@ -15,7 +15,7 @@
                     </div>
                     <group>
                         <group>
-                            <field name="staff_name" invisible="1"/>
+                            <field name="staff_name"/>
                             <field name="department"/>
                             <field name="diet"/>
                             <field name="beverage"/>
