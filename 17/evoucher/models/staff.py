@@ -20,7 +20,7 @@ class Evoucher(models.Model):
     _order = "id"
     _rec_name = "id"
 
-    staff_name = fields.Char('Staff Name', tracking=True)
+    staff_name = fields.Char('Staff Name', tracking=True, readonly=True)
     department = fields.Selection(
         [
             ("department", "department"),
@@ -53,11 +53,12 @@ class Evoucher(models.Model):
             ("Operations-Kenya (Supply chain, Engineering ,Security, Hospitality)",
              "Operations-Kenya (Supply chain, Engineering ,Security, Hospitality)")
         ],
-        string='Program/Department', tracking=True)
+        string='Program/Department', tracking=True, readonly=True)
     diet = fields.Selection([("1", "Vegetarian"), ("2", "Non-Vegetarian")], string='Dietary Preference',
-                            tracking=True)
+                            tracking=True, readonly=True)
     beverage = fields.Selection([('1', 'Beer'), ('2', 'Wine'), ('3', 'Juice/Soda')], string='Beverage', tracking=True,
-                            )
+                                readonly=True
+                                )
 
     qr_code = fields.Binary('QRcode', compute="_generate_qr")
 
@@ -77,7 +78,7 @@ class Evoucher(models.Model):
             )
 
             # base_url = self.env['ir.config_parameter'].get_param('web.base.url')
-            base_url= 'http://109.74.196.59:8069'
+            base_url = 'http://109.74.196.59:8069'
             qr_data = f'{base_url}/web#id={rec.id}&model=evoucher.staff&view_type=form&cids='
             qr.add_data(qr_data)
             qr.make(fit=True)
@@ -89,7 +90,7 @@ class Evoucher(models.Model):
             qr_image = base64.b64encode(temp.getvalue())
             rec.qr_code = qr_image
 
-    @api.depends('token_food', 'token_drink1','token_drink2')
+    @api.depends('token_food', 'token_drink1', 'token_drink2')
     def _compute_state(self):
         for rec in self:
             if all([rec.token_food, rec.token_drink1, rec.token_drink2]):
