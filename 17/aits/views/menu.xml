@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="menu_nepal_dairy_index_root"
-              name="AITS"
+              name="Animal Identification &amp; Traceability System"
               sequence="10"/>
 
     <menuitem id="menu_nepal_dairy_index_farmer"
