@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_nepal_dairy_index_province_form" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.province.form</field>
+        <field name="model">nepal.dairy.index.province</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+
+                        <button class="oe_stat_button" name="action_open_districts_from_province" type="object"
+                                icon="fa-bars">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="district_count"/>
+                                </span>
+                                <span class="o_stat_text">
+                                    Districts
+                                </span>
+                            </div>
+                        </button>
+
+                        <button class="oe_stat_button" name="action_open_municipalities_from_province" type="object"
+                                icon="fa-bars">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="municipality_count"/>
+                                </span>
+                                <span class="o_stat_text">
+                                    Municipalities
+                                </span>
+                            </div>
+                        </button>
+
+                        <button class="oe_stat_button" name="action_open_wards_from_province" type="object"
+                                icon="fa-bars">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="ward_count"/>
+                                </span>
+                                <span class="o_stat_text">
+                                    Wards
+                                </span>
+                            </div>
+                        </button>
+
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="province_name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="province_code"/>
+                            <field name="province_name"/>
+                            <field name="province_abbreviation"/>
+                        </group>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_nepal_dairy_index_province_tree" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.province.tree</field>
+        <field name="model">nepal.dairy.index.province</field>
+        <field name="arch" type="xml">
+            <tree expand="1">
+                <field name="id" optional="hide"/>
+                <field name="province_code" optional="show"/>
+                <field name="province_name" optional="show"/>
+                <field name="province_abbreviation" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_nepal_dairy_index_province" model="ir.actions.act_window">
+        <field name="name">Province</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">nepal.dairy.index.province</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register Province
+            </p>
+        </field>
+    </record>
+
+</odoo>
+
+

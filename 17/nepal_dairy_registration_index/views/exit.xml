@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_nepal_dairy_index_exit_form" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.exit.form</field>
+        <field name="model">nepal.dairy.index.exit</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="animal_id"/>
+                            <field name="exit_date" widget="date" options="{'format': 'dd/MM/yyyy'}"/>
+                            <field name="exit_reason"/>
+                            <field name="remarks"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_nepal_dairy_index_exit" model="ir.actions.act_window">
+        <field name="name">Exit</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">nepal.dairy.index.exit</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register Your 1st Exit
+            </p>
+        </field>
+    </record>
+
+</odoo>

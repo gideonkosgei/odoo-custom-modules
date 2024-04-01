@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_nepal_dairy_index_farmer_form" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.farmer.form</field>
+        <field name="model">nepal.dairy.index.farmer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="action_open_animal" type="object" icon="fa-bars">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="animal_count"/>
+                                </span>
+                                <span class="o_stat_text">
+                                    Animals
+                                </span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <field name="image" widget='image' class="oe_avatar"/>
+                    <div class="oe_title mb24">
+                        <h1>
+                            <field class="o_text_overflow" name="farmer_name" default_focus="1"
+                                   placeholder="Farmer Name e.g. Brandom Freeman"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <span class="o_form_label o_td_label" name="address_name">
+                                <b>Location</b>
+                            </span>
+                            <div class="o_address_format">
+                                <field name="province_id" class="o_address_street" placeholder="Province"
+                                       options="{'no_open': True, 'no_quick_create': True}"/>
+                                <field name="district_id" class="o_address_street" placeholder="District"
+                                       options="{'no_open': True, 'no_quick_create': True}"/>
+                                <field name="municipality_id" class="o_address_street" placeholder="Municipality"
+                                       options="{'no_open': True, 'no_quick_create': True}"/>
+                                <field name="ward_id" class="o_address_street" placeholder="Ward"
+                                       options="{'no_open': True, 'no_quick_create': True}"/>
+                                <field name="tole" class="o_address_street" placeholder="Tole"/>
+                            </div>
+
+                        </group>
+                        <group>
+                            <field name="herd_id"/>
+                            <field name="mobile" widget="phone"/>
+                            <field name="farmer_type" options="{'no_open': True, 'no_quick_create': True}"/>
+                            <field name="longitude"/>
+                            <field name="latitude"/>
+
+                        </group>
+                    </group>
+
+                    <notebook>
+
+                        <page string="Animals" name="animals">
+                            <field name="animal_ids">
+                                <tree editable="top" delete="0">
+                                    <field name="animal_id"/>
+                                    <field name="tag_id"/>
+                                    <field name="species_id"/>
+                                    <field name="sex_id"/>
+                                    <field name="breed_id"/>
+                                    <field name="animal_dob" widget="date" options="{'datepicker':{'maxDate': 'now'}}"/>
+                                    <field name="create_uid" string="Created By"/>
+                                    <field name="create_date" string="Date Created" widget="date"
+                                           options="{'format': 'dd/MM/yyyy'}"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="animal_id"/>
+                                            <field name="farmer_id"/>
+                                            <field name="species_id"
+                                                   options="{'no_open': True, 'no_quick_create': True}"/>
+                                            <field name="sex_id" options="{'no_open': True, 'no_quick_create': True}"/>
+                                            <field name="breed_id"
+                                                   options="{'no_open': True, 'no_quick_create': True}"/>
+                                            <field name="animal_dob"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+
+
+                        <page string="Movement In" name="movement_in">
+                            <field name="destination_herd_ids" string="Movement Details">
+                                <tree editable="top" delete="0" create="false" edit="false">
+                                    <field name="animal_id"/>
+                                    <field name="tag_id"/>
+                                    <field name="species"/>
+                                    <field name="sex"/>
+                                    <field name="breed"/>
+                                    <field name="animal_dob"/>
+                                    <field name="origin_herd_id"/>
+                                    <field name="origin_herd_code"/>
+                                    <field name="origin_province"/>
+                                    <field name="origin_district"/>
+                                    <field name="origin_municipality"/>
+                                    <field name="origin_ward"/>
+                                    <field name="create_date" string="Date" widget="date"
+                                           options="{'format': 'dd/MM/yyyy'}"/>
+                                    <field name="origin_ward"/>
+                                    <field name="create_uid" string="Created By"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page string="Movement Out" name="movement_out">
+                            <field name="origin_herd_ids" string="Movement Details">
+                                <tree editable="top" delete="0" create="false" edit="false">
+                                    <field name="animal_id"/>
+                                    <field name="tag_id"/>
+                                    <field name="species"/>
+                                    <field name="sex"/>
+                                    <field name="breed"/>
+                                    <field name="animal_dob"/>
+                                    <field name="destination_herd_id"/>
+                                    <field name="destination_herd_code"/>
+                                    <field name="destination_province"/>
+                                    <field name="destination_district"/>
+                                    <field name="destination_municipality"/>
+                                    <field name="destination_ward"/>
+                                    <field name="create_date" string="Date" widget="date"
+                                           options="{'format': 'dd/MM/yyyy'}"/>
+                                    <field name="create_uid" string="Created By"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                    </notebook>
+
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_nepal_dairy_index_farmer_tree" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.farmer.tree</field>
+        <field name="model">nepal.dairy.index.farmer</field>
+        <field name="arch" type="xml">
+            <tree expand="1">
+                <field name="farmer_name"/>
+                <field name="herd_id"/>
+                <field name="mobile"/>
+                <field name="farmer_type"/>
+                <field name="province_id"/>
+                <field name="district_id"/>
+                <field name="municipality_id"/>
+                <field name="ward_id"/>
+                <field name="create_uid" string="Created By"/>
+                <field name="create_date" string="Date Created" widget="date" options="{'format': 'dd/MM/yyyy'}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="View_nepal_dairy_index_farmer_search" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.farmer.search</field>
+        <field name="model">nepal.dairy.index.farmer</field>
+        <field name="arch" type="xml">
+            <search string="Farmers">
+                <field name="farmer_name"/>
+                <field name="herd_id"/>
+                <field name="mobile"/>
+                <field name="district_id"/>
+                <field name="municipality_id"/>
+                <field name="ward_id"/>
+                <field name="herd_id"/>
+                <separator/>
+
+                <group expand="1" string="Group By">
+                    <filter string="Province" name="province_id" context="{'group_by':'province_id'}"/>
+                    <filter string="District" name="district_id" context="{'group_by':'district_id'}"/>
+                    <filter string="Municipality" name="municipality_id" context="{'group_by':'municipality_id'}"/>
+                    <filter string="Ward" name="ward_id" context="{'group_by':'ward_id'}"/>
+                </group>
+                <searchpanel>
+                    <field name="province_id" string="Province" enable_counters="1"/>
+                    <field name="farmer_type" string="Category" enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_nepal_dairy_index_farmer" model="ir.actions.act_window">
+        <field name="name">Herd</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">nepal.dairy.index.farmer</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register Your 1st Herd
+            </p>
+        </field>
+    </record>
+
+</odoo>

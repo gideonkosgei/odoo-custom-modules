@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_nepal_dairy_index_movement_form"  model="ir.ui.view">
+        <field name="name">nepal.dairy.index.movement.form</field>
+        <field name="model">nepal.dairy.index.movement</field>
+        <field name="arch" type="xml">
+            <form create="false" edit="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="animal_id" readonly="1"/>
+                            <field name="tag_id" readonly="1"/>
+                             <field name="create_date" string="Movement Date" widget="date"
+                                           options="{'format': 'dd/MM/yyyy'}" readonly="1"/>
+                            <field name="create_uid" string="Created By" readonly="1"/>
+                        </group>
+                    </group>
+
+
+                     <group>
+                        <group>
+                            <span class="o_form_label o_td_label" name="address_name">
+                                <b>Movement From</b>
+                            </span>
+                            <div class="o_address_format">
+                                <field name="origin_herd_id" class="o_address_street" readonly="1"  />
+                                <field name="origin_province" class="o_address_street" />
+                                <field name="origin_district" class="o_address_street" />
+                                <field name="origin_municipality" class="o_address_street" />
+                                <field name="origin_ward" class="o_address_street" />
+                            </div>
+
+                        </group>
+                        <group>
+                            <span class="o_form_label o_td_label" name="address_name">
+                                <b>Movement To</b>
+                            </span>
+                            <div class="o_address_format">
+                                <field name="destination_herd_id" class="o_address_street" readonly="1" />
+                                <field name="destination_province" class="o_address_street" />
+                                <field name="destination_district" class="o_address_street" />
+                                <field name="destination_municipality" class="o_address_street" />
+                                <field name="destination_ward" class="o_address_street" />
+                            </div>
+                        </group>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_nepal_dairy_index_movement_tree" model="ir.ui.view">
+        <field name="name">nepal.dairy.index.movement.tree</field>
+        <field name="model">nepal.dairy.index.movement</field>
+        <field name="arch" type="xml">
+            <tree expand="1" create="false"  edit="false">
+                <field name="animal_id"/>
+                <field name="tag_id"/>
+                <field name="species"/>
+                <field name="breed"/>
+                <field name="origin_herd_id"/>
+                <field name="origin_herd_code"/>
+                <field name="origin_province"/>
+                <field name="origin_district"/>
+                <field name="origin_municipality"/>
+                <field name="origin_ward"/>
+                <field name="destination_herd_id"/>
+                <field name="destination_herd_code"/>
+                <field name="destination_province"/>
+                <field name="destination_district"/>
+                <field name="destination_municipality"/>
+                <field name="destination_ward"/>
+                <field name="create_uid" string="Created By"/>
+                <field name="create_date" string="Date Created" widget="date" options="{'format': 'dd/MM/yyyy'}"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!--    <record id="View_nepal_dairy_index_farmer_search" model="ir.ui.view">-->
+    <!--        <field name="name">nepal.dairy.index.farmer.search</field>-->
+    <!--        <field name="model">nepal.dairy.index.farmer</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <search string="Farmers">-->
+    <!--                <field name="farmer_name"/>-->
+    <!--                <field name="herd_id"/>-->
+    <!--                <field name="mobile"/>-->
+    <!--                <field name="district_id"/>-->
+    <!--                <field name="municipality_id"/>-->
+    <!--                <field name="ward_id"/>-->
+    <!--                 <field name="herd_id"/>-->
+    <!--                <separator/>-->
+
+    <!--                <group expand="1" string="Group By">-->
+    <!--                    <filter string="Province" name="province_id" context="{'group_by':'province_id'}"/>-->
+    <!--                    <filter string="District" name="district_id" context="{'group_by':'district_id'}"/>-->
+    <!--                    <filter string="Municipality" name="municipality_id" context="{'group_by':'municipality_id'}"/>-->
+    <!--                    <filter string="Ward" name="ward_id" context="{'group_by':'ward_id'}"/>-->
+    <!--                </group>-->
+    <!--                <searchpanel>-->
+    <!--                    <field name="province_id" string="Province" enable_counters="1"/>-->
+    <!--                    <field name="farmer_type" string="Category" enable_counters="1"/>-->
+    <!--                </searchpanel>-->
+    <!--            </search>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+
+    <record id="action_nepal_dairy_index_movement" model="ir.actions.act_window">
+        <field name="name">Movement</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">nepal.dairy.index.movement</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register Your 1st Movement
+            </p>
+        </field>
+    </record>
+
+</odoo>
