@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_aits_run_output_form" model="ir.ui.view">
+        <field name="name">aits.run.output.form</field>
+        <field name="model">aits.run.output</field>
+        <field name="arch" type="xml">
+            <form create="0" delete="0" copy="0" edit="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="run_id" readonly="1"/>
+                            <field name="index" readonly="1"/>
+                            <field name="check_digit" readonly="1"/>
+                            <field name="animal_tag_id" readonly="1"/>
+                            <field name="animal_id" readonly="1"/>
+
+                        </group>
+                        <group>
+
+                        </group>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_aits_run_output_tree" model="ir.ui.view">
+        <field name="name">aits.run.output.tree</field>
+        <field name="model">aits.run.output</field>
+        <field name="arch" type="xml">
+            <tree expand="1" create="0" edit="0" delete="0">
+                <field name="batch_serial"/>
+                <field name="species"/>
+                <field name="species_code"/>
+                <field name="province"/>
+                <field name="province_code"/>
+                <field name="district"/>
+                <field name="district_code"/>
+                <field name="check_digit"/>
+                <field name="animal_tag_id"/>
+                <field name="animal_id"/>
+                <field name="animal_tag_id"/>
+                <field name="animal_id"/>
+                <field name="state"/>
+                <field name="create_uid" string="Created By"/>
+                <field name="create_date" string="Date Created" widget="date" options="{'format': 'dd/MM/yyyy'}"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="View_aits_run_output_search" model="ir.ui.view">
+        <field name="name">aits.run.output.search</field>
+        <field name="model">aits.run.output</field>
+        <field name="arch" type="xml">
+            <search string="Animals">
+                <field name="province"/>
+                <field name="district"/>
+                <field name="species"/>
+                <field name="batch_serial"/>
+                <separator/>
+
+                <filter string="Cattle" name="cattle" domain="[('species','=','Cattle')]"/>
+                <filter string="Buffalo" name="buffalo" domain="[('species','=','Buffalo')]"/>
+                <filter string="Printed" name="printed" domain="[('state','=','printed')]"/>
+                <filter string="Not Printed" name="not_printed" domain="[('state','=','not_printed')]"/>
+
+                <group expand="1" string="Group By">
+                    <filter string="batch" name="batch_code" context="{'group_by':'run_id'}"/>
+                    <filter string="status" name="status" context="{'group_by':'state'}"/>
+                    <filter string="Species" name="species" context="{'group_by':'species'}"/>
+
+                </group>
+                <searchpanel>
+                    <field name="state" string="Status" enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_aits_run_output" model="ir.actions.act_window">
+        <field name="name">Tags</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aits.run.output</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Generated IDs
+            </p>
+        </field>
+    </record>
+
+</odoo>

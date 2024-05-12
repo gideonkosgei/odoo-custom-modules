@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_aits_run_log_form" model="ir.ui.view">
+        <field name="name">aits.run.log.form</field>
+        <field name="model">aits.run.log</field>
+        <field name="arch" type="xml">
+            <form delete="0" create="0" duplicate="0">
+                <header>
+                    <button name="action_cancel_batch" id="action_cancel_batch" string="Cancel" class="btn-primary"
+                            type="object" confirm=" Are you sure you want to Cancel?"
+                            invisible="state == 'cancelled' or state == 'printed' or state == 'draft'"/>
+                    <button name="action_restore_batch" id="action_restore_batch" string="Restore" class="btn-primary"
+                            type="object" confirm=" Are you sure you want to reverse cancellation?"
+                            invisible="state == 'printed' or state == 'not_printed' or state == 'draft'"/>
+                    <button name="action_unprint_batch" id="action_unprint_batch" string="Mark Unprinted"
+                            class="btn-primary" type="object"
+                            invisible="state == 'not_printed' or state == 'cancelled' or state == 'draft'"/>
+                    <button name="action_print_batch" id="action_print_batch" string="Mark Printed" class="btn-primary"
+                            type="object" invisible="state == 'printed' or state == 'cancelled' or state == 'draft'"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                </header>
+
+                <sheet>
+                    <widget name="web_ribbon" title="Printed" bg_color="bg-success" invisible="state != 'printed'"/>
+                    <widget name="web_ribbon" title="Unprinted" bg_color="bg-warning"
+                            invisible="state != 'not_printed'"/>
+                    <widget name="web_ribbon" title="Cancelled" bg_color="bg-danger" invisible="state != 'cancelled'"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="batch_serial" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="is_saved" invisible="1"/>
+                            <field name="species_id" placeholder="Species"
+                                   options="{'no_open': True, 'no_quick_create': True}" readonly="is_saved == True"/>
+                            <field name="province_id" placeholder="Province"
+                                   options="{'no_open': True, 'no_quick_create': True}" readonly="is_saved == True"/>
+                            <field name="district_id" placeholder="District"
+                                   options="{'no_open': True, 'no_quick_create': True}" readonly="is_saved == True"/>
+                            <field name="quantity" readonly="is_saved == True"/>
+                        </group>
+                        <group>
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Tags" name="tags">
+                            <field name="run_ids">
+                                <tree editable="top" delete="0" expand="true" edit="0" create="0">
+                                    <field name="species"/>
+                                    <field name="species_code"/>
+                                    <field name="province"/>
+                                    <field name="province_code"/>
+                                    <field name="district"/>
+                                    <field name="district_code"/>
+                                    <field name="check_digit"/>
+                                    <field name="animal_tag_id"/>
+                                    <field name="animal_id"/>
+                                    <field name="create_uid" string="Created By"/>
+                                    <field name="create_date" string="Date Created" widget="date"
+                                           options="{'format': 'dd/MM/yyyy'}"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_aits_run_log_tree" model="ir.ui.view">
+        <field name="name">aits.run.log.tree</field>
+        <field name="model">aits.run.log</field>
+        <field name="arch" type="xml">
+            <tree expand="1" delete="0">
+                <field name="batch_serial"/>
+                <field name="species_id"/>
+                <field name="province_id"/>
+                <field name="district_id"/>
+                <field name="quantity"/>
+                <field name="state"/>
+                <field name="create_uid" string="Created By"/>
+                <field name="create_date" string="Date Created" widget="date" options="{'format': 'dd/MM/yyyy'}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="View_aits_run_log_search" model="ir.ui.view">
+        <field name="name">aits.run.log.search</field>
+        <field name="model">aits.run.log</field>
+        <field name="arch" type="xml">
+            <search string="Animals">
+                <field name="province"/>
+                <field name="district"/>
+                <field name="species"/>
+                <field name="species"/>
+                <separator/>
+
+                <filter string="Cattle" name="cattle" domain="[('species','=','Cattle')]"/>
+                <filter string="Buffalo" name="buffalo" domain="[('species','=','Buffalo')]"/>
+
+                <group expand="1" string="Group By">
+                    <filter string="Species" name="species" context="{'group_by':'species_id'}"/>
+                    <filter string="Province" name="province" context="{'group_by':'province_id'}"/>
+                    <filter string="District" name="district" context="{'group_by':'district_id'}"/>
+                    <filter string="User" name="User" context="{'group_by':'create_uid'}"/>
+
+                </group>
+                <searchpanel>
+                    <field name="species_id" string="Species" enable_counters="1"/>
+                    <field name="province_id" string="Province" select="multi" enable_counters="1"/>
+                    <field name="district_id" string="District" enable_counters="1"/>
+
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_aits_run_log" model="ir.actions.act_window">
+        <field name="name">Batch</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">aits.run.log</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create First Batch
+            </p>
+        </field>
+    </record>
+
+</odoo>

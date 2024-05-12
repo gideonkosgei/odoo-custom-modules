@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_aits_tags" model="report.paperformat">
+        <field name="name">Custom Paperformat for the Event Full Page Ticket report</field>
+        <field name="default" eval="False"/>
+        <field name="disable_shrinking" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">5</field>
+        <field name="dpi">80</field>
+    </record>
+
+    <record id="action_print_tags" model="ir.actions.report">
+        <field name="name">Print</field>
+        <field name="model">aits.run.log</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">aits.report_tags_printout</field>
+        <field name="report_file">aits.report_tags_printout</field>
+        <field name="binding_model_id" ref="model_aits_run_log"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_aits_tags"/>
+    </record>
+</odoo>

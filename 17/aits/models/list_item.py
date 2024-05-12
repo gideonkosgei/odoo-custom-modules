@@ -12,6 +12,7 @@ class NepalDairyIndexListItem(models.Model):
 
     list_id = fields.Many2one(comodel_name='nepal.dairy.index.list', string='List', required=True,
                               tracking=True)
+    item_code = fields.Integer('Item Code', required=False, tracking=True)
     item_name = fields.Char('Item Name', required=True, tracking=True)
     item_is_active = fields.Boolean('Is Item Active?', required=True, tracking=True, default=True)
     item_description = fields.Text('Item Description', tracking=True)

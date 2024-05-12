@@ -16,34 +16,5 @@ class NepalDairyIndexDistrict(models.Model):
     municipality_count = fields.Integer('Municipality Count', compute='_compute_municipality_count')
     ward_count = fields.Integer('Word Count', compute='_compute_ward_count')
 
-    def _compute_municipality_count(self):
-        for rec in self:
-            municipality_count = self.env['nepal.dairy.index.municipality'].search_count([('district_id', '=', rec.id)])
-            rec.municipality_count = municipality_count
 
-    def _compute_ward_count(self):
-        for rec in self:
-            ward_count = self.env['nepal.dairy.index.ward'].search_count([('district_id', '=', rec.id)])
-            rec.ward_count = ward_count
 
-    def action_open_municipalities_from_district(self):
-        return {
-            'type': 'ir.actions.act_window',
-            'name': 'Municipalities',
-            'res_model': 'nepal.dairy.index.municipality',
-            'domain': [("district_id", "=", self.id)],
-            # 'context': {"default_member_id": self.id},
-            'view_mode': 'tree,form',
-            'target': 'current'
-        }
-
-    def action_open_wards_from_district(self):
-        return {
-            'type': 'ir.actions.act_window',
-            'name': 'Wards',
-            'res_model': 'nepal.dairy.index.ward',
-            'domain': [("district_id", "=", self.id)],
-            # 'context': {"default_member_id": self.id},
-            'view_mode': 'tree,form',
-            'target': 'current'
-        }

@@ -9,7 +9,7 @@ class NepalDairyIndexProvince(models.Model):
     _order = "id"
     _rec_name = "province_name"
 
-    province_code = fields.Char('Province Code', required=True, tracking=True)
+    province_code = fields.Integer('Province Code', required=True, tracking=True)
     province_name = fields.Char('Province Name', required=True, tracking=True)
     province_abbreviation = fields.Char('Abbreviation', tracking=True)
     district_count = fields.Integer('District Count', compute='_compute_district_count')

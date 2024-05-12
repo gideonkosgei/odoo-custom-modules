@@ -1,55 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="menu_nepal_dairy_index_root"
-              name="Animal Identification &amp; Traceability System"
-              sequence="10"/>
-
-    <menuitem id="menu_nepal_dairy_index_farmer"
-              name="Herds"
-              action="action_nepal_dairy_index_farmer"
-              parent="menu_nepal_dairy_index_root"
+              name="AITS"
               sequence="1"/>
 
-    <menuitem id="menu_nepal_dairy_index_animal"
-              name="Animals"
-              action="action_nepal_dairy_index_animal"
+    <menuitem id="menu_aits_run_log"
+              name="Batches"
+              action="action_aits_run_log"
               parent="menu_nepal_dairy_index_root"
               sequence="2"/>
 
-    <menuitem id="menu_nepal_dairy_index_movement"
-              name="Movement"
-              action="action_nepal_dairy_index_movement"
+    <menuitem id="menu_aits_reporting"
+              name="Reporting"
               parent="menu_nepal_dairy_index_root"
               sequence="3"/>
 
-    <menuitem id="menu_nepal_dairy_index_exit"
-              name="Exit"
-              action="action_nepal_dairy_index_exit"
+    <menuitem id="menu_aits_run_output_all"
+              name="All Tags"
+              parent="menu_aits_reporting"
+              action="action_aits_run_output"
+              sequence="1"/>
+
+    <menuitem id="menu_aits_run_output_cattle"
+              name="Cattle Tags"
+              parent="menu_aits_reporting"
+              action="action_cattle_tags"
+              sequence="2"/>
+
+    <menuitem id="menu_aits_run_output_buffallo"
+              name="Buffalo Tags"
+              parent="menu_aits_reporting"
+              action="action_buffalo_tags"
+              sequence="2"/>
+
+    <menuitem id="menu_aits_configuration"
+              name="Configuration"
               parent="menu_nepal_dairy_index_root"
               sequence="4"/>
-
-    <menuitem id="menu_nepal_dairy_index_settings"
-              name="Settings"
-              parent="menu_nepal_dairy_index_root"
-              sequence="5"/>
-
 
 
     <menuitem id="menu_nepal_dairy_index_list"
               name="Lists"
               action="action_nepal_dairy_index_list"
-              parent="menu_nepal_dairy_index_settings"
+              parent="menu_aits_configuration"
               sequence="1"/>
-
-    <menuitem id="menu_nepal_dairy_index_breed"
-              name="Breeds"
-              action="action_nepal_dairy_index_breed"
-              parent="menu_nepal_dairy_index_settings"
-              sequence="2"/>
 
     <menuitem id="menu_nepal_dairy_index_admin_units"
               name="Admin Units"
-              parent="menu_nepal_dairy_index_settings"
+              parent="menu_aits_configuration"
               sequence="3"/>
 
     <menuitem id="menu_nepal_dairy_index_provinces"
@@ -57,20 +55,12 @@
               parent="menu_nepal_dairy_index_admin_units"
               action="action_nepal_dairy_index_province"
               sequence="1"/>
+
     <menuitem id="menu_nepal_dairy_index_districts"
               name="Districts"
               parent="menu_nepal_dairy_index_admin_units"
               action="action_nepal_dairy_index_district"
               sequence="2"/>
 
-    <menuitem id="menu_nepal_dairy_index_municipalities"
-              name="Municipalities"
-              parent="menu_nepal_dairy_index_admin_units"
-              action="action_nepal_dairy_index_municipality"
-              sequence="3"/>
-    <menuitem id="menu_nepal_dairy_index_wards"
-              name="Wards"
-              parent="menu_nepal_dairy_index_admin_units"
-              action="action_nepal_dairy_index_ward"
-              sequence="4"/>
+
 </odoo>

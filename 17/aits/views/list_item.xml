@@ -11,7 +11,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="list_id" string="List" options="{'no_create_edit': False}"/>
+                            <field name="item_code" string="Code"/>
                             <field name="item_name" string="Name"/>
                             <field name="item_is_active" string="Active"/>
                             <field name="item_description" string="Description"/>
@@ -32,7 +32,7 @@
         <field name="model">nepal.dairy.index.list.item</field>
         <field name="arch" type="xml">
             <tree sample="1">
-                <field name="id" string="ID"/>
+                <field name="item_code" string="Code"/>
                 <field name="item_name" string="Name"/>
                 <field name="item_description" string="Description"/>
                 <field name="item_is_active" string="Active"/>
