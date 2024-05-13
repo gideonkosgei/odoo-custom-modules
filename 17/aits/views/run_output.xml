@@ -41,7 +41,6 @@
                 <field name="province"/>
                 <field name="district"/>
                 <field name="check_digit"/>
-                <field name="animal_tag_id"/>
                 <field name="index"/>
                 <field name="animal_tag_id"/>
                 <field name="animal_id"/>
