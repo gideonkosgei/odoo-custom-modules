@@ -9,7 +9,7 @@ class NepalDairyIndexDistrict(models.Model):
     _order = "id"
     _rec_name = "district_name"
 
-    province_id = fields.Many2one(comodel_name='nepal.dairy.index.province', string='District', required=True,
+    province_id = fields.Many2one(comodel_name='nepal.dairy.index.province', string='Province', required=True,
                                   tracking=True)
     district_code = fields.Char('District Code', required=True, tracking=True)
     district_name = fields.Char('District Name', required=True, tracking=True)

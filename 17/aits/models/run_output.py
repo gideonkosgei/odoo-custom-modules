@@ -5,7 +5,7 @@ from odoo.exceptions import ValidationError
 
 class AitsRunLog(models.Model):
     _name = "aits.run.output"
-    _description = "Generated Ids"
+    _description = "Animal ID"
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _order = "id"
     _rec_name = "animal_id"
