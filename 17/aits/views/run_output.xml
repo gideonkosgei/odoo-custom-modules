@@ -38,14 +38,11 @@
             <tree expand="1" create="0" edit="0" delete="0">
                 <field name="batch_serial"/>
                 <field name="species"/>
-                <field name="species_code"/>
                 <field name="province"/>
-                <field name="province_code"/>
                 <field name="district"/>
-                <field name="district_code"/>
                 <field name="check_digit"/>
                 <field name="animal_tag_id"/>
-                <field name="animal_id"/>
+                <field name="index"/>
                 <field name="animal_tag_id"/>
                 <field name="animal_id"/>
                 <field name="state"/>
@@ -71,6 +68,7 @@
                 <filter string="Buffalo" name="buffalo" domain="[('species','=','Buffalo')]"/>
                 <filter string="Printed" name="printed" domain="[('state','=','printed')]"/>
                 <filter string="Not Printed" name="not_printed" domain="[('state','=','not_printed')]"/>
+                <filter string="cancelled" name="cancelled" domain="[('state','=','cancelled')]"/>
 
                 <group expand="1" string="Group By">
                     <filter string="batch" name="batch_code" context="{'group_by':'run_id'}"/>

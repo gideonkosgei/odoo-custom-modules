@@ -17,7 +17,6 @@
                             invisible="state == 'not_printed' or state == 'cancelled' or state == 'draft'"/>
                     <button name="action_print_batch" id="action_print_batch" string="Mark Printed" class="btn-primary"
                             type="object" invisible="state == 'printed' or state == 'cancelled' or state == 'draft'"/>
-
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
                 </header>
 
@@ -51,11 +50,9 @@
                             <field name="run_ids">
                                 <tree editable="top" delete="0" expand="true" edit="0" create="0">
                                     <field name="species"/>
-                                    <field name="species_code"/>
                                     <field name="province"/>
-                                    <field name="province_code"/>
                                     <field name="district"/>
-                                    <field name="district_code"/>
+                                    <field name="index"/>
                                     <field name="check_digit"/>
                                     <field name="animal_tag_id"/>
                                     <field name="animal_id"/>
@@ -113,10 +110,13 @@
                     <filter string="Province" name="province" context="{'group_by':'province_id'}"/>
                     <filter string="District" name="district" context="{'group_by':'district_id'}"/>
                     <filter string="User" name="User" context="{'group_by':'create_uid'}"/>
+                    <filter string="Status" name="state" context="{'group_by':'state'}"/>
+                    <filter name="group_start" string="Batch Date" domain="[]" context="{'group_by': 'create_date'}"/>
 
                 </group>
                 <searchpanel>
                     <field name="species_id" string="Species" enable_counters="1"/>
+                    <field name="state" string="Status" enable_counters="1"/>
                     <field name="province_id" string="Province" select="multi" enable_counters="1"/>
                     <field name="district_id" string="District" enable_counters="1"/>
 
@@ -124,7 +124,6 @@
             </search>
         </field>
     </record>
-
 
     <record id="action_aits_run_log" model="ir.actions.act_window">
         <field name="name">Batch</field>

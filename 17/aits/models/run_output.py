@@ -12,7 +12,7 @@ class AitsRunLog(models.Model):
 
     run_id = fields.Many2one(comodel_name='aits.run.log', string='Run', tracking=True, required=True)
     index = fields.Char('Index', tracking=True, required=True)
-    check_digit = fields.Integer('Check Digit', tracking=True, required=True)
+    check_digit = fields.Char('Check Digit', tracking=True, required=True)
     animal_tag_id = fields.Char('Tag ID', tracking=True, required=True)
     animal_id = fields.Char('Animal ID', tracking=True, required=True)
     province = fields.Char('Province', related='run_id.province')

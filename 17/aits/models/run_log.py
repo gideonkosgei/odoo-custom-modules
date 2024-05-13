@@ -21,7 +21,8 @@ class AitsRunLog(models.Model):
     quantity = fields.Integer('Quantity', tracking=True, required=True)
     is_saved = fields.Boolean(string='Is Saved', compute='_compute_is_saved')
     state = fields.Selection(
-        [('draft', 'Draft'), ('confirmed', 'Confirmed'),('cancelled', 'Cancelled'), ('not_printed', 'Unprinted'), ('printed', 'Printed')],
+        [('draft', 'Draft'), ('confirmed', 'Confirmed'), ('cancelled', 'Cancelled'), ('not_printed', 'Unprinted'),
+         ('printed', 'Printed')],
         default='draft',
         string='Status', tracking=True)
 
@@ -35,13 +36,11 @@ class AitsRunLog(models.Model):
     create_uid = fields.Many2one('res.users', string='Created By', readonly=True)
     creator_name = fields.Char(string='Creator', compute='_compute_creator_name', store=True)
 
-
     @api.constrains('quantity')
     def _check_quantity(self):
         for record in self:
             if record.quantity < 1:
                 raise ValidationError("Quantity must be at least 1.")
-
 
     @api.model
     def create(self, vals):
@@ -65,6 +64,7 @@ class AitsRunLog(models.Model):
             # Create the run output record
             idx = self.env['ir.sequence'].next_by_code('aits.run.output')
             padded_idx = idx.zfill(8)
+
             idx_1 = int(padded_idx[0])
             idx_2 = int(padded_idx[1])
             idx_3 = int(padded_idx[2])
@@ -73,8 +73,11 @@ class AitsRunLog(models.Model):
             idx_6 = int(padded_idx[5])
             idx_7 = int(padded_idx[6])
             idx_8 = int(padded_idx[7])
+
             a = ((species * 12) + (province * 11) + (district_idx_1 * 10) + (district_idx_2 * 9) + (idx_1 * 8) + (
                     idx_2 * 7) + (idx_3 * 6) + (idx_4 * 5) + (idx_5 * 4) + (idx_6 * 3) + (idx_7 * 2) + (idx_8 * 1)) / 9
+
+            check_digit = "0"
 
             # Extracting the decimal part
             a_decimal = a - int(a)
@@ -86,9 +89,13 @@ class AitsRunLog(models.Model):
             if decimal_string.startswith("0"):
                 decimal_string = decimal_string[1:]
 
-            check_digit = decimal_string[2:3]
-            animal_tag_id = str(idx_1) + str(idx_2) + str(idx_3) + str(idx_4) + str(idx_5) + str(idx_6) + str(idx_7) + str(
-                idx_8) + check_digit
+            # Check if the string has at least 3 characters after the decimal point
+            if len(decimal_string) >= 3:
+                # Extracting the third digit after the decimal point
+                check_digit = decimal_string[2]
+
+            animal_tag_id = str(idx_1) + str(idx_2) + str(idx_3) + str(idx_4) + str(idx_5) + str(idx_6) + str(
+                idx_7) + str(idx_8) + str(check_digit)
             animal_id = str(species) + str(province) + district + str(animal_tag_id)
 
             self.env['aits.run.output'].create({
@@ -117,15 +124,22 @@ class AitsRunLog(models.Model):
     def action_print_batch(self):
         for rec in self:
             rec.state = 'printed'
+
+
     def action_unprint_batch(self):
         for rec in self:
             rec.state = 'not_printed'
+
+
     def action_cancel_batch(self):
         for rec in self:
             rec.state = 'cancelled'
+
+
     def action_restore_batch(self):
         for rec in self:
             rec.state = 'not_printed'
+
 
     @api.depends('create_uid')
     def _compute_creator_name(self):
