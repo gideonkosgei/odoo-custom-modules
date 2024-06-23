@@ -19,7 +19,7 @@
                             <field name="species_id" options="{'no_open': True, 'no_quick_create': True}"/>
                             <field name="sex_id" options="{'no_open': True, 'no_quick_create': True}"/>
                             <field name="breed_id" options="{'no_open': True, 'no_quick_create': True}"/>
-                            <field name="animal_dob" widget="date" options="{'datepicker':{'maxDate': 'now'}}"/>
+                            <field name="animal_dob" widget="date" options="{'datepicker':{'maxDate': '0'}}"/>
                         </group>
                     </group>
 

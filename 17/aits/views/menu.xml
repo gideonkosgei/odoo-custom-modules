@@ -56,11 +56,5 @@
               action="action_nepal_dairy_index_province"
               sequence="1"/>
 
-    <menuitem id="menu_nepal_dairy_index_districts"
-              name="Districts"
-              parent="menu_nepal_dairy_index_admin_units"
-              action="action_nepal_dairy_index_district"
-              sequence="2"/>
-
 
 </odoo>

@@ -1,0 +1,57 @@
+<odoo>
+    <template id="report_tags_printer_input">
+        <t t-foreach="docs" t-as="batch">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <br/>
+                        <br/>
+                        <style>
+                            .item {
+                            width: 33.333%;
+                            padding: 1em;
+                            text-align: center;
+                            box-sizing: border-box;
+                            float: left; /* Use float instead of flex */
+                            }
+                            .part {
+                            display: block;
+                            }
+                            /* Page break styles */
+                            .page-break {
+                            clear: both;
+                            page-break-after: always;
+                            }
+
+                        </style>
+                        <div class="container">
+                            <t t-set="tags" t-value="batch.mapped('run_ids')"/>
+                            <t t-set="total_items" t-value="len(tags)"/>
+                            <t t-set="filled_items"
+                               t-value="(total_items % 3 == 0) and total_items or (total_items + (3 - total_items % 3))"/>
+                            <t t-set="empty_items" t-value="filled_items - total_items"/>
+                            <t t-set="counter" t-value="0"/>
+
+                            <t t-foreach="tags" t-as="tag">
+                                <t t-set="counter" t-value="counter + 1"/>
+                                <div class="item">
+                                    <span class="part" t-field="tag.animal_id_part_1"/>
+                                    <span class="part" t-field="tag.animal_id_part_2"/>
+                                </div>
+
+                                <t t-if="counter % 9 == 0 and counter != 0">
+                                    <div class="page-break"></div>
+                                </t>
+                            </t>
+
+                            <!-- Add empty items to fill the row -->
+                            <t t-foreach="range(empty_items)" t-as="i">
+                                <div class="item"></div>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

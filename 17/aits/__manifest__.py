@@ -16,18 +16,18 @@
         'data/nepal.dairy.index.list.csv',
         'data/nepal.dairy.index.list.item.csv',
         'data/nepal.dairy.index.province.csv',
-        'data/nepal.dairy.index.district.csv',
         'report/report.xml',
         'views/list.xml',
         'views/list_item.xml',
         'views/province.xml',
-        'views/district.xml',
         'views/run_log.xml',
         'views/run_output.xml',
         'views/cattle_tags.xml',
         'views/buffalo_tags.xml',
         'views/menu.xml',
-        'report/tags_printout.xml'
+        'report/tags_batches.xml',
+        'report/tags_printer_input.xml'
+
     ],
     'demo': [],
     'qweb': [],

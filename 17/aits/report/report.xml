@@ -15,14 +15,27 @@
         <field name="dpi">80</field>
     </record>
 
-    <record id="action_print_tags" model="ir.actions.report">
-        <field name="name">Print</field>
+    <record id="action_tags_batches" model="ir.actions.report">
+        <field name="name">Batch Report</field>
         <field name="model">aits.run.log</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">aits.report_tags_printout</field>
-        <field name="report_file">aits.report_tags_printout</field>
+        <field name="report_name">aits.report_tags_batches</field>
+        <field name="report_file">aits.report_tags_batches</field>
         <field name="binding_model_id" ref="model_aits_run_log"/>
         <field name="binding_type">report</field>
         <field name="paperformat_id" ref="paperformat_aits_tags"/>
     </record>
+
+    <record id="action_tags_printer_input" model="ir.actions.report">
+        <field name="name">Printer Input Data</field>
+        <field name="model">aits.run.log</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">aits.report_tags_printer_input</field>
+        <field name="report_file">aits.report_tags_printer_input</field>
+        <field name="binding_model_id" ref="model_aits_run_log"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_aits_tags"/>
+    </record>
+
+
 </odoo>

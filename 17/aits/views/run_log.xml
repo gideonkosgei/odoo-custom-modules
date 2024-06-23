@@ -37,11 +37,17 @@
                                    options="{'no_open': True, 'no_quick_create': True}" readonly="is_saved == True"/>
                             <field name="province_id" placeholder="Province"
                                    options="{'no_open': True, 'no_quick_create': True}" readonly="is_saved == True"/>
-                            <field name="district_id" placeholder="District"
-                                   options="{'no_open': True, 'no_quick_create': True}" readonly="is_saved == True"/>
+                            <field name="letter_of_order" readonly="is_saved == True" filename="letter_of_order_name"/>
+                            <field name="letter_of_order_name" readonly="is_saved == True" invisible="1"/>
                             <field name="quantity" readonly="is_saved == True"/>
                         </group>
+
                         <group>
+                            <field name="order_by" readonly="is_saved == True"/>
+                            <field name="order_date" readonly="is_saved == True" widget="date" options="{'datepicker':{'maxDate': 'now'}}"/>
+                            <field name="email" readonly="is_saved == True" widget="email"/>
+                            <field name="phone_number" widget="phone" readonly="is_saved == True"/>
+
 
                         </group>
                     </group>
@@ -51,7 +57,6 @@
                                 <tree editable="top" delete="0" expand="true" edit="0" create="0">
                                     <field name="species"/>
                                     <field name="province"/>
-                                    <field name="district"/>
                                     <field name="index"/>
                                     <field name="check_digit"/>
                                     <field name="animal_tag_id"/>
@@ -82,7 +87,6 @@
                 <field name="batch_serial"/>
                 <field name="species_id"/>
                 <field name="province_id"/>
-                <field name="district_id"/>
                 <field name="quantity"/>
                 <field name="state"/>
                 <field name="create_uid" string="Created By"/>
@@ -97,7 +101,6 @@
         <field name="arch" type="xml">
             <search string="Animals">
                 <field name="province"/>
-                <field name="district"/>
                 <field name="species"/>
                 <field name="species"/>
                 <separator/>
@@ -108,7 +111,6 @@
                 <group expand="1" string="Group By">
                     <filter string="Species" name="species" context="{'group_by':'species_id'}"/>
                     <filter string="Province" name="province" context="{'group_by':'province_id'}"/>
-                    <filter string="District" name="district" context="{'group_by':'district_id'}"/>
                     <filter string="User" name="User" context="{'group_by':'create_uid'}"/>
                     <filter string="Status" name="state" context="{'group_by':'state'}"/>
                     <filter name="group_start" string="Batch Date" domain="[]" context="{'group_by': 'create_date'}"/>
@@ -118,8 +120,6 @@
                     <field name="species_id" string="Species" enable_counters="1"/>
                     <field name="state" string="Status" enable_counters="1"/>
                     <field name="province_id" string="Province" select="multi" enable_counters="1"/>
-                    <field name="district_id" string="District" enable_counters="1"/>
-
                 </searchpanel>
             </search>
         </field>

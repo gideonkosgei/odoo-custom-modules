@@ -39,7 +39,6 @@
                 <field name="batch_serial"/>
                 <field name="species"/>
                 <field name="province"/>
-                <field name="district"/>
                 <field name="check_digit"/>
                 <field name="index"/>
                 <field name="animal_tag_id"/>
@@ -58,7 +57,6 @@
         <field name="arch" type="xml">
             <search string="Animals">
                 <field name="province"/>
-                <field name="district"/>
                 <field name="species"/>
                 <field name="batch_serial"/>
                 <separator/>
